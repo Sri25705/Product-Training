@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head> 
+    <title>CSS Selector</title>
+    <link rel="stylesheet" href="selector2.css">
+</head>
+<body>
+    <header>
+        <h2 style="text-align: center;">CSS Selector</h2>
+        <nav style="text-align: center;">
+            <a href="home">HOME</a>
+            <a href="about">About</a>
+            <a href="services">Services</a>
+            <a href="contact">Contact</a>
+        </nav>
+    </header>
+        <section id="Universal">
+            <h2>Universal:</h2>
+            <p>Targets all elements on the page.By using this I have fixed Font Family as Georgia.</p>
+        </section>
+        <section class="Type">
+            <h2>Type:</h2>
+            <h4>Targets all elements of a specific type.</h4>
+        </section>
+        <section class="Classs">
+            <h2>class:</h2>
+            <p>Targets elements with a specific class attribute.</p>
+        </section>
+        <section id="id">
+            <h2>Id:</h2>
+            <p>Targets a specific element with a unique ID attribute.</p>
+        </section>
+        <section class="Attribute">
+            <h2>Attribute:</h2>
+            <label for="fname"> Name: </label><br><br>
+            <input type="text" style="width: 100px;">
+        </section>
+         <section class="Descent">
+           <div><h5>Descent:</h5>
+           <h5>Targets elements that are descendants of a specified ancestor element</h5></div>
+        </section>
+        <section class="Child">
+            <div class="child1">
+            <h2 style="margin:20px 20px 20px 20px">Child selector:</h2>
+            <p>Targets elements that are direct children of a specified parent element.</p></div>
+        </section>
+        <section class="Adjacent">
+            <h3>Adjacent:</h3>
+            <p>Targets an element that is directly adjacent to another specified element.</p>
+            <p>Not the Adjacent one</p>
+        </section>
+        <section class="General">
+            <h2>Not sibling</h2>
+            <p>Does not target the non sibling element</p>
+            <h3>General:</h3>
+            <pre>Targets all elements that are siblings of a specified element.</pre>
+            <h3>Sibling element</h3>
+            <pre>Targeted Sibling</pre>
+        </section>
+</body>
+<footer>
+© 2025 CSS Selector
+</footer>
+</html>

@@ -1,0 +1,125 @@
+body{
+    background-color: white;
+}
+
+header{
+    background-color: rgb(215, 216, 216);
+    padding-top: 30px;
+    color: rgb(12, 12, 12);
+}
+
+nav{
+     background-color: rgb(30, 30, 31);
+     padding-top: 20px;
+     height: 50px;
+     font-family: Verdana;
+}
+
+a{
+    text-decoration: none;
+    padding: 50px;
+    color: rgb(242, 242, 248);
+}
+
+* {
+  font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+#Universal{
+    background-color: rgb(188, 181, 204);
+    padding: 50px 50px 50px 50px ;
+    margin: 20px 20px 20px 20px;
+    border: 1px solid rgb(194, 193, 193);
+}
+
+h4 {
+ color: red;
+}
+
+.Type{
+    background-color: rgb(188, 181, 204);
+    padding: 50px 50px 50px 50px ;
+    margin: 20px 20px 20px 20px;
+    border: 1px solid rgb(207, 205, 207);
+}
+
+.Classs {
+    background-color: gold;
+    padding: 50px 50px 50px 50px ;
+    margin: 20px 20px 20px 20px;
+}
+
+#id {
+    font-style: italic;
+    background-color: rgb(188, 181, 204);
+    padding: 50px 50px 50px 50px ;
+    margin: 20px 20px 20px 20px;
+    border: 1px solid rgb(205, 203, 206);
+}
+
+input[type="text"] {
+border: 5px double rgb(0, 0, 0);
+}
+
+.Attribute{
+    background-color: rgb(188, 181, 204);
+    padding: 50px 50px 50px 50px ;
+    margin: 20px 20px 20px 20px;
+    border: 1px solid rgb(200, 199, 201);
+}
+
+.Descent div h5 {
+ color: blue;
+}
+
+.Descent{
+    background-color: rgb(188, 181, 204);
+    padding: 50px 50px 50px 50px ;
+    margin: 20px 20px 20px 20px;
+    border: 1px solid rgb(208, 205, 209);
+}
+
+.Child div > p {
+background-color: rgb(233, 205, 50);
+border: 1px solid gray;
+padding: 20px;
+margin: 50px 20px 50px 20px;
+}
+
+.Child{
+    background-color: rgb(188, 181, 204);
+    padding: 20px ;
+    margin: 20px 20px 20px 20px;
+    border: 1px solid rgb(196, 195, 197);
+}
+
+.Adjacent h3+p {
+ color:blueviolet
+}
+
+.Adjacent{
+    background-color: rgb(188, 181, 204);
+    padding: 50px 50px 50px 50px ;
+    margin: 20px 20px 20px 20px;
+    border: 1px solid rgb(181, 178, 182);
+}
+
+.General h3 ~ pre {
+ color: green
+}
+
+.General {
+    background-color: rgb(188, 181, 204);
+    padding: 50px 50px 50px 50px ;
+    margin: 20px 20px 20px 20px;
+    border: 1px solid rgb(176, 175, 177);
+}
+
+footer{
+    position: fixed;
+    bottom: 0; 
+    width: 100%; 
+    text-align: center;
+    background-color: rgb(201, 201, 201);
+}
+
