@@ -1,0 +1,153 @@
+body{
+    background-image:url(image.jpg) ;
+}
+
+.boxx{
+    position:relative;
+    height: fit-content;
+    margin:50px;
+    margin-right:300px;
+    padding:200px;
+    padding-right: 90%;
+    padding-left: 20px;
+    background-color: white;
+    border-radius: 8px;
+    height:250px;
+   
+}
+
+.g1{
+    position: absolute;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    gap:10px;
+    margin-top: -130px;
+    width:95%;
+    margin-left: 10px;
+   
+}
+
+.g1 > div{
+    background-color: lightgrey;
+    height: 300px;
+    padding-right: 210px;
+    padding-bottom: 70px;
+    background-color: white;
+}
+
+nav{
+    list-style-type: none;
+    padding:15px;
+}
+
+nav a{
+    text-decoration: none;
+    color: red;
+}
+
+nav a:hover{
+    display: inline-block;
+    background-color: rgb(247, 220, 224);
+    border-radius: 8px;
+    padding:10px;
+    border-left: 5px solid crimson;
+}
+
+.m22{
+    height: fit-content;
+    margin-top: -20px;
+    margin-left:20px;
+    margin-right: -180px;
+    height:550px; 
+    border-radius: 20px;
+    padding-top: -50px;
+    padding-left: 20px;
+    background-color: rgba(252, 242, 243, 0.959);
+}
+
+.t1{
+    margin-top: -520px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    border: 1px solid lightgrey;
+    background-color: white;
+    padding: 10px;
+    padding-right: 150px;
+    border-radius: 8px;
+
+}
+
+.t2{
+    margin-left: 40px;
+    border: 1px solid rgb(247, 247, 247);
+    background-color: white;
+    border: 1px solid lightgrey;
+    padding: 10px;
+    border-radius: 8px;
+    padding-right: 220px;
+    margin-top:-15px;
+}
+
+table{
+    padding-bottom:10px;
+}
+
+.righttop{
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    margin-top:-465px;
+    margin-right: -120px;
+    width:300px;
+    padding-left: 20px;
+    float:right;
+}
+
+.rightsecond{
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    float:right;
+    margin-top:-335px;
+    margin-right: -120px;
+    padding-left: 20px;
+    width:300px;   
+}
+
+.rightthird{
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    float:right;
+    margin-top:-150px;
+    margin-right: -120px;
+    width:300px;   
+    padding:10px;
+}
+
+.rightfour{
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    float:right;
+    padding:10px;
+    width:300px;   
+    margin-top:-80px;
+    margin-right: -120px;
+}
+
+.t1 td{
+    border-bottom: 1px solid black;
+}
+
+.t1 th{
+     border-bottom: 1px solid black;
+}
+
+.t2 td{
+    border-bottom: 1px solid black;
+}
+
+.t2 th{
+     border-bottom: 1px solid black;
+}
