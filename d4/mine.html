@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Layout with Header</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url("image.jpg") no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Outer White Box */
+    .container {
+      background: #fff;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 1200px;
+      margin: 40px 0;
+      display: grid;
+      grid-template-columns: 20% 80%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: #fff;
+      padding: 20px 15px;
+      border-right: 1px solid #eee;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .sidebar ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .sidebar li {
+      margin: 15px 0;
+    }
+    .sidebar a {
+      text-decoration: none;
+      color: crimson;
+      font-weight: bold;
+      display: block;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+    .sidebar a:hover {
+      background: #fdecee;
+      border-left: 5px solid crimson;
+    }
+
+    /* Busy Mode Button */
+    .busy-toggle {
+      background: #eee;
+      color: #333;
+      padding: 10px 15px;
+      border-radius: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .busy-toggle.active {
+      background: crimson;
+      color: #fff;
+    }
+
+    /* Content Area (right side of sidebar) */
+    .content-area {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    /* Header */
+    .header {
+      background: #f9f9f9;
+      padding: 12px 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header input {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 220px;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .toggle {
+      background: #eee;
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
+    .profile {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: #666;
+    }
+
+    /* Pink Box */
+    .pink-box {
+      background: #fef3f4;
+      border-radius: 12px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 65% 35%;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Left Content */
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .order-header {
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .msg-btn {
+      background: #ff4d6d;
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .msg-btn:hover {
+      background: #e03a59;
+    }
+
+    /* White Tables */
+    .white-table {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background: #fafafa;
+    }
+
+    /* Right Content */
+    .right {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+    }
+    .card {
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+    }
+    .track-btn {
+      background: #ffaf1a;
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .track-btn:hover {
+      background: #e59600;
+    }
+    .total p {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .pink-box {
+        grid-template-columns: 1fr;
+      }
+      .right {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .card {
+        flex: 1;
+        min-width: 240px;
+      }
+    }
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+      }
+      .pink-box {
+        border-radius: 0 0 12px 12px;
+        grid-template-columns: 1fr;
+      }
+      .right {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Sidebar -->
+    <section class="sidebar">
+      <ul>
+        <li><a href="#">Live Orders</a></li>
+        <li><a href="#">Order History</a></li>
+        <li><a href="#">Offers</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Stock</a></li>
+        <li><a href="#">Messages</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+
+      <!-- Busy Mode -->
+      <div class="busy-toggle" onclick="this.classList.toggle('active')">
+        Busy Mode
+      </div>
+    </section>
+
+    <!-- Content Area -->
+    <div class="content-area">
+
+      <!-- Header -->
+      <div class="header">
+        <input type="text" placeholder="Search...">
+        <div class="header-right">
+          <div class="toggle">Busy Mode</div>
+          <div class="profile"></div>
+        </div>
+      </div>
+
+      <!-- Pink Box -->
+      <div class="pink-box">
+
+        <!-- Left Section -->
+        <div class="left">
+          <div class="order-header">
+            <span>Order Number <span style="color:red;">#256894</span></span>
+            <button class="msg-btn">Message Customer</button>
+          </div>
+
+          <div class="white-table">
+            <table>
+              <tr><th>Item Summary</th><th>Qty</th><th>Price</th><th>Total</th></tr>
+              <tr><td>Chocolate Milkshake</td><td>1</td><td>£150.00</td><td>£150.00</td></tr>
+              <tr><td>Chocolate Milkshake</td><td>2</td><td>£7.50</td><td>£15.00</td></tr>
+              <tr><td>Finish Washer Large 3KG</td><td>3</td><td>£70.00</td><td>£210.00</td></tr>
+            </table>
+          </div>
+
+          <div class="white-table">
+            <table>
+              <tr><th>Customer & Order Details</th><th></th></tr>
+              <tr><td>Customer Name</td><td>Sri</td></tr>
+              <tr><td>Phone Number</td><td>9086578439</td></tr>
+              <tr><td>Bag Option</td><td>No Bag</td></tr>
+              <tr><td>Type</td><td>Delivery</td></tr>
+              <tr><td>Notes</td><td>N/A</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right">
+          <div class="card">
+            <h3>Rider Details</h3>
+            <p>Robart Suvent</p>
+            <button class="track-btn">Track Rider</button>
+          </div>
+          <div class="card">
+            <h3>Order Summary</h3>
+            <p>Order Created: <span>Sun, May 7, 2023</span></p>
+            <p>Time: <span>06:24 AM</span></p>
+            <p>Subtotal: <span>£375.00</span></p>
+            <p>Delivery Fee: <span>£0.00</span></p>
+          </div>
+          <div class="card total">
+            <p>Total</p><p>£375.00</p>
+          </div>
+          <div class="card">
+            <h3>Delivery Address</h3>
+            <p>14 Anglesey Road</p>
+            <p>James Court</p>
+            <p>Anglesey Road</p>
+            <p>t23 4ry</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
