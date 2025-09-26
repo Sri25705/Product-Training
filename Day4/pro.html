@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/a0dac2072e.js" crossorigin="anonymous"></script>
+  <title>Day 4&5</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url("image.jpg");
+      margin-left: 100px;
+      justify-content: center;
+    }
+
+    .container {
+      padding: 10px;
+      background-color: white;
+      overflow: hidden;
+      border-radius: 16px;
+      width: 90%;
+      margin: 40px 0;
+      display: grid;
+      grid-template-columns: 20% 80%;
+      gap:20px;
+    }
+
+    .sidebar {
+      background-color: white;
+      padding: 20px 15px;
+      display: grid;
+      grid-template-rows:0fr 3fr 1fr ;
+    }
+    .brand{
+      display: flex;
+      height: fit-content;
+      margin: 20px;
+      align-items: center;
+    }
+    .brand img{
+      margin-right: 10px;
+      margin-top: 5px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: rgb(161, 160, 160);
+      font-weight: bold;
+      display: block;
+      padding: 8px 12px;
+      border-radius: 6px;
+      line-height: 30px;
+    }
+    .sidebar a:hover {
+      background-color: rgb(255, 242, 244);
+      color: rgb(223, 17, 58);
+      border-left: 5px solid rgb(228, 18, 60);
+    }
+    
+    .content-area{
+      padding-top: 20px;
+    }
+
+    .header{
+      background-color:white ;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: 2fr 3fr 2fr 1fr 3fr ;
+      align-items: center;
+    }
+    .header input {
+      display:flex;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid rgb(209, 207, 207);
+      width: 100%;
+    }
+
+    .header-right{
+      display: flex;
+    }
+    .header .bell{
+      padding: 20px;
+    }
+    .header .dropdown{
+      display: flex;
+    }
+    .header .toggle p{
+      display: flex;
+      margin-left: 20px;
+    }
+
+    .profile img{
+      width:40px;
+      height:40px;
+      border-radius: 12px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  
+     .switch1{
+  position: relative;
+  display: inline-block;
+  width:46px;
+  height:24px;
+  margin-left: 10px;
+}
+.switch1 input{
+  opacity:0;
+  width: 0;
+  height: 0;
+}
+.slider1{
+  position:absolute;
+  cursor: pointer;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: #ccc;
+  transition: .1s;
+  border-radius: 34px;
+}
+.slider1:before{
+  position: absolute;
+  content:"";
+  height:18px;
+  width:18px;
+  left:3px;
+  bottom:3px;
+  background-color:white;
+  transition: 1s;
+  border-radius: 50%;
+}
+.switch1 input:checked + .slider1{
+  background-color: rgb(5, 241, 56);
+}
+.switch1 input:checked + .slider1:before{
+  transform: translateX(22px);
+}
+
+    .dropdown select{
+        border-style: none;
+        margin-left: 20px;
+    }
+
+    .switch{
+      position: relative;
+      display: inline-block;
+      width:46px;
+      height:24px;
+      margin-left: 10px;
+    }
+    .switch input{
+      opacity:0;
+      width: 0;
+      height: 0;
+    }
+    .slider{
+      position:absolute;
+      cursor: pointer;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background-color: #ccc;
+      transition: .1s;
+      border-radius: 34px;
+    }
+    .slider:before{
+      position: absolute;
+      content:"";
+      height:18px;
+      width:18px;
+      left:3px;
+      bottom:3px;
+      background-color:white;
+      transition: 1s;
+      border-radius: 50%;
+    }
+    .switch input:checked+.slider{
+      background-color: rgb(15, 15, 15);
+    }
+    .switch input:checked+.slider:before{
+      transform: translateX(22px);
+    }
+
+    .pinkbox {
+      background-color: rgba(253, 239, 241, 0.932);
+      border-radius: 12px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 60% 40%;
+      gap: 20px;   
+      width:90%;
+    }
+
+    .left {
+      display: grid;
+      grid-auto-rows:auto auto auto ;
+      gap: 30px;
+    }
+    .orderheader {
+      display: flex;
+      font-weight: bold;
+      align-items: center;
+      gap:12px;
+      padding: 0;
+      font-size: large;
+      
+    }
+    .msgbtn {
+      background-color:black;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 8px;
+    }
+    .msgbtn:hover {
+      background-color: grey;
+    }
+    .left table{
+      width: max-content  ;
+      
+    }
+
+    .whitetable {
+      background-color: white;
+      border-radius: 12px;  
+      border: 1px solid lightgrey;
+     
+    }
+    .whitetable table{
+      border-collapse: collapse;
+      border-spacing:0px  30px;
+      width: 100%;
+      padding: 20px;
+    }
+   
+    .whitetable th, td {
+      padding: 25px;
+      height: fit-content;
+      border-bottom: 1px solid rgb(177, 173, 173);
+      text-align: left;
+    }
+
+    .whitetable tr:last-child td{
+      border-bottom:none;
+    }
+
+    .right {
+      display: grid;
+      grid-template-rows: auto auto auto auto ;
+      gap: 15px;
+      margin-right: 30px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid lightgrey;
+      transition:all 0.3s ease;
+      cursor:pointer;
+      height: fit-content;
+    }
+    .card:hover{
+      
+      transform:translateX(16px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      
+      margin-left: 20px;
+    }
+
+    .cardcontent{
+      display: flex;
+      align-items: center;
+      gap:15px;
+    }
+    .cardcontent img{
+      width:40px;
+      height:40px;
+      border-radius: 12px;
+    }
+    .cardcontent .ridername{
+      font-weight: bold;
+      flex-grow:1;
+    }
+     .card1{
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid lightgrey;
+      height: fit-content;
+    }
+    .card1 table{
+      overflow-x: scroll;
+    }
+     .card1 td,th{
+        padding:10px;
+        border-bottom-style: none;
+    }
+
+     .card2{
+      background-color: white;
+      padding: 20px;
+     height: fit-content;
+      border-radius: 12px;
+      border: 1px solid lightgrey;
+    }
+
+    .cardtotal{
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid lightgrey;
+      height: fit-content;
+      
+    }
+
+    .cardtotal td{
+        border-bottom-style: none;
+        padding:10px;
+    }
+
+    .trackbtn {
+      background-color:gold;
+      color:white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+    }
+    .trackbtn:hover {
+      background: rgb(255, 238, 6);
+    }
+
+    .way{
+      background-color:rgb(231, 231, 231);
+      color:rgb(255, 252, 69);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+    .way{
+      background: rgb(243, 243, 243);
+    }
+
+    .search-bar{
+        display: flex;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    .search-bar input{
+        border: none;
+    }
+    .search-bar button{
+        border: none;
+        background-color: white;
+        color: black;
+    }
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        margin-left: -50px;
+        
+      }
+      .sidebar{
+        grid-template-columns: 1fr;
+      }
+      .header{
+        grid-template-columns: 1fr;
+      }
+      .content-area{
+        overflow-x: scroll;
+      }
+      .card1{
+        overflow-x: scroll;
+      }
+      
+      .sidebar {
+        border-right: none;
+        grid-template-columns: 1fr;
+        border-bottom: 1px solid rgb(228, 226, 226);
+      }
+      .whitetable{
+        overflow-x: scroll;
+        padding:2px;
+      }
+      .whitetable td,tr{
+        border-bottom-style: none;
+      }
+      .pinkbox {
+        border-radius: 12px;
+        grid-template-columns:100%; 
+      }
+      .cardcontent{
+        flex-direction: column;
+      }
+      
+      .left{
+        grid-template-columns: 1fr;
+      } 
+      .right{
+        grid-template-columns: 1fr;
+        /* overflow-x: scroll; */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- sidebar -->
+    <div class="sidebar">
+
+      <div class="brand"> 
+            
+            <img src="bringavo.png" background-color="red" alt="icon" width="30px" height="30px">
+            <p style="color: crimson;font-family: 'Times New Roman', Times, serif;font-size: larger;"> <b>Bringova</b></p>
+           
+      </div>
+
+      <div> <ul style="list-style-type: none ; margin: 0; padding:0;">
+        <li><a href="#"><i class="fa-solid fa-file-lines"></i> Live Orders</a></li>
+        <li><a href="#"><i class="fa-solid fa-cart-shopping"></i> Order History</a></li>
+        <li><a href="#"><i class="fa-solid fa-award"></i> Offers</a></li>
+        <li><a href="#"><i class="fa-solid fa-box-archive"></i> Products</a></li>
+        <li><a href="#"><i class="fa-solid fa-comments-dollar"></i> Stock</a></li>
+        <li><a href="#"><i class="fa-solid fa-message"></i> Messages</a></li>
+        <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+      </ul>
+    </div>
+
+      <div class="bc">
+        <p style=" padding: 10px; color: black;"><b>Busy Mode</b>
+        <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+        </label></p>
+    </div>
+
+    </div>
+    <!-- side -->
+
+    <!-- contant area -->
+    <div class="content-area">
+
+      <!-- header -->
+      <div class="header">
+
+        <!-- search  -->
+        <div class="search-bar">
+                <button>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <input  type="text" placeholder="Search">
+        </div>
+      <!-- search -->
+         <div></div>
+
+        <div>
+          <!-- toggle -->
+            <div class="toggle">
+                  <p>
+                    <b>open for order</b>
+                      <label class="switch1">
+                      <input type="checkbox">   
+                      <span class="slider1"></span>
+                    </label>
+                  
+                  </p>
+                </div>
+                <!-- toggle -->
+        </div>
+         
+       <div class="bell"> <i class="fa-solid fa-bell"></i></div>
+       <!-- header right -->
+
+        <div class="header-right">
+                
+          <!-- profile -->
+          <div class="profile">
+            <img src="girls.jpg" alt="profile">
+          </div>
+            <!-- profile -->
+          
+          <!-- dropdown -->
+          <div class="dropdown">
+             <p>Lubomir</p>
+            <select>
+                <option></option>
+                <option>Login</option>
+                <option>Logout</option>
+            </select>
+          </div>
+          <!-- dropdown -->
+
+        </div>
+        <!-- header right -->
+
+      </div>
+      <!-- header -->
+
+      <!-- pink box -->
+      <div class="pinkbox">
+        <!-- left -->
+        <div class="left">
+          <!-- orderheader -->
+          <div class="orderheader">
+            <span>Order Number <span style="color:red;">#256894</span></span>
+            <button class="msgbtn"><i class="fa-solid fa-message"></i> Message Customer</button>
+          </div>
+          <!-- order header -->
+           <!-- whitetable -->
+          <div class="whitetable">
+            <table>
+              <tr>
+                <th>Item Summary</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total Price</th>
+            </tr>
+              <tr>
+                <td><img src="coke.png" width="20" height="40px"> <sup><b>Chocolate Milkshake</b></sup></td>
+                <td>*1</td>
+                <td>£150.00</td>
+                <td>£150.00</td>
+            </tr>
+              <tr>
+                <td><img src="pep.png" width="20" height="40px"><sup> <b>Chocolate Milkshake</b></sup></td>
+                <td>*2</td>
+                <td>£7.50</td>
+                <td>£15.00</td>
+            </tr>
+              <tr>
+                <td><img src="cool.png" width="20" height="40px">  <sup><b>Finish Washer Large 3KG</b></sup></td>
+                <td>*3</td>
+                <td>£70.00</td>
+                <td>£210.00</td>
+            </tr>
+            </table>
+          </div>
+          <!-- whitetable -->
+           <!-- whitetable -->
+          <div class="whitetable">
+            <table>
+              <tr>
+                <th><b>Customer And Order Details</b></th>
+                <th></th>
+            </tr>
+              <tr>
+                <td><b>Customer Name</b></td>
+                <td style="text-align: right;">Harun Lbili</td>
+            </tr>
+              <tr>
+                <td><b>Phone Number</b></td>
+                <td style="text-align: right;">7918881829</td>
+            </tr>
+              <tr>
+                <td><b>Bag Option</b></td>
+                <td style="text-align: right;">No Bag</td>
+            </tr>
+              <tr>
+                <td><b>Type</b></td>
+                <td style="text-align: right;">Delivery</td>
+            </tr>
+              <tr>
+                <td><b>Note</b></td>
+                <td style="text-align: right;">N/A</td>
+            </tr>
+            </table>
+          </div>
+          <!-- whitetable -->
+          <div></div>
+        </div>
+        <!-- left -->
+
+        <!-- right -->
+        <div class="right">
+          <!-- card -->
+          <div class="card">
+            <h3>Rider Details</h3>
+            <!-- cardcontent -->
+              <div class="cardcontent">
+                <img src="boy.jpg" alt="boy">
+                <p class="ridername">Robert Suvent</p> 
+                <button class="trackbtn">Track Rider</button>
+              </div>
+              <!-- card content -->
+          </div>
+          <!-- card -->
+
+          <!-- card1 -->
+          <div class="card1">
+            <table>
+                <tr>
+                    <th><p style="font-size: large;">OrderSummary</p></th>
+                    <th><button class="way"><b>On the way</b></button></th>
+                </tr>
+                <tr>
+                    <td><b>Order Created</b></td>
+                    <td style="text-align: right;">Sun,May 7,2023</td>
+                </tr>
+                <tr>
+                    <td><b>Order Time</b></td>
+                    <td style="text-align: right;">06:24 AM</td>
+                </tr>
+                <tr>
+                    <td><b>Subtotal</b></td>
+                    <td style="text-align: right;">£375.00</td>
+                </tr>
+                <tr>
+                    <td><b>Delivery Fee</b></td>
+                    <td style="text-align: right;">£0.00</td>
+                </tr>
+            </table>
+          </div>
+          <!-- card1 -->
+
+          <!-- cardtotal -->
+          <div class="cardtotal">
+            <table>
+                <tr>
+                    <td><b>Total</b></td>
+                    <td style="text-align: right;">£375.00</td>
+                </tr>
+            </table>       
+          </div>
+          <!-- cardtotal -->
+
+          <!-- card2 -->
+          <div class="card2">
+            <h3>Delivery Address</h3>
+            <p><b>Adress line</b>  :  14 Anglesey Road</p>
+            <p><b>Flat/Building Name</b>  :  James Court</p>
+            <p><b>Street</b>  :  Anglesey Road</p>
+            <p><b>Postal code</b>  :  En3 4hy</p>
+          </div>
+          <!-- card2 -->
+
+        </div>
+  <!-- right -->
+
+
+      </div>
+      <!-- pinkbox -->
+
+    </div>
+    <!-- content area -->
+
+  </div>
+  <!-- container -->
+</body>
+</html>
