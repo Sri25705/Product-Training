@@ -24,52 +24,70 @@
         </style>
 
         <script>
-            let students=[];
-                document.getElementById("addbtn").onclick=function(){
-                    let name=document.forms["myform"]["Name"].value;
-                    let grade=document.forms["myforms"]["Grade"].value;
+    let students = [];
 
-                if(name=="" || grade==""){
-                alert("please enter the details");
-                return false;
-            }
+    function addStudent(event) {
+        event.preventDefault();
 
-            students.push({name:Name,grade:Number(Grade)});
-            event.preventDefault();
-            document.myform.Name.value="";
-            document.myform.Grade.value="";
+        let name = document.forms["myform"]["Name"].value;
+        let grade = document.forms["myform"]["Grade"].value;
 
-            alert("student's added")
+        if (name == "" || grade == "") {
+            alert("Please enter the details");
+            return false;
         }
 
-        document.getElementById("displaybtn").onclick=function(){
-            if(students.length==0){
-                document.getElementById("gradelist").innerHTML="<b>Grade List</b> No student added";
-                return false;
-            }
+        students.push({ name: name, grade: Number(grade) });
 
-            let list="<ul>";
-                for(let i=0;i<students.length;i++){
-                    list+='<li>${students[i].name}:${students[i].grade}<li>;'
-                }
-                list+="</ul>";
-                document.getElementById("gradelist").innerHTML="<b>Grade List:</b>"+list;
-                
+        document.myform.Name.value = "";
+        document.myform.Grade.value = "";
+
+        alert("Student added");
+        return false;
+    }
+
+    function displayStudents(event) {
+        event.preventDefault();
+
+        if (students.length === 0) {
+            document.getElementById("gradelist").innerHTML =
+                "<b>Grade List:</b> No student added";
+            return false;
         }
 
-        document.getElementById("avgbtn").onclick=function(){
-                if(student.length==0){
-                    alert("no grade");
-                    return false;
-                }
-                let sum=0;
-                for(let i=0;i<students.length;i++){
-                    sum+=students[i].g;
-                }
-                let avg=sum/students.length;
-                document.getElementById("avg").innerHTML="<b>Average grade</b>"
+        let list = "<ul>";
+        for (let i = 0; i < students.length; i++) {
+            list += "<li>" + students[i].name + ": " + students[i].grade + "</li>";
         }
-            
+        list += "</ul>";
+
+        document.getElementById("gradelist").innerHTML =
+            "<b>Grade List:</b> " + list;
+
+        return false;
+    }
+
+    function calculateAverage(event) {
+        event.preventDefault();
+
+        if (students.length === 0) {
+            alert("No grades available");
+            return false;
+        }
+
+        let sum = 0;
+        for (let i = 0; i < students.length; i++) {
+            sum += students[i].grade;
+        }
+
+        let avg = sum / students.length;
+
+        document.getElementById("avg").innerHTML =
+            "<b>Average Grade: </b>" + avg.toFixed(2);
+
+        return false;
+    }
+
         </script>
 
     </head>
@@ -82,13 +100,15 @@
 
         <label><b>Grade:</b></label><br><br>
         <input type="number" name="Grade" placeholder="Enter Rate Grade" style="width: 350px;"><br><br>
+<input type="submit" value="Add Student" onclick="return addStudent(event)" id="addbtn" style="background-color:blue;border-style: none;border-radius: 5px;cursor: pointer;color: white;"><br><br>
 
-        <input type="submit" value="Add Student" id="addbtn" style="background-color:blue;border-style: none;border-radius: 5px;cursor: pointer;color: white;"><br><br>
-        <input type="submit" value="Display Grade" id="displaybtn" style="background-color:blue;border-style: none;border-radius: 5px;cursor: pointer;color: white;">
+<input type="submit" value="Display Grade" onclick="return displayStudents(event)" id="displaybtn" style="background-color:blue;border-style: none;border-radius: 5px;cursor: pointer;color: white;">
+
 
 </form>
 <p id="gradelist"><b>Grade List:</b></p>
-<input type="submit" value="Calculate Average Grade" id="avgbtn" style="background-color:blue;border-style: none;border-radius: 5px;cursor: pointer;color: white;">
+<input type="submit" value="Calculate Average Grade" onclick="return calculateAverage(event)" id="avgbtn" style="background-color:blue;border-style: none;border-radius: 5px;cursor: pointer;color: white;">
+
 <p id="avg"><b>Average Grade:</b></p>
 </div>
     </body>
