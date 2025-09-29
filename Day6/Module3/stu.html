@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Grade</title>
+        <style>
+            .outer{
+                margin: 100px 200px 100px 500px;
+                border:1px solid blue;
+                padding: 5px;
+                width: fit-content;
+            }
+
+            .box{
+                width: fit-content;
+                border: 1px solid black;
+                padding: 20px ;
+                text-align: center;
+            }
+
+            .box input{
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            #gradelist{
+                text-align: left;
+            }
+
+        </style>
+
+        <script>
+    let students = [];
+
+    function addStudent(event) {
+        event.preventDefault();
+
+        let name = document.forms["myform"]["Name"].value;
+        let grade = document.forms["myform"]["Grade"].value;
+
+        if (name == "" || grade == "") {
+            alert("Please enter the details");
+            return false;
+        }
+
+        students.push({ name: name, grade: Number(grade) });
+
+        document.myform.Name.value = "";
+        document.myform.Grade.value = "";
+
+        alert("Student added");
+        return false;
+    }
+
+    function displayStudents(event) {
+        event.preventDefault();
+
+        if (students.length === 0) {
+            document.getElementById("gradelist").innerHTML =
+                "<b>Grade List:</b> No student added";
+            return false;
+        }
+
+        let list = "<ul>";
+        for (let i = 0; i < students.length; i++) {
+            list += "<li>" + students[i].name + ": " + students[i].grade + "</li>";
+        }
+        list += "</ul>";
+
+        document.getElementById("gradelist").innerHTML =
+            "<b>Grade List:</b> " + list;
+
+        return false;
+    }
+
+    function calculateAverage(event) {
+        event.preventDefault();
+
+        if (students.length === 0) {
+            alert("No grades available");
+            return false;
+        }
+
+        let sum = 0;
+        for (let i = 0; i < students.length; i++) {
+            sum += students[i].grade;
+        }
+
+        let avg = sum / students.length;
+
+        document.getElementById("avg").innerHTML =
+            "<b>Average Grade: </b>" + avg.toFixed(2);
+
+        return false;
+    }
+
+        </script>
+
+    </head>
+    <body>
+    <div class="outer">
+       <div class="box">
+            <form name="myform" method="post" onsubmit="return mystud()">
+            <h1 style="text-align: center;">Student Grade Manager</h1>
+        <label><b>Student Name:</b></label><br><br>
+        <input type="text" name="Name" placeholder="Enter Student Name" style="width: 350px;"><br><br>
+
+        <label><b>Grade:</b></label><br><br>
+        <input type="number" name="Grade" placeholder="Enter Rate Grade" style="width: 350px;"><br><br>
+<input type="submit" value="Add Student" onclick="return addStudent(event)" id="addbtn" style="background-color:blue;border-style: none;border-radius: 5px;cursor: pointer;color: white;"><br><br>
+
+<input type="submit" value="Display Grade" onclick="return displayStudents(event)" id="displaybtn" style="background-color:blue;border-style: none;border-radius: 5px;cursor: pointer;color: white;">
+
+
+</form>
+<p id="gradelist"><b>Grade List:</b></p>
+<input type="submit" value="Calculate Average Grade" onclick="return calculateAverage(event)" id="avgbtn" style="background-color:blue;border-style: none;border-radius: 5px;cursor: pointer;color: white;">
+
+<p id="avg"><b>Average Grade:</b></p>
+</div>
+</div>
+    </body>
+
+</html>
