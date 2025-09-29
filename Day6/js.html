@@ -5,10 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>JS Basics</title>
         <style>
+            .outer{
+                margin: 100px 600px 400px 100px;
+                border:1px solid blue;
+                padding: 5px;
+            }
+
             .box{
                 border: 1px solid black;
-                margin: 100px 500px 100px 400px;
-                padding: 50px 30px 20px 50px;
+                padding: 20px;
                 text-align: center;
             }
 
@@ -17,77 +22,81 @@
             }
 
             button{
-                background-color: green;
-                border: none;
-                color: white;
-                padding: 15px 32px;
-                font-size: 16px;
+            background-color: green;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            font-size: 16px;
             }
         </style>
     </head>
 
     <body>
+        <div class="outer">
+
         <div class="box">
-            <form name="myform" onsubmit="return getinput(event)">
-                <h1 style="text-align: center;">Advanced Simple Interest Calculator</h1>
+            <form name="myform" method="post" onsubmit="return getinput()">
+            <h1 style="text-align: center;">Advanced Simple Interest Calculator</h1>
             
-                <label>Principle Amount:</label><br><br>
-                <input type="number" id="input1" name="principle" placeholder="Enter Principle Amount" style="width: 350px;"><br><br>
+        <label>Principle Amount:</label><br><br>
+        <input type="number" id="input1" name="principle" placeholder="Enter Principle Amount" style="width: 350px;"><br><br>
 
-                <label>Rate of Interest(%):</label><br><br>
-                <input type="number" name="rate" placeholder="Enter Rate of Interest" style="width: 350px;"><br><br>
+        <label>Rate of Interest(%):</label><br><br>
+        <input type="number" name="rate" placeholder="Enter Rate of Interest" style="width: 350px;"><br><br>
 
-                <label>Time(Years):</label><br><br>
-                <input type="number" name="time" placeholder="Enter Time in Years" style="width: 350px;"><br><br>
+        <label>Time(Years):</label><br><br>
+        <input type="number" name="time" placeholder="Enter Time in Years" style="width: 350px;"><br><br>
 
-                <input type="submit" value="Calculate Interest" style="background-color: green;border-style: none;border-radius: 5px;cursor: pointer;">
+        <input type="submit" value="Calculate Interest" style="background-color: green;border-style: none;border-radius: 5px;cursor: pointer;">
+
             </form>
-
-            <p id="display"><b>Interest:</b></p>
-            <p id="totalamt"><b>Total Amount:</b></p>
-            <p id="add"><b>Additional Interest:</b></p>
+        <p id="display"><b>Interest:</b></p>
+        <p id="totalamt"><b>Total Amount:</b></p>
+        <p id="add"><b>Additional Interest:</b></p>
         </div>
+        </div>
+         <script>
+            function getinput(){
+                event.preventDefault();
 
-        <script>
-            function getinput(event){
-                event.preventDefault(); 
+                let p=document.forms["myform"]["principle"].value;
+                let r=document.forms["myform"]["rate"].value;
+                let n=document.forms["myform"]["time"].value;
 
-                let p = document.forms["myform"]["principle"].value;
-                let r = document.forms["myform"]["rate"].value;
-                let n = document.forms["myform"]["time"].value;
+                p=Number(p);
+                r=Number(r)
+                n=Number(n);
 
-                p = Number(p);
-                r = Number(r);
-                n = Number(n);
-
-
-                if (p && r && n) {
-                    if (p >= 500 && p <= 10000) {
-                        if (p < 1000) {
-                            r = 5;
-                            if (n > 5) r += 2;
-                        } else if (p > 1000 && p < 5000) {
-                            r = 7;
-                            if (n > 5) r += 2;
-                        } else if (p >= 5000 && p <= 10000) {
-                            r = 10;
-                            if (n > 5) r += 2;
+                if (p && r && n){
+                    if(p>=500 & p<=10000) {
+                        if(p<1000){
+                            r=5;
+                            if(n>5) r+=2;
+                        }
+                        else if(p>1000 && p<5000){
+                            r=7;
+                            if(n>5)r+=2;
+                        }else if(p>=5000 && p<=10000){
+                            r=10;
+                            if(n>5)r+=2;
                         }
 
-                        let interest = (p * r * n) / 100;
-                        let total = p + interest;
-
-                        document.getElementById("display").innerHTML = "<b>Interest: </b>" + interest;
-                        document.getElementById("totalamt").innerHTML = "<b>Total: </b>" + total;
-                        document.getElementById("add").innerHTML = "<b>No Additional Interest</b>";
-                    } else {
-                        alert("Enter amount within 500 - 10000");
+                let interest=(p*r*n)/100;
+                let total=p+interest;
+                
+                document.getElementById("display").innerHTML="<b>Interest:  </b>" +  interest;
+                document.getElementById("totalamt").innerHTML="<b>total:  </b>" +  total;
+                document.getElementById("add").innerHTML="<b>No Additional Interest</b>";
+                    }else{
+                        alert("enter amount within 500 to 10000");
                     }
-                } else {
-                    alert("Enter all values");
-                }
-                return false;
+                    }else{
+                        alert("enter all values");
+                    }
+                    return false;
             }
         </script>
+        
     </body>
+
 </html>
