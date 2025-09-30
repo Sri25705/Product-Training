@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory System</title>
+  
+  <style>
+    .outer {
+      display: grid;
+      grid-template-columns: 3fr;
+      margin: 100px auto;
+      border: 1px solid blue;
+      padding: 10px;
+      width: fit-content;
+    }
+
+    .box {
+      width: 400px;
+      border: 1px solid black;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .box input {
+      padding: 10px;
+      border-radius: 5px;
+      width: 95%;
+      margin-bottom: 15px;
+      border: 1px solid gray;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #addbtn {
+      background-color: blue;
+      border-style: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+      padding: 10px;
+      width: 100%;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    th {
+      border: 1px solid lightgray;
+      padding: 10px;
+      text-align: left;
+      background-color: rgb(226, 226, 226);
+    }
+
+    td{
+      border: 1px solid lightgray;
+      padding: 10px;
+      text-align: left;
+    }
+
+    @media (max-width: 780px) {
+      .outer {
+       grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="box">
+      <form name="myform" method="post" onsubmit="return addproduct(event)">
+        <h1>Inventory System</h1>
+
+        <label><b>Name:</b></label><br><br>
+        <input type="text" name="Name" placeholder="Enter Product Name">
+
+        <label><b>Price:</b></label><br><br>
+        <input type="number" name="Price" placeholder="Enter Product Price">
+
+        <label><b>Quantity:</b></label><br><br>
+        <input type="number" name="Quantity" placeholder="Enter Quantity"><br>
+
+        <input type="submit" value="Add Product" id="addbtn">
+      </form>
+
+      <h3>Inventory List</h3>
+      <table id="intab">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody id="inventbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    class Product {
+      constructor(name, price, quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+      }
+      updateQuantity(amount) {
+        this.quantity += amount;
+        if (this.quantity < 0) this.quantity = 0;
+      }
+    }
+
+    class Inventory {
+      constructor() {
+        this.products = [];
+        this.tbody = document.getElementById("inventbody");
+      }
+
+      addProduct(product) {
+        this.products.push(product);
+        this.updateTable();
+      }
+
+      updateTable() {
+        this.tbody.innerHTML = "";
+        this.products.forEach(p => {
+          let row = document.createElement("tr");
+
+          let namebox = document.createElement("td");
+          namebox.textContent = p.name;
+
+          let pricebox = document.createElement("td");
+          pricebox.textContent = p.price;
+
+          let qtybox = document.createElement("td");
+          qtybox.textContent = p.quantity;
+
+          row.appendChild(namebox);
+          row.appendChild(pricebox);
+          row.appendChild(qtybox);
+
+          this.tbody.appendChild(row);
+        });
+      }
+    }
+
+    let inventory = new Inventory();
+
+    function addproduct(event) {
+      event.preventDefault();
+
+      let name = document.myform.Name.value;
+      let price = parseFloat(document.myform.Price.value);
+      let qty = parseInt(document.myform.Quantity.value);
+
+      if (name && !isNaN(price) && !isNaN(qty)) {
+        let newProduct = new Product(name, price, qty);
+        inventory.addProduct(newProduct);
+
+        document.myform.reset();
+      } else {
+        alert("Enter all details");
+      }
+    }
+  </script>
+</body>
+</html>
