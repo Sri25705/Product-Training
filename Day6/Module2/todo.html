@@ -1,106 +1,120 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>To Do List</title>
-        <style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        .outer {
+            border: 1px solid blue;
+            margin: 100px auto;
+            width: 400px;
+            padding: 10px;
+        }
 
-            .outer{
-                border: 1px solid blue;
-                margin: 100px 600px 100px 400px;
-                padding:5px;
-            }
-            
-            .box{
-                border: 1px solid rgb(105, 104, 104);
-                padding: 20px;
-                border-radius: 5px;
-            }
+        .box {
+            border: 1px solid rgb(105, 104, 104);
+            padding: 20px;
+            border-radius: 5px;
+        }
 
-            .box input{
-                padding: 10px;
-                border-radius: 5px;
-            }
-            
-            #alllist list{
-                display: block;
-                margin: 20px;
-                border-bottom: 1px solid rgb(177, 173, 173);
-                padding:10px;
-            }
+        .box input[type="text"] {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid grey;
+        }
 
+        .box input[type="submit"] {
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: none;
+            background-color: blue;
+            color: white;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid rgb(177, 173, 173);
+        }
+
+        .delete-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
     </style>
 
     <script>
-        function todo(){
+        function todo() {
             event.preventDefault();
 
-            let taskinput=document.forms["myform"]["task"].value;
-            
-            if(taskinput==""){
-                alert("please enter the task");
+            let taskinput = document.forms["myform"]["task"].value;
+
+            if (taskinput == "") {
+                alert("Please enter the task");
                 return false;
             }
 
-            let list=document.createElement("list");
+            let table = document.getElementById("taskTable");
 
-            let checkbox=document.createElement("input");
-            checkbox.type="checkbox";
-            checkbox.style.marginLeft="20px";
-            
-            let tasktext=document.createTextNode(taskinput);
-
-            list.appendChild(checkbox);
-            list.appendChild(tasktext);
-
-            checkbox.addEventListener("click",()=>
-            {
-                if (checkbox.checked){
-                list.style.textDecoration="line-through";
-            }  
-            else{
-                list.style.textDecoration="none";
+            if (!table) {
+                table = document.createElement("table");
+                table.id = "taskTable";
+                document.querySelector(".box").appendChild(table);
             }
-        } 
-        )
 
-            let cross = document.createElement("button");
-            cross.textContent="Delete";
-            cross.style.backgroundColor="red";
-            cross.style.color="white";
-            cross.style.marginLeft="80px";
-            cross.onclick=function(){
-            list.remove();      
-            }
-        
-            list.appendChild(cross);
+            let row = table.insertRow();
 
-            let ul=document.getElementById("alllist");
+            let cell1 = row.insertCell(0);
+            let checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            cell1.appendChild(checkbox);
 
-            if(!ul){
-                ul=document.createElement("ul");
-                ul.id="alllist";
-                document.querySelector(".box").appendChild(ul);
-            }
-            ul.appendChild(list);
+            let cell2 = row.insertCell(1);
+            cell2.textContent = taskinput;
 
-            document.myform.task.value="";
+            let cell3 = row.insertCell(2);
+            let delBtn = document.createElement("button");
+            delBtn.textContent = "Delete";
+            delBtn.className = "delete-btn";
+            delBtn.onclick = function () {
+                row.remove();
+            };
+            cell3.appendChild(delBtn);
+
+            checkbox.addEventListener("change", () => {
+                if (checkbox.checked) {
+                    cell2.style.textDecoration = "line-through";
+                } else {
+                    cell2.style.textDecoration = "none";
+                }
+            });
+
+            document.myform.task.value = "";
             return false;
-
         }
     </script>
 </head>
 <body>
     <div class="outer">
-         <div class="box">
-        <form name="myform" method="post" onsubmit="return todo()">
-            <h1>To-Do List</h1>
-
-            <label></label>
-            <input type="text"  name="task" placeholder="Enter new Task" style="width: 200px;border: 1px solid grey;">     <input type="submit" value="Add Task" style="background-color: blue;color: white;border-radius: 4px;margin-left: 20px;">         
-        </form> 
+        <div class="box">
+            <form name="myform" method="post" onsubmit="return todo()">
+                <h1>To-Do List</h1>
+                <input type="text" name="task" placeholder="Enter new task" style="width: 200px;">
+                <input type="submit" value="Add Task">
+            </form>
+        </div>
     </div>
-    </div>
-   
 </body>
+</html>
