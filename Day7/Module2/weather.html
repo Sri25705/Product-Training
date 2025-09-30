@@ -90,7 +90,7 @@
                 } else {
                     document.getElementById('error').innerText = '';
                     document.getElementById('city-name').innerText = data.location.name;
-                    document.getElementById('temperature').innerText = data.current.temp_c + " °C";
+                    document.getElementById('temperature').innerText = data.current.temp_c + " C";
                     document.getElementById('humidity').innerText = data.current.humidity + " %";
                     document.getElementById('weather-icon').innerHTML =
                         `<img src="https:${data.current.condition.icon}" alt="Weather Icon">`;
