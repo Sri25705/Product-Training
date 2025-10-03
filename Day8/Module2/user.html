@@ -6,6 +6,8 @@
     <title>Typescript Usermodule</title>
     <style>
         .box{
+            display: grid;
+            grid-template-rows: auto auto auto;
             width:700px;
             margin:50px auto;
             border: 2px solid rgb(133, 133, 250);
@@ -55,11 +57,20 @@
             border-top-right-radius:10px; 
             border-bottom-right-radius:10px; 
         }
+
+        @media(max-width:480px){
+            .box{
+                grid-template-rows: auto;
+            }
+        }
 </style>
 </head>
 <body>
     <div class="box">
+        <div class="add">
         <h3>Add User<hr></h3>
+        </div>
+        <div class="details">
         <label>Name:</label>
         <input type="text" id="name">
         <label>Email:</label>
@@ -72,13 +83,16 @@
 
 
         <button  onclick="adduser()">Add User</button>
+        </div>
 
+        <div class="use">
         <h3>User List</h3>
         <table>
             <tr>
             </tr>
             <tbody id="userList"><hr></tbody>
         </table>
+        </div>
     </div>
 
     <script src="dist/user.js"></script>
