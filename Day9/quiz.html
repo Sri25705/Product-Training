@@ -17,9 +17,10 @@
             padding:10px 20px;
             gap:10px;
             position: sticky;
-            z-index: 10;
+           top:0;
             background-color: beige;
             border-radius: 6px;
+            height: 80px;
         }
         
         .menu{
@@ -72,6 +73,7 @@
             grid-template-rows: auto auto;
             padding: 20px;
             gap:20px;
+            border:1px solid black;
         }
 
          #name{
@@ -93,8 +95,7 @@
           display: grid;
           grid-template-columns: auto auto auto auto;
           padding: 20px;
-          height: fit fit-content;
-          width: fit-content;
+          border: 1px solid black;
         }
 
     .quiz-box > div{
@@ -172,7 +173,7 @@
             <h2>Select a course and Enter your name</h2>
           <lable style="font-size: large;">Name</lable>   
           <input type="text" id="name">
-          <input type="submit" placeholder="Submit" id="submit">
+          <input type="submit" id="submit" value="Submit">
         </div>
         
         <div class="quiz-box">
@@ -205,6 +206,7 @@
             <div class="quiz8"> <b style="font-size: large;">Basic Java Script</b><br>
               <P>JS Fundmentals(Oops,Operators)</P>
             <button>Start Quiz</button></div>
+            
           </div>  
         </div>
         </div>
@@ -218,6 +220,28 @@
           document.getElementById("menudropdown").style.width="0";
         }
 
+        document.getElementById("submit").addEventListener("click",function() {
+          const name = document.getElementById("name").value;
+
+          if(name===""){
+            alert("enter name");
+          }else{
+            alert("Name submitted:" +name);
+            localStorage.setItem("username",JSON.stringify(name));
+            document.getElementById("name").value="";
+          }
+        });
+
+        window.addEventListener("load",function(){
+          const storedName = localStorage.getItem("username");
+
+          if(storedName){
+            const parsedName = JSON.parse(storedName);
+
+            console.log("Loaded name:",parsedName);
+          }
+
+        });
       </script>
 </body>
 </html>
