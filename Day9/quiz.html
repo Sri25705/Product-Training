@@ -88,21 +88,42 @@
         }
 
         .quiz-box{
+          cursor:pointer;
           gap:20px;
           display: grid;
           grid-template-columns: auto auto auto auto;
           padding: 20px;
-          height: 300px;
+          height: fit fit-content;
+          width: fit-content;
         }
 
     .quiz-box > div{
       background-color: bisque;
       padding:20px;
-      text-align: center;
       font-size: 14px;
       border-radius: 6px;
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .quiz-box > div:hover{
+      transform: scale(1.1);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    .quiz-box > div button{
+      border-radius: 6px;
+      background-color: rgb(62, 62, 209);
+      color:white;
+      width:100px;
+      padding:10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .quiz-box > div img{
+      width:50px;
+      height: 50px;
+    }
 
     @media(max-width:768px){
       .top{
@@ -156,14 +177,34 @@
         
         <div class="quiz-box">
           
-            <div class="quiz 1">quiz1</div>
-            <div class="quiz 2">quiz2</div>
-            <div class="quiz 3">quiz3</div>
-            <div class="quiz 4">quiz4</div>
-            <div class="quiz 5">quiz5</div>
-            <div class="quiz 6">quiz6</div>
-            <div class="quiz 7">quiz7</div>
-            <div class="quiz 8">quiz8</div>
+            <div class="quiz1">
+              <img src="JS.png" alt="js">
+              <b style="font-size: large;">Basic Java Script</b><br>
+              <P>JS Fundmentals(Oops,Operators)</P>
+            <button>Start Quiz</button></div>
+            <div class="quiz2">
+              <b style="font-size: large;">Basic HTML</b><br>
+              <P>Fundmentals(Oops,Operators)</P>
+            <button>Start Quiz</button></div>
+            <div class="quiz3">
+              <b style="font-size: large;">Basic Java Script</b><br>
+              <P>JS Fundmentals(Oops,Operators)</P>
+            <button>Start Quiz</button></div>
+            <div class="quiz4"> <b style="font-size: large;">Basic Java Script</b><br>
+              <P>JS Fundmentals(Oops,Operators)</P>
+            <button>Start Quiz</button></div>
+            <div class="quiz5"> <b style="font-size: large;">Basic Java Script</b><br>
+              <P>JS Fundmentals(Oops,Operators)</P>
+            <button>Start Quiz</button></div>
+            <div class="quiz6"> <b style="font-size: large;">Basic Java Script</b><br>
+              <P>JS Fundmentals(Oops,Operators)</P>
+            <button>Start Quiz</button></div>
+            <div class="quiz7"> <b style="font-size: large;">Basic Java Script</b><br>
+              <P>JS Fundmentals(Oops,Operators)</P>
+            <button>Start Quiz</button></div>
+            <div class="quiz8"> <b style="font-size: large;">Basic Java Script</b><br>
+              <P>JS Fundmentals(Oops,Operators)</P>
+            <button>Start Quiz</button></div>
           </div>  
         </div>
         </div>
