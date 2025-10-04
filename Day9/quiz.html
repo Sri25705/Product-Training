@@ -3,64 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a0dac2072e.js" crossorigin="anonymous"></script>
     <title>Quiz Management</title>
     <style>
         .page{
             display: grid;
             grid-template-rows:20% 80%;
-            gap:25px;
         }
         .top{
-            padding:10px;
-            display: grid;
-            grid-template-rows: auto auto auto;
+            display: flex;
+            align-items: center;
             background-color: white;
-            border: 1px solid black;
+            padding:10px 20px;
             gap:10px;
-            height:60px;
+            position: sticky;
+            z-index: 10;
+            background-color: beige;
+            border-radius: 6px;
+        }
+        
+        .menu{
+          position: relative;
+          
         }
 
-        .content{
+        .menu button{
+          border:none;
+          border-radius: 6px;
+          cursor:pointer;
+          font-size: 14px;
+        }
+
+        .menu-content{
+          height: 100%;
+          width:0;
+          position: fixed;
+          z-index: 1;
+          top:0;
+          left:0;
+          background-color: whitesmoke;
+          overflow-x: hidden;
+          transition:0.5s;
+          padding-top: 60px;
+        }
+
+      .menu-content a {
+      text-decoration: none;
+      padding:8px 8px 8px 32px;
+      font-size: 25px;
+      display: block;
+      transition:0.3s;
+    }
+
+    .menu-content a:hover {
+      color:rgb(180, 112, 9);
+    }
+
+       .menu-content .closebtn{
+        position: absolute;
+        top:0;
+        right:25px;
+        font-size: 36px;
+        margin-left: 50px;
+       }
+
+         .content{
             display: grid;
-            column-gap: 50px;
-            grid-template-columns: auto auto auto auto;
-            padding: 10px;
-            gap:10px;
-           
-}
+            grid-template-rows: auto auto;
+            padding: 20px;
+            gap:20px;
+        }
 
-.content > div {
-  background-color: #f1f1f1;
-  border: 1px solid black;
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
-  border-radius: 6px;
-  height: 100px;
-}
+         #name{
+          border-radius: 6px;
+          padding:6px;
+        }
 
-    .quiz1 {
-      background-color: white;
-      padding: 20px;
-      border-radius: 12px;
-      border: 1px solid lightgrey;
-      transition:all 0.3s ease;
-      cursor:pointer;
-      height: fit-content;
+        #submit{
+          border-radius: 6px;
+          padding: 10px;
+          background-color: antiquewhite;
+          border: none;
+          color: brown;
+        }
+
+        .quiz-box{
+          gap:20px;
+          display: grid;
+          grid-template-columns: auto auto auto auto;
+          padding: 20px;
+          height: 300px;
+        }
+
+    .quiz-box > div{
+      background-color: bisque;
+      padding:20px;
+      text-align: center;
+      font-size: 14px;
+      border-radius: 6px;
     }
-    .quiz1:hover{
-      
-      transform:translateX(16px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-      margin-left: 20px;
-    }
 
-    @media(max-width:480px){
+
+    @media(max-width:768px){
+      .top{
+        flex-direction: column;
+        align-items: flex-start;
+        gap:10px;
+      }
+      #submit{
+        margin-top: 10px;
+        margin-left: 100px;
+      }
       .content{
+        grid-template-columns: auto;
+      }
+      .quiz-box{
         grid-template-columns: auto auto;
       }
     }
-
     </style>
 
 </head>
@@ -68,25 +128,55 @@
 <body>
     <div class="page">
         <div class="top">
-            <div class="logo">
-           <img src="bringavo.png" background-color="red" alt="icon" width="30px" height="30px"> <b style="color: crimson;font-family: 'Times New Roman', Times, serif;font-size: larger;"> QuizZZZZ</b></p>
+          <div class="menu">
+          <div class="menu-content" id="menudropdown">
+            <a href="javascript:void(0)" class="closebtn" onclick="closenav()">&times;
+            </a>
+            <a href="#">Dashboard</a>
+            <a href="#">My Quiz</a>
+            <a href="#">Settings</a>
+          </div>
+          <span style="font-size: 30px;cursor:pointer" onclick="opennav()">&#9776;
+          </span>
         </div>
 
-
+            <div class="logo">
+           <b style="color: crimson;font-family: 'Times New Roman', Times, serif;font-size: larger;"> Qmelon</b><i class="fa-solid fa-comments"></i></i></p>
+        </div>
         </div>
 
         <div class="content">
+
+          <div class="choose">
+            <h2>Select a course and Enter your name</h2>
+          <lable style="font-size: large;">Name</lable>   
+          <input type="text" id="name">
+          <input type="submit" placeholder="Submit" id="submit">
+        </div>
+        
+        <div class="quiz-box">
+          
             <div class="quiz 1">quiz1</div>
             <div class="quiz 2">quiz2</div>
             <div class="quiz 3">quiz3</div>
             <div class="quiz 4">quiz4</div>
-            <div class="quiz 5">quiz1</div>
+            <div class="quiz 5">quiz5</div>
             <div class="quiz 6">quiz6</div>
             <div class="quiz 7">quiz7</div>
             <div class="quiz 8">quiz8</div>
-            
+          </div>  
+        </div>
         </div>
 
-        </div>
+      <script>
+        function opennav(){
+          document.getElementById("menudropdown").style.width="250px";
+        }
+        
+        function closenav(){
+          document.getElementById("menudropdown").style.width="0";
+        }
+
+      </script>
 </body>
 </html>
