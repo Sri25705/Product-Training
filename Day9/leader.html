@@ -7,18 +7,15 @@
 
 <style>
     body {
-        margin: 0;
         font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
+
     }
 
     .page {
         display: grid;
         grid-template-rows: 80px auto;
-        min-height: 100vh;
     }
 
-    /* Top Navbar */
     .top {
         display: flex;
         align-items: center;
@@ -42,7 +39,6 @@
         gap: 30px;
     }
 
-    /* Dropdown */
     .dropdown select {
         padding: 10px;
         border-radius: 6px;
@@ -60,7 +56,6 @@
         cursor: pointer;
     }
 
-    /* Leaderboard Table */
     table {
         width: 100%;
         border-collapse: collapse;
@@ -99,7 +94,6 @@
         color: white;
     }
 
-    /* Add Score Section */
     .add-score {
         background-color: white;
         padding: 20px;
@@ -128,35 +122,32 @@
     }
 
     footer {
-        position: fixed;
-        bottom: 0; 
-        width: 100%; 
-        text-align: center;
-        background-color: rgba(117, 133, 104, 0.137);
-        padding: 10px 0;
+      position: fixed;
+      bottom: 0; 
+      width: 100%; 
+      text-align: center;
+      background-color: rgba(117, 133, 104, 0.137);
+      padding: 10px 0;
     }
 
     footer a {
-        text-decoration: none;
-        color: rgba(255, 145, 0, 0.699);
-        margin: 0 15px;
-        font-weight: bold;
+      text-decoration: none;
+      color: rgba(255, 145, 0, 0.699);
+      font-weight: bold;
+      padding: 10px;
     }
-
 </style>
 </head>
 <body>
 
 <div class="page">
 
-    <!-- Top Navbar -->
     <div class="top">
         <h1>Manage Leaderboard</h1>
     </div>
 
     <div class="content">
 
-        <!-- Dropdown to select course/quiz -->
         <div class="dropdown">
             <h2>Course/Quiz Selection</h2>
             <select id="courseSelect">
@@ -168,7 +159,6 @@
             <button id="loadLeaderboard">Load Leaderboard</button>
         </div>
 
-        <!-- Top Scores Table -->
         <div class="leaderboard">
             <h2>Top Scores</h2>
             <table id="leaderboardTable">
@@ -177,17 +167,17 @@
                         <th>Rank</th>
                         <th>User Name</th>
                         <th>Score</th>
+                        <th>Course</th>
                         <th>Date</th>
                         <th>Admin Controls</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Rows will be generated dynamically -->
+                   
                 </tbody>
             </table>
         </div>
 
-        <!-- Add Score Manually -->
         <div class="add-score">
             <h2>Add Score Manually</h2>
             <input type="text" id="userName" placeholder="User Name">
@@ -205,7 +195,6 @@
 </footer>
 
 <script>
-    // Sample leaderboard data
     let leaderboardData = {
         "JS": [],
         "HTML": [],
@@ -219,7 +208,7 @@
         leaderboardTable.innerHTML = "";
         const data = leaderboardData[course] || [];
 
-        data.sort((a,b) => b.score - a.score); // Sort descending
+        data.sort((a,b) => b.score - a.score); 
 
         data.forEach((entry, index) => {
             const row = document.createElement("tr");
@@ -227,6 +216,7 @@
                 <td>${index + 1}</td>
                 <td>${entry.user}</td>
                 <td>${entry.score}</td>
+                <td>${entry.course}</td>
                 <td>${entry.date}</td>
                 <td>
                     <button class="edit-btn" onclick="editScore('${course}', ${index})">Edit</button>
@@ -248,6 +238,7 @@
 
     document.getElementById("addScoreBtn").addEventListener("click", () => {
         const course = courseSelect.value;
+        
         const user = document.getElementById("userName").value;
         const score = parseInt(document.getElementById("userScore").value);
         const date = document.getElementById("scoreDate").value;
@@ -260,7 +251,6 @@
         leaderboardData[course].push({user, score, date});
         renderLeaderboard(course);
 
-        // Clear inputs
         document.getElementById("userName").value = "";
         document.getElementById("userScore").value = "";
         document.getElementById("scoreDate").value = "";
@@ -290,6 +280,5 @@
     }
 
 </script>
-
 </body>
 </html>

@@ -6,56 +6,52 @@
   <title>Admin Dashboard</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
     }
 
-    /* Page Grid */
     .page {
       display: grid;
       grid-template-rows: 80px auto;
-      min-height: 100vh;
     }
 
-    /* Top Navbar */
     .top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: beige;
+      background-color: #00a79d;
       padding: 0 20px;
       position: sticky;
       top: 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
       z-index: 100;
     }
 
     .top h1 {
-      color: rgba(202, 51, 51, 0.8);
+      color: #f9d342;
       margin: 0;
       font-size: 24px;
+      letter-spacing: 1px;
     }
 
-    /* Menu Button */
     .menu span {
       font-size: 30px;
       cursor: pointer;
+      color: #fff;
     }
 
-    /* Side Navigation */
+    /* Side Menu */
     .menu-content {
       height: 100%;
       width: 0;
       position: fixed;
-      z-index: 200;
+      z-index: 2;
       top: 0;
       left: 0;
-      background-color: whitesmoke;
+      background-color: #003d49;
       overflow-x: hidden;
       transition: 0.5s;
       padding-top: 60px;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
     }
 
     .menu-content a {
@@ -63,12 +59,13 @@
       padding: 12px 32px;
       font-size: 20px;
       display: block;
-      color: #333;
+      color: #f9d342;
       transition: 0.3s;
     }
 
     .menu-content a:hover {
-      color: rgb(180, 112, 9);
+      color: #fff;
+      background-color: rgba(0, 167, 157, 0.2);
     }
 
     .menu-content .closebtn {
@@ -76,38 +73,41 @@
       top: 0;
       right: 20px;
       font-size: 36px;
+      color: #fff;
     }
 
-    /* Content */
+    /* Dashboard Content */
     .content {
-      padding: 20px;
+      padding: 30px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
     }
 
-    /* Dashboard Summary Cards */
     .card {
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background-color: #00a79d;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       text-align: center;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background-color: #00c5b7;
     }
 
     .card h2 {
       margin: 10px 0;
-      font-size: 32px;
-      color: #007bff;
+      font-size: 36px;
+      color: #f9d342;
     }
 
     .card p {
-      margin: 0;
       font-size: 16px;
-      color: #555;
+      color: #fff;
     }
-
-    /* Footer */
     footer {
       position: fixed;
       bottom: 0; 
@@ -120,8 +120,8 @@
     footer a {
       text-decoration: none;
       color: rgba(255, 145, 0, 0.699);
-      margin: 0 15px;
       font-weight: bold;
+      padding: 10px;
     }
   </style>
 </head>
@@ -129,23 +129,19 @@
 
   <div class="page">
 
-    <!-- Top Navbar -->
     <div class="top">
       <div class="menu">
         <div class="menu-content" id="menudropdown">
           <a href="javascript:void(0)" class="closebtn" onclick="closenav()">&times;</a>
           <a href="leader.html">Leaderboard Management</a>
-          <a href="#">Create/Edit Quizzes</a>
-          <a href="#">User Management</a>
+          <a href="create-edit-quiz.html">Create/Edit Quizzes</a>
         </div>
         <span onclick="opennav()">&#9776;</span>
       </div>
       <h1>Admin Dashboard</h1>
     </div>
 
-    <!-- Dashboard Content -->
     <div class="content">
-      <!-- Summary Cards -->
       <div class="card">
         <h2>120</h2>
         <p>Total Users</p>

@@ -7,9 +7,6 @@
   <style>
     body{
       font-family: Arial, sans-serif;
-      margin:0;
-      padding:0;
-      background-color: #f8f8f8;
     }
 
     .header{
@@ -136,20 +133,6 @@
       background-color: #0056b3;
     }
 
- footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background-color: rgba(117, 133, 104, 0.137);
-}
-
-    footer a{
-  text-decoration: none;
-  color:rgba(255, 145, 0, 0.699);
-  padding:10px;
-}
-
   </style>
 </head>
 <body>
@@ -178,13 +161,8 @@
   <div id="resultContainer">
     <h2>Quiz Completed!</h2>
     <div id="scoreDisplay"></div>
-    <button id="homeBtn">Go to Home</button>
+    <button id="homeBtn">Summary</button>
   </div>
-
-    <footer>
-          <a href="quiz.html">Home</a>
-          <a href="logout">Logout</a>
-        </footer>
 
 <script>
  
@@ -367,10 +345,10 @@
   let selectedAnswers = {};
 
   function loadUserAndCourse(){
-    const storedName = localStorage.getItem("username");
+    const storedName = localStorage.getItem("currentUser");
     const storedCourse = localStorage.getItem("selectedCourse");
 
-    document.getElementById("userName").textContent = storedName ? JSON.parse(storedName) : "Guest";
+    document.getElementById("userName").textContent = storedName || "Guest";
     document.getElementById("courseName").textContent = storedCourse || "Course";
 
     questions = questionBank[storedCourse] || [];
@@ -489,7 +467,7 @@
   }
 
   document.getElementById("homeBtn").addEventListener("click", ()=>{
-    window.location.href = "quiz.html";
+    window.location.href = "end-quiz.html";
   });
 
   window.addEventListener("load", ()=>{
@@ -502,4 +480,3 @@
 
 </body>
 </html>
-
