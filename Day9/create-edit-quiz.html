@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create/Edit Quizzes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .page {
+      display: grid;
+      grid-template-rows: 10% 80%;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: beige;
+      padding: 0 20px;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+
+    .top h1 {
+      color: rgba(202, 51, 51, 0.8);
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .content {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: auto;
+      gap: 20px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    select, input[type="text"], textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .question-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f9f9f9;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+
+    .question-actions button {
+      margin-left: 5px;
+      background-color: #555;
+    }
+
+    .question-actions button.delete-btn {
+      background-color: #dc3545;
+    }
+
+    .question-actions button.delete-btn:hover {
+      background-color: #b02a37;
+    }
+
+    .save-quiz-btn {
+      display: block;
+      margin: 0 auto;
+      background-color: #28a745;
+    }
+
+    .save-quiz-btn:hover {
+      background-color: #218838;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0; 
+      width: 100%; 
+      text-align: center;
+      background-color: rgba(117, 133, 104, 0.137);
+      padding: 10px 0;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: rgba(255, 145, 0, 0.699);
+      font-weight: bold;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">  
+<div class="top">
+<h1>Create/Edit Quizzes</h1>
+  </div>
+  <div class="content">
+    <div class="section">
+      <label for="quizSelector">Select a Quiz</label>
+      <select id="quizSelector">
+        <option value="">-- Select a quiz --</option>
+      </select>
+      <input type="text" id="newQuizName" placeholder="Or enter a new quiz name">
+      <button id="createQuizBtn">Create New Quiz</button>
+    </div>
+
+    <div class="section">
+      <h3>Questions</h3>
+      <div id="questionList"></div>
+    </div>
+
+    <div class="section">
+      <h3>Add / Edit Question</h3>
+      <label for="questionText">Question Text</label>
+      <textarea id="questionText" rows="3"></textarea>
+
+      <label>Options</label>
+      <input type="text" id="option1" placeholder="Option 1">
+      <input type="text" id="option2" placeholder="Option 2">
+      <input type="text" id="option3" placeholder="Option 3">
+      <input type="text" id="option4" placeholder="Option 4">
+
+      <label for="correctAnswer">Correct Answer</label>
+      <select id="correctAnswer">
+        <option value="0">Option 1</option>
+        <option value="1">Option 2</option>
+        <option value="2">Option 3</option>
+        <option value="3">Option 4</option>
+      </select>
+
+      <button id="saveQuestionBtn">Save Question</button>
+    </div>
+
+    <button class="save-quiz-btn" id="saveQuizBtn">Save Entire Quiz</button>
+</div>
+<footer>
+    <a href="quiz.html">Home</a>
+    <a href="#">Logout</a>
+  </footer>
+  </div>
+
+  </div>
+
+
+  <script>
+    let quizzes = JSON.parse(localStorage.getItem("quizzes")) || {};
+    let currentQuiz = "";
+    let editIndex = null;
+
+    const quizSelector = document.getElementById("quizSelector");
+    const newQuizNameInput = document.getElementById("newQuizName");
+    const createQuizBtn = document.getElementById("createQuizBtn");
+    const questionList = document.getElementById("questionList");
+    const saveQuestionBtn = document.getElementById("saveQuestionBtn");
+    const saveQuizBtn = document.getElementById("saveQuizBtn");
+
+    const questionText = document.getElementById("questionText");
+    const optionInputs = [
+      document.getElementById("option1"),
+      document.getElementById("option2"),
+      document.getElementById("option3"),
+      document.getElementById("option4")
+    ];
+    const correctAnswer = document.getElementById("correctAnswer");
+
+    function loadQuizDropdown() {
+      quizSelector.innerHTML = '<option value="">-- Select a quiz --</option>';
+      Object.keys(quizzes).forEach(name => {
+        const opt = document.createElement("option");
+        opt.value = name;
+        opt.textContent = name;
+        quizSelector.appendChild(opt);
+      });
+    }
+
+    function displayQuestions() {
+      questionList.innerHTML = "";
+      if (!currentQuiz || !quizzes[currentQuiz]) return;
+
+      quizzes[currentQuiz].forEach((q, index) => {
+        const div = document.createElement("div");
+        div.className = "question-item";
+        div.innerHTML = `
+          <span>${index + 1}. ${q.text}</span>
+          <div class="question-actions">
+            <button onclick="editQuestion(${index})">Edit</button>
+            <button class="delete-btn" onclick="deleteQuestion(${index})">Delete</button>
+          </div>
+        `;
+        questionList.appendChild(div);
+      });
+    }
+
+    createQuizBtn.addEventListener("click", () => {
+      const name = newQuizNameInput.value.trim();
+      if (!name) {
+        alert("Enter a quiz name");
+        return;
+      }
+      if (quizzes[name]) {
+        alert("Quiz already exists");
+        return;
+      }
+      quizzes[name] = [];
+      currentQuiz = name;
+      localStorage.setItem("quizzes", JSON.stringify(quizzes));
+      loadQuizDropdown();
+      quizSelector.value = name;
+      displayQuestions();
+      newQuizNameInput.value = "";
+    });
+
+    quizSelector.addEventListener("change", () => {
+      currentQuiz = quizSelector.value;
+      displayQuestions();
+    });
+
+    saveQuestionBtn.addEventListener("click", () => {
+      if (!currentQuiz) {
+        alert("Select or create a quiz first");
+        return;
+      }
+      const qText = questionText.value.trim();
+      const options = optionInputs.map(i => i.value.trim());
+      const correct = parseInt(correctAnswer.value);
+
+      if (!qText || options.some(o => !o)) {
+        alert("Fill all fields");
+        return;
+      }
+
+      const newQuestion = {
+        text: qText,
+        options: options,
+        correct: correct
+      };
+
+      if (editIndex !== null) {
+        quizzes[currentQuiz][editIndex] = newQuestion;
+        editIndex = null;
+      } else {
+        quizzes[currentQuiz].push(newQuestion);
+      }
+
+      localStorage.setItem("quizzes", JSON.stringify(quizzes));
+      clearQuestionForm();
+      displayQuestions();
+    });
+
+    saveQuizBtn.addEventListener("click", () => {
+      localStorage.setItem("quizzes", JSON.stringify(quizzes));
+      alert("Quiz saved successfully!");
+    });
+
+    window.editQuestion = function(index) {
+      const q = quizzes[currentQuiz][index];
+      questionText.value = q.text;
+      q.options.forEach((opt, i) => optionInputs[i].value = opt);
+      correctAnswer.value = q.correct;
+      editIndex = index;
+    };
+
+    window.deleteQuestion = function(index) {
+      if (confirm("Delete this question?")) {
+        quizzes[currentQuiz].splice(index, 1);
+        localStorage.setItem("quizzes", JSON.stringify(quizzes));
+        displayQuestions();
+      }
+    };
+
+    function clearQuestionForm() {
+      questionText.value = "";
+      optionInputs.forEach(i => i.value = "");
+      correctAnswer.value = "0";
+    }
+
+    loadQuizDropdown();
+  </script>
+</body>
+</html>

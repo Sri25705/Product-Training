@@ -1,133 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
 
-    <style>
-        .page{
-            display: grid;
-            grid-template-rows:20% 80%;
-        }
-        .top{
-            display: flex;
-            align-items: center;
-            background-color: white;
-            padding:10px 20px;
-            gap:10px;
-            position: sticky;
-           top:0;
-            background-color: beige;
-            border-radius: 6px;
-            height: 80px;
-        }
+    .page {
+      display: grid;
+      grid-template-rows: 80px auto;
+    }
 
-        .menu{
-          position: relative;
-          
-        }
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: beige;
+      padding: 0 20px;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
 
-        .menu button{
-          border:none;
-          border-radius: 6px;
-          cursor:pointer;
-          font-size: 14px;
-        }
+    .top h1 {
+      color: rgba(202, 51, 51, 0.8);
+      margin: 0;
+      font-size: 24px;
+    }
 
-        .menu-content{
-          height: 100%;
-          width:0;
-          position: fixed;
-          z-index: 1;
-          top:0;
-          left:0;
-          background-color: whitesmoke;
-          overflow-x: hidden;
-          transition:0.5s;
-          padding-top: 60px;
-        }
+    .menu span {
+      font-size: 30px;
+      cursor: pointer;
+    }
+    
+    .menu-content {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      background-color: whitesmoke;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
 
-      .menu-content a {
+    .menu-content a {
       text-decoration: none;
-      padding:8px 8px 8px 32px;
-      font-size: 25px;
+      padding: 12px 32px;
+      font-size: 20px;
       display: block;
-      transition:0.3s;
+      color: #333;
+      transition: 0.3s;
     }
 
     .menu-content a:hover {
-      color:rgb(180, 112, 9);
+      color: rgb(180, 112, 9);
     }
 
-       .menu-content .closebtn{
-        position: absolute;
-        top:0;
-        right:25px;
-        font-size: 36px;
-        margin-left: 50px;
-       }
+    .menu-content .closebtn {
+      position: absolute;
+      top: 0;
+      right: 20px;
+      font-size: 36px;
+    }
 
-        
-        .content{
-            display: grid;
-            grid-template-rows: auto;
-            padding: 20px;
-            gap:20px;
-        }
+    .content {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: auto;
+      gap: 20px;
+    }
 
-        footer{
-    position: fixed;
-    bottom: 0; 
-    width: 100%; 
-    text-align: center;
-    background-color: rgba(117, 133, 104, 0.137);
-}
+    .card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
 
-    footer a{
-  text-decoration: none;
-  color:rgba(255, 145, 0, 0.699);
-  padding:10px;
-}
+    .card h2 {
+      margin: 10px ;
+      font-size: 32px;
+      color: #007bff;
+    }
 
-    </style>
+    .card p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0; 
+      width: 100%; 
+      text-align: center;
+      background-color: rgba(117, 133, 104, 0.137);
+      padding: 10px 0;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: rgba(255, 145, 0, 0.699);
+      font-weight: bold;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="page">
-        <div class="top">
-            <div class="menu">
-          <div class="menu-content" id="menudropdown">
-            <a href="javascript:void(0)" class="closebtn" onclick="closenav()">&times;
-            </a>
-            <a href="leader.html">LeaderBoard Management</a>
-            <a href="#">A Create/Edit Quizzes</a>
-          </div>
-          <span style="font-size: 30px;cursor:pointer" onclick="opennav()">&#9776;
-          </span>
+  <div class="page">
+
+    <div class="top">
+      <div class="menu">
+        <div class="menu-content" id="menudropdown">
+          <a href="javascript:void(0)" class="closebtn" onclick="closenav()">&times;</a>
+          <a href="leader.html">Leaderboard Management</a>
+          <a href="create-edit-quiz.html">Create/Edit Quizzes</a>
         </div>
-        <h1 style="color: rgba(202, 51, 51, 0.486);">Admin Dashboard</h1>
-        </div>
+        <span onclick="opennav()">&#9776;</span>
+      </div>
+      <h1>Admin Dashboard</h1>
+    </div>
 
-        <div class="content">
+    <div class="content">
+      <div class="card">
+        <h2>120</h2>
+        <p>Total Users</p>
+      </div>
+      <div class="card">
+        <h2>35</h2>
+        <p>Quizzes Created</p>
+      </div>
+      <div class="card">
+        <h2>78%</h2>
+        <p>Average Quiz Score</p>
+      </div>
+      <div class="card">
+        <h2>50</h2>
+        <p>Active Sessions</p>
+      </div>
+    </div>
 
-        </div>
-    </div> 
+  </div>
 
-      <footer>
-          <a href="quiz.html">Home</a>
-          <a href="logout">Logout</a>
-        </footer>
+  <footer>
+    <a href="quiz.html">Home</a>
+    <a href="#">Logout</a>
+  </footer>
 
-    <script>
-          function opennav() {
-        document.getElementById("menudropdown").style.width = "250px";
-      }
+  <script>
+    function opennav() {
+      document.getElementById("menudropdown").style.width = "250px";
+    }
 
-       function closenav() {
-       document.getElementById("menudropdown").style.width = "0";
-      }
-    </script>
-    
+    function closenav() {
+      document.getElementById("menudropdown").style.width = "0";
+    }
+  </script>
+  
 </body>
 </html>
