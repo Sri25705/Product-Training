@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Leaderboard</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    .page {
+        display: grid;
+        grid-template-rows: 80px auto;
+        min-height: 100vh;
+    }
+
+    /* Top Navbar */
+    .top {
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        position: sticky;
+        top: 0;
+        background-color: beige;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 100;
+    }
+
+    .top h1 {
+        margin: 0;
+        color: rgba(223, 85, 85, 0.8);
+        font-size: 24px;
+    }
+
+    .content {
+        padding: 20px;
+        display: grid;
+        gap: 30px;
+    }
+
+    /* Dropdown */
+    .dropdown select {
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-right: 10px;
+        font-size: 16px;
+    }
+
+    .dropdown button {
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        background-color: blue;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* Leaderboard Table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #007bff;
+        color: white;
+    }
+
+    td button {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 2px;
+    }
+
+    .edit-btn {
+        background-color: orange;
+        color: white;
+    }
+
+    .delete-btn {
+        background-color: red;
+        color: white;
+    }
+
+    /* Add Score Section */
+    .add-score {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        display: grid;
+        gap: 10px;
+    }
+
+    .add-score input {
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+
+    .add-score button {
+        width: 150px;
+        padding: 10px;
+        border-radius: 6px;
+        border: none;
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0; 
+        width: 100%; 
+        text-align: center;
+        background-color: rgba(117, 133, 104, 0.137);
+        padding: 10px 0;
+    }
+
+    footer a {
+        text-decoration: none;
+        color: rgba(255, 145, 0, 0.699);
+        margin: 0 15px;
+        font-weight: bold;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+    <!-- Top Navbar -->
+    <div class="top">
+        <h1>Manage Leaderboard</h1>
+    </div>
+
+    <div class="content">
+
+        <!-- Dropdown to select course/quiz -->
+        <div class="dropdown">
+            <h2>Course/Quiz Selection</h2>
+            <select id="courseSelect">
+                <option value="">--Select Course/Quiz--</option>
+                <option value="JS">Basics of JS</option>
+                <option value="HTML">Basics of HTML</option>
+                <option value="CSS">Basics of CSS</option>
+            </select>
+            <button id="loadLeaderboard">Load Leaderboard</button>
+        </div>
+
+        <!-- Top Scores Table -->
+        <div class="leaderboard">
+            <h2>Top Scores</h2>
+            <table id="leaderboardTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>User Name</th>
+                        <th>Score</th>
+                        <th>Date</th>
+                        <th>Admin Controls</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be generated dynamically -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add Score Manually -->
+        <div class="add-score">
+            <h2>Add Score Manually</h2>
+            <input type="text" id="userName" placeholder="User Name">
+            <input type="number" id="userScore" placeholder="Score">
+            <input type="date" id="scoreDate">
+            <button id="addScoreBtn">Add Score</button>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <a href="quiz.html">Home</a>
+    <a href="#">Logout</a>
+</footer>
+
+<script>
+    // Sample leaderboard data
+    let leaderboardData = {
+        "JS": [],
+        "HTML": [],
+        "CSS": []
+    };
+
+    const leaderboardTable = document.getElementById("leaderboardTable").querySelector("tbody");
+    const courseSelect = document.getElementById("courseSelect");
+
+    function renderLeaderboard(course) {
+        leaderboardTable.innerHTML = "";
+        const data = leaderboardData[course] || [];
+
+        data.sort((a,b) => b.score - a.score); // Sort descending
+
+        data.forEach((entry, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${entry.user}</td>
+                <td>${entry.score}</td>
+                <td>${entry.date}</td>
+                <td>
+                    <button class="edit-btn" onclick="editScore('${course}', ${index})">Edit</button>
+                    <button class="delete-btn" onclick="deleteScore('${course}', ${index})">Delete</button>
+                </td>
+            `;
+            leaderboardTable.appendChild(row);
+        });
+    }
+
+    document.getElementById("loadLeaderboard").addEventListener("click", () => {
+        const course = courseSelect.value;
+        if(course) {
+            renderLeaderboard(course);
+        } else {
+            alert("Please select a course/quiz!");
+        }
+    });
+
+    document.getElementById("addScoreBtn").addEventListener("click", () => {
+        const course = courseSelect.value;
+        const user = document.getElementById("userName").value;
+        const score = parseInt(document.getElementById("userScore").value);
+        const date = document.getElementById("scoreDate").value;
+
+        if(!course || !user || isNaN(score) || !date) {
+            alert("Please fill all fields and select a course!");
+            return;
+        }
+
+        leaderboardData[course].push({user, score, date});
+        renderLeaderboard(course);
+
+        // Clear inputs
+        document.getElementById("userName").value = "";
+        document.getElementById("userScore").value = "";
+        document.getElementById("scoreDate").value = "";
+    });
+
+    function editScore(course, index) {
+        const entry = leaderboardData[course][index];
+        const newUser = prompt("Edit User Name:", entry.user);
+        const newScore = prompt("Edit Score:", entry.score);
+        const newDate = prompt("Edit Date:", entry.date);
+
+        if(newUser && newScore && newDate) {
+            leaderboardData[course][index] = {
+                user: newUser,
+                score: parseInt(newScore),
+                date: newDate
+            };
+            renderLeaderboard(course);
+        }
+    }
+
+    function deleteScore(course, index) {
+        if(confirm("Are you sure you want to delete this score?")) {
+            leaderboardData[course].splice(index, 1);
+            renderLeaderboard(course);
+        }
+    }
+
+</script>
+
+</body>
+</html>

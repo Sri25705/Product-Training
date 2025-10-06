@@ -105,7 +105,6 @@
       color: #333;
     }
 
-    /* ✅ Result Page */
     #resultContainer{
       max-width: 800px;
       background-color: white;
@@ -136,6 +135,21 @@
     #homeBtn:hover{
       background-color: #0056b3;
     }
+
+ footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(117, 133, 104, 0.137);
+}
+
+    footer a{
+  text-decoration: none;
+  color:rgba(255, 145, 0, 0.699);
+  padding:10px;
+}
+
   </style>
 </head>
 <body>
@@ -145,9 +159,8 @@
     <div class="user-name" id="userName">User</div>
   </div>
 
-  <!-- ✅ Quiz Container -->
   <div class="container" id="quizContainer">
-    <div class="timer" id="timer">Time: 60s</div>
+    <div class="timer" id="timer">Time: 30s</div>
     <div class="question" id="questionText">Question text will appear here</div>
     <div class="options" id="optionsBox"></div>
 
@@ -162,35 +175,192 @@
     </div>
   </div>
 
-  <!-- ✅ Result Container -->
   <div id="resultContainer">
-    <h2>🎉 Quiz Completed!</h2>
+    <h2>Quiz Completed!</h2>
     <div id="scoreDisplay"></div>
     <button id="homeBtn">Go to Home</button>
   </div>
 
+    <footer>
+          <a href="quiz.html">Home</a>
+          <a href="logout">Logout</a>
+        </footer>
+
 <script>
-  // ✅ Question Bank with 10 questions per course (sample)
+ 
   const questionBank = {
-    "Basic Java Script": Array.from({length:10}).map((_,i)=>({
-      text: `JavaScript Sample Question ${i+1}?`,
-      options: ["Option A","Option B","Option C","Option D"],
-      correct: Math.floor(Math.random()*4)
-    })),
-    "Basic HTML": Array.from({length:10}).map((_,i)=>({
-      text: `HTML Sample Question ${i+1}?`,
-      options: ["Option A","Option B","Option C","Option D"],
-      correct: Math.floor(Math.random()*4)
-    })),
-    "Basic CSS": Array.from({length:10}).map((_,i)=>({
-      text: `CSS Sample Question ${i+1}?`,
-      options: ["Option A","Option B","Option C","Option D"],
-      correct: Math.floor(Math.random()*4)
-    }))
-  };
+     "Basic Java Script": [
+      {
+        text: "Which keyword is used to declare a variable in JavaScript?",
+        options: ["var", "let", "const", "All of the above"],
+        correct: 3
+      },
+      {
+        text: "What does typeof null return in JavaScript?",
+        options: ["object", "null", "undefined", "number"],
+        correct: 0
+      },
+      {
+        text: "Which operator is used for strict equality comparison in JavaScript?",
+        options: ["==", "!=", "===", "!=="],
+        correct: 2
+      },
+      {
+        text: "What is the output of console.log(3 + 2 + '7');?",
+        options: ['"57"', '"327"', "12", "NaN"],
+        correct: 0
+      },
+      {
+        text: "Which of the following is NOT a JavaScript data type?",
+        options: ["String", "Boolean", "Character", "Number"],
+        correct: 2
+      },
+      {
+        text: "How do you create a function in JavaScript?",
+        options: ["function myFunction()", "function:myFunction()", "function = myFunction()", "myFunction = function()"],
+        correct: 0
+      },
+      {
+        text: "What is the purpose of the return statement in a JavaScript function?",
+        options: ["To stop the execution of the function.", "To return a value from the function.", "To define the function's scope.", "Both a and b."],
+        correct: 3
+      },
+      {
+        text: "Which method is used to add an element to the end of an array in JavaScript?",
+        options: ["push()", "pop()", "unshift()", "shift()"],
+        correct: 0
+      },
+      {
+        text: "What is 'hoisting' in JavaScript?",
+        options: [
+          "A mechanism where variable and function declarations are moved to the top of their scope during compilation.",
+          "A way to prevent variable declarations from being moved.",
+          "A method for optimizing code execution speed.",
+          "A type of error handling."
+        ],
+        correct: 0
+      },
+      {
+        text: "How do you comment out a single line in JavaScript?",
+        options: ["<!-- comment -->", "// comment", "/* comment */", "# comment"],
+        correct: 1
+      }
+    ],
+
+      "Basic HTML": [
+    {
+      text: "What does HTML stand for?",
+      options: ["HyperText Markup Language", "High-Level Text Management", "Hyperlink and Text Markup", "Home Tool Markup Language"],
+      correct: 0
+    },
+    {
+      text: "Which HTML tag is used to define the root of an HTML document?",
+      options: ["<head>", "<body>", "<html>", "<title>"],
+      correct: 2
+    },
+    {
+      text: "Which tag is used to define a paragraph in HTML?",
+      options: ["<para>", "<p>", "<text>", "<paragraph>"],
+      correct: 1
+    },
+    {
+      text: "How do you create an unordered list in HTML?",
+      options: ["<ol>", "<ul>", "<li>", "<list>"],
+      correct: 1
+    },
+    {
+      text: "Which attribute is used to specify the URL of a link in HTML?",
+      options: ["src", "href", "link", "url"],
+      correct: 1
+    },
+    {
+      text: "Which HTML tag is used to insert an image?",
+      options: ["<picture>", "<img>", "<image>", "<photo>"],
+      correct: 1
+    },
+    {
+      text: "What is the correct HTML tag for the largest heading?",
+      options: ["<h6>", "<head>", "<h1>", "<heading>"],
+      correct: 2
+    },
+    {
+      text: "Which of the following is an empty HTML element?",
+      options: ["<p>", "<div>", "<img>", "<a>"],
+      correct: 2
+    },
+    {
+      text: "What is the purpose of the <head> element in HTML?",
+      options: [
+        "To contain the main content of the webpage",
+        "To define a section of the document",
+        "To contain metadata about the HTML document",
+        "To display a header on the webpage"
+      ],
+      correct: 2
+    },
+    {
+      text: "Which HTML element is used to define important text?",
+      options: ["<i>", "<em>", "<strong>", "<b>"],
+      correct: 2
+    }
+  ],
+
+  "Basic CSS": [
+    {
+      text: "What does CSS stand for?",
+      options: ["Creative Style Sheets", "Cascading Style Sheets", "Computer Style Syntax", "Colorful Style Sheets"],
+      correct: 1
+    },
+    {
+      text: "Which HTML tag is used to link an external stylesheet?",
+      options: ["<style>", "<link>", "<css>", "<stylesheet>"],
+      correct: 1
+    },
+    {
+      text: "Which property is used to change the background color of an element?",
+      options: ["color", "background-color", "bgcolor", "background"],
+      correct: 1
+    },
+    {
+      text: "How do you select an element with the ID 'header' in CSS?",
+      options: [".header", "element#header", "#header", "header"],
+      correct: 2
+    },
+    {
+      text: "How do you select all <p> elements with the class 'important' in CSS?",
+      options: ["p.important", ".important p", "p#important", "important"],
+      correct: 0
+    },
+    {
+      text: "Which CSS property controls the text size?",
+      options: ["text-style", "font-size", "text-size", "font-style"],
+      correct: 1
+    },
+    {
+      text: "In how many ways can CSS be added to an HTML document?",
+      options: ["One", "Two", "Three", "Four"],
+      correct: 2
+    },
+    {
+      text: "Which CSS property is used to change the text color of an element?",
+      options: ["font-color", "text-color", "color", "foreground-color"],
+      correct: 2
+    },
+    {
+      text: "What is the correct CSS syntax for making all <p> elements red?",
+      options: ["p {color: red;}", 'p.color="red";', '<p style="color: red;">', "all p {color: red;}"],
+      correct: 0
+    },
+    {
+      text: "Which of the following is the correct way to add a CSS comment?",
+      options: ["<!-- This is a comment -->", "// This is a comment", "/* This is a comment */", "# This is a comment"],
+      correct: 2
+    }
+  ]
+};
 
   let currentQuestion = 0;
-  let timer = 60;
+  let timer = 30;
   let timerInterval;
   let questions = [];
   let score = 0;
@@ -231,7 +401,6 @@
     const progressPercent = ((currentQuestion+1)/questions.length)*100;
     document.getElementById("progress").style.width = progressPercent+"%";
 
-    // Show Complete button on last question
     if(currentQuestion === questions.length - 1){
       document.getElementById("nextBtn").style.display = "none";
       document.getElementById("completeBtn").style.display = "inline-block";
@@ -249,7 +418,12 @@
   }
 
   document.getElementById("nextBtn").addEventListener("click", ()=>{
-    saveSelectedOption();
+    const selectedOption = document.querySelector('input[name="option"]:checked');
+    if (!selectedOption) {
+      alert("Please choose an option before proceeding.");
+      return;
+    }
+    selectedAnswers[currentQuestion] = parseInt(selectedOption.value);
     if(currentQuestion < questions.length - 1){
       currentQuestion++;
       loadQuestion();
@@ -263,9 +437,14 @@
       loadQuestion();
     }
   });
-
+  
   document.getElementById("completeBtn").addEventListener("click", ()=>{
-    saveSelectedOption();
+    const selectedOption = document.querySelector('input[name="option"]:checked');
+    if (!selectedOption) {
+      alert("Please choose an option before submitting.");
+      return;
+    }
+    selectedAnswers[currentQuestion] = parseInt(selectedOption.value);
     calculateScore();
     showResultPage();
   });
@@ -302,7 +481,7 @@
       document.getElementById("timer").textContent = `Time: ${timer}s`;
       if(timer <= 0){
         clearInterval(timerInterval);
-        alert("⏰ Time's up!");
+        alert("Time's up!");
         calculateScore();
         showResultPage();
       }
@@ -319,48 +498,8 @@
     startTimer();
   });
 
-  // Array to store user's selected answers
-let selectedAnswer = new Array(questions.length).fill(null);
-
-// ✅ Next Button Click
-document.getElementById('nextBtn').addEventListener('click', function () {
-  const selectedOption = document.querySelector('input[name="option"]:checked');
-
-  // Validation: if no option selected → show alert and stop
-  if (!selectedOption) {
-    alert("⚠️ Please choose an option before proceeding.");
-    return;
-  }
-
-  // Save the selected answer for the current question
-  selectedAnswers[currentQuestion] = parseInt(selectedOption.value);
-
-  // Move to next question OR show Complete button on last
-  if (currentQuestion < questions.length - 1) {
-    currentQuestion++;
-    loadQuestion();
-  } else {
-    // Last question → replace Next with Complete button
-    document.getElementById('nextBtn').style.display = 'none';
-    document.getElementById('completeBtn').style.display = 'inline-block';
-  }
-});
-
-// ✅ Complete Button Click (For last question)
-document.getElementById('completeBtn').addEventListener('click', function () {
-  const selectedOption = document.querySelector('input[name="option"]:checked');
-
-  if (!selectedOption) {
-    alert("⚠️ Please choose an option before submitting.");
-    return;
-  }
-
-  selectedAnswer[currentQuestion] = parseInt(selectedOption.value);
-  finishQuiz();
-});
-
-
 </script>
 
 </body>
 </html>
+

@@ -1,364 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
   <style>
-    :root{
-      --bg:#f4f7fb;
-      --card:#ffffff;
-      --muted:#6b7280;
-      --accent:#2563eb;
-      --accent-2:#06b6d4;
-      --glass: rgba(255,255,255,0.6);
-      --radius:12px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,var(--bg),#eef3fb);color:#0f172a}
 
-    /* Layout */
-    .wrap{display:grid;grid-template-columns:260px 1fr;gap:24px;min-height:100vh;padding:28px}
-    @media (max-width:900px){.wrap{grid-template-columns:1fr;padding:12px}}
+    /* Page Grid */
+    .page {
+      display: grid;
+      grid-template-rows: 80px auto;
+      min-height: 100vh;
+    }
 
-    /* Sidebar */
-    .sidebar{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(16,24,40,0.06);height:calc(100vh - 56px);position:sticky;top:28px;overflow:auto}
-    .brand{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
-    .title{font-weight:700}
-    nav ul{list-style:none;padding:0;margin:10px 0}
-    nav li{margin:8px 0}
-    .nav-link{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;color:var(--muted);text-decoration:none;cursor:pointer}
-    .nav-link:hover{background:#f1f5f9;color:#0f172a}
-    .nav-link.active{background:linear-gradient(90deg,rgba(37,99,235,0.12),rgba(6,182,212,0.08));color:var(--accent);font-weight:600}
+    /* Top Navbar */
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: beige;
+      padding: 0 20px;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
 
-    /* Main */
-    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-    .main-card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(16,24,40,0.04)}
-    .overview{display:flex;gap:16px;flex-wrap:wrap}
-    .stat{flex:1 1 180px;background:linear-gradient(180deg,var(--card),#fbfdff);padding:14px;border-radius:12px;min-width:160px}
-    .stat h3{margin:0;font-size:14px;color:var(--muted)}
-    .stat p{margin:8px 0 0;font-size:22px;font-weight:700}
+    .top h1 {
+      color: rgba(202, 51, 51, 0.8);
+      margin: 0;
+      font-size: 24px;
+    }
 
-    /* content area */
-    .content{display:grid;grid-template-columns:1fr;gap:14px}
-    .grid-2{display:grid;grid-template-columns:1fr 420px;gap:14px}
-    @media (max-width:1100px){.grid-2{grid-template-columns:1fr}}
+    /* Menu Button */
+    .menu span {
+      font-size: 30px;
+      cursor: pointer;
+    }
 
-    /* table */
-    table{width:100%;border-collapse:collapse}
-    th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #eef2f7}
-    th{font-size:13px;color:var(--muted)}
+    /* Side Navigation */
+    .menu-content {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 200;
+      top: 0;
+      left: 0;
+      background-color: whitesmoke;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
 
-    /* small helpers */
-    .muted{color:var(--muted)}
-    .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:var(--accent);color:#fff;font-weight:600;text-decoration:none;border:none;cursor:pointer}
-    .btn.secondary{background:#fff;color:var(--accent);border:1px solid rgba(37,99,235,0.12)}
-    .search{display:flex;gap:8px}
-    input[type=text],select,textarea{padding:10px;border-radius:10px;border:1px solid #e6eef8;background:#fbfdff}
-    form .row{display:flex;gap:8px;flex-wrap:wrap}
-    form label{font-size:13px;color:var(--muted)}
+    .menu-content a {
+      text-decoration: none;
+      padding: 12px 32px;
+      font-size: 20px;
+      display: block;
+      color: #333;
+      transition: 0.3s;
+    }
 
-    footer{margin-top:12px;color:var(--muted);font-size:13px}
+    .menu-content a:hover {
+      color: rgb(180, 112, 9);
+    }
+
+    .menu-content .closebtn {
+      position: absolute;
+      top: 0;
+      right: 20px;
+      font-size: 36px;
+    }
+
+    /* Content */
+    .content {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    /* Dashboard Summary Cards */
+    .card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card h2 {
+      margin: 10px 0;
+      font-size: 32px;
+      color: #007bff;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 16px;
+      color: #555;
+    }
+
+    /* Footer */
+    footer {
+      position: fixed;
+      bottom: 0; 
+      width: 100%; 
+      text-align: center;
+      background-color: rgba(117, 133, 104, 0.137);
+      padding: 10px 0;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: rgba(255, 145, 0, 0.699);
+      margin: 0 15px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="logo">AD</div>
-        <div>
-          <div class="title">Admin Dashboard</div>
-          <div class="muted" style="font-size:13px">Course: NER for Document Classification</div>
+
+  <div class="page">
+
+    <!-- Top Navbar -->
+    <div class="top">
+      <div class="menu">
+        <div class="menu-content" id="menudropdown">
+          <a href="javascript:void(0)" class="closebtn" onclick="closenav()">&times;</a>
+          <a href="leader.html">Leaderboard Management</a>
+          <a href="#">Create/Edit Quizzes</a>
+          <a href="#">User Management</a>
         </div>
+        <span onclick="opennav()">&#9776;</span>
       </div>
+      <h1>Admin Dashboard</h1>
+    </div>
 
-      <nav>
-        <ul>
-          <li><a class="nav-link active" data-target="overview"><span>📊</span>Overview</a></li>
-          <li><a class="nav-link" data-target="leaderboard"><span>🏆</span>Leaderboard Management</a></li>
-          <li><a class="nav-link" data-target="quizzes"><span>✏️</span>Create / Edit Quizzes</a></li>
-          <li><a class="nav-link" data-target="users"><span>🧑‍💻</span>User Management</a></li>
-        </ul>
-      </nav>
-
-      <div style="margin-top:18px">
-        <button class="btn" id="logoutBtn">Logout</button>
-        <button class="btn secondary" style="margin-left:8px" id="settingsBtn">Settings</button>
+    <!-- Dashboard Content -->
+    <div class="content">
+      <!-- Summary Cards -->
+      <div class="card">
+        <h2>120</h2>
+        <p>Total Users</p>
       </div>
-    </aside>
+      <div class="card">
+        <h2>35</h2>
+        <p>Quizzes Created</p>
+      </div>
+      <div class="card">
+        <h2>78%</h2>
+        <p>Average Quiz Score</p>
+      </div>
+      <div class="card">
+        <h2>50</h2>
+        <p>Active Sessions</p>
+      </div>
+    </div>
 
-    <main>
-      <header>
-        <div>
-          <h2 id="pageTitle">Overview — Admin</h2>
-          <div class="muted">Welcome, Admin</div>
-        </div>
-        <div style="display:flex;gap:12px;align-items:center">
-          <div class="search">
-            <input type="text" id="globalSearch" placeholder="Search users / quizzes / leaderboard" style="min-width:240px" />
-            <button class="btn secondary" id="searchBtn">Search</button>
-          </div>
-        </div>
-      </header>
-
-      <section class="content">
-        <!-- Overview -->
-        <div id="overview" class="main-card view">
-          <div class="overview">
-            <div class="stat">
-              <h3>Active Users</h3>
-              <p id="statUsers">—</p>
-            </div>
-            <div class="stat">
-              <h3>Quizzes</h3>
-              <p id="statQuizzes">—</p>
-            </div>
-            <div class="stat">
-              <h3>Avg Score</h3>
-              <p id="statAvg">—</p>
-            </div>
-            <div class="stat">
-              <h3>Leaderboard Entries</h3>
-              <p id="statLb">—</p>
-            </div>
-          </div>
-
-          <div style="margin-top:14px;display:grid;grid-template-columns:1fr 320px;gap:14px">
-            <div class="main-card">
-              <h3>Recent Activity</h3>
-              <ul id="recentList" style="padding-left:16px"></ul>
-            </div>
-
-            <div class="main-card">
-              <h3>Quick Actions</h3>
-              <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
-                <button class="btn" id="createQuizBtn">Create Quiz</button>
-                <button class="btn secondary" id="viewLeaderboardBtn">View Leaderboard</button>
-                <button class="btn secondary" id="manageUsersBtn">Manage Users</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Leaderboard -->
-        <div id="leaderboard" class="main-card view" style="display:none">
-          <h3>Leaderboard Management</h3>
-          <p class="muted">View and edit leaderboard entries.</p>
-          <table style="margin-top:12px">
-            <thead><tr><th>Rank</th><th>User</th><th>Score</th><th>Action</th></tr></thead>
-            <tbody id="lbTable"></tbody>
-          </table>
-        </div>
-
-        <!-- Quizzes -->
-        <div id="quizzes" class="main-card view" style="display:none">
-          <h3>Create / Edit Quizzes</h3>
-          <p class="muted">Create a new quiz or edit existing quizzes below.</p>
-
-          <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
-            <select id="quizSelect"></select>
-            <button class="btn" id="newQuizBtn">+ New Quiz</button>
-          </div>
-
-          <form id="quizForm" style="margin-top:12px">
-            <div class="row">
-              <div style="flex:1">
-                <label>Quiz Title</label>
-                <input type="text" id="quizTitle" required />
-              </div>
-              <div style="width:160px">
-                <label>Time (mins)</label>
-                <input type="text" id="quizTime" />
-              </div>
-            </div>
-
-            <div style="margin-top:8px">
-              <label>Description</label>
-              <textarea id="quizDesc" rows="3"></textarea>
-            </div>
-
-            <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
-              <button class="btn" type="button" id="saveQuiz">Save Quiz</button>
-              <button class="btn secondary" type="button" id="deleteQuiz">Delete Quiz</button>
-            </div>
-          </form>
-        </div>
-
-        <!-- Users -->
-        <div id="users" class="main-card view" style="display:none">
-          <h3>User Management</h3>
-          <p class="muted">Search, edit or deactivate users.</p>
-          <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
-            <input type="text" id="userSearch" placeholder="Search by name or email" />
-            <button class="btn" id="addUserBtn">Add User</button>
-          </div>
-
-          <table style="margin-top:12px">
-            <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Active</th><th>Action</th></tr></thead>
-            <tbody id="userTable"></tbody>
-          </table>
-        </div>
-
-      </section>
-
-      <footer class="muted">© 2025 Admin Dashboard</footer>
-    </main>
   </div>
 
+  <footer>
+    <a href="quiz.html">Home</a>
+    <a href="#">Logout</a>
+  </footer>
+
   <script>
-    // --- Mock data ---
-    const mock = {
-      users:[
-        {id:1,name:'Anita Rao',email:'anita@example.com',role:'Student',active:true,score:88},
-        {id:2,name:'Karan Mehra',email:'karan@example.com',role:'Student',active:true,score:92},
-        {id:3,name:'Raghu Srin',email:'raghu@example.com',role:'Student',active:true,score:76},
-      ],
-      quizzes:[
-        {id:1,title:'Basics of NER',time:15,desc:'Intro quiz'},
-        {id:2,title:'Advanced NER',time:30,desc:'Tagging and models'},
-      ],
-      leaderboard:[
-        {rank:1,user:'Karan Mehra',score:92},
-        {rank:2,user:'Anita Rao',score:88},
-        {rank:3,user:'Raghu Srin',score:76},
-      ],
-      recent:[
-        'Karan completed "Basics of NER" — 92%',
-        'New user Anita Rao registered',
-        'Quiz "Advanced NER" created'
-      ]
+    function opennav() {
+      document.getElementById("menudropdown").style.width = "250px";
     }
 
-    // --- Helpers ---
-    const qs = s => document.querySelector(s);
-    const qsa = s => Array.from(document.querySelectorAll(s));
-
-    function showView(id){
-      qsa('.view').forEach(v=>v.style.display='none');
-      const el = qs('#'+id);
-      if(el) el.style.display='block';
-      qsa('.nav-link').forEach(n=>n.classList.toggle('active', n.dataset.target===id));
-      qs('#pageTitle').textContent = (
-        id==='overview' ? 'Overview — Admin' :
-        id==='leaderboard' ? 'Leaderboard Management' :
-        id==='quizzes' ? 'Create / Edit Quizzes' :
-        id==='users' ? 'User Management' : 'Admin Dashboard'
-      );
+    function closenav() {
+      document.getElementById("menudropdown").style.width = "0";
     }
-
-    function renderStats(){
-      qs('#statUsers').textContent = mock.users.length;
-      qs('#statQuizzes').textContent = mock.quizzes.length;
-      const avg = (mock.users.reduce((s,u)=>s+u.score,0)/mock.users.length).toFixed(1);
-      qs('#statAvg').textContent = avg + '%';
-      qs('#statLb').textContent = mock.leaderboard.length;
-      const recentEl = qs('#recentList'); recentEl.innerHTML='';
-      mock.recent.forEach(r=>{const li=document.createElement('li');li.textContent=r;recentEl.appendChild(li)});
-    }
-
-    function renderLeaderboard(){
-      const tbody = qs('#lbTable'); tbody.innerHTML='';
-      mock.leaderboard.forEach(row=>{
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${row.rank}</td><td>${row.user}</td><td>${row.score}</td><td><button class='btn secondary' data-action='edit' data-r='${row.rank}'>Edit</button></td>`;
-        tbody.appendChild(tr);
-      })
-    }
-
-    function renderQuizzes(){
-      const sel = qs('#quizSelect'); sel.innerHTML='';
-      mock.quizzes.forEach(q=>{const opt=document.createElement('option');opt.value=q.id;opt.textContent=q.title;sel.appendChild(opt)});
-      if(mock.quizzes.length) loadQuiz(mock.quizzes[0].id);
-    }
-
-    function loadQuiz(id){
-      const q = mock.quizzes.find(x=>x.id==id);
-      if(!q) return;
-      qs('#quizTitle').value=q.title; qs('#quizTime').value=q.time; qs('#quizDesc').value=q.desc;
-    }
-
-    function renderUsers(filter=''){
-      const tbody = qs('#userTable'); tbody.innerHTML='';
-      mock.users.filter(u=>`${u.name} ${u.email}`.toLowerCase().includes(filter.toLowerCase())).forEach(u=>{
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${u.name}</td><td>${u.email}</td><td>${u.role}</td><td>${u.active? 'Yes':'No'}</td><td><button class='btn secondary' data-id='${u.id}' data-action='deact'>Deactivate</button></td>`;
-        tbody.appendChild(tr);
-      })
-    }
-
-    // --- Events ---
-    document.addEventListener('DOMContentLoaded', ()=>{
-      // wire nav
-      qsa('.nav-link').forEach(n=>n.addEventListener('click', ()=> showView(n.dataset.target)));
-
-      // initial render
-      renderStats(); renderLeaderboard(); renderQuizzes(); renderUsers();
-
-      qs('#quizSelect').addEventListener('change', e=> loadQuiz(e.target.value));
-
-      // create new quiz button
-      qs('#newQuizBtn').addEventListener('click', ()=>{
-        const id = Date.now(); const newQ = {id, title:'Untitled Quiz', time:10,desc:''};
-        mock.quizzes.unshift(newQ); renderQuizzes();
-        qs('#quizSelect').value = newQ.id; loadQuiz(newQ.id);
-      })
-
-      qs('#saveQuiz').addEventListener('click', ()=>{
-        const id = Number(qs('#quizSelect').value) || null;
-        const title = qs('#quizTitle').value.trim();
-        if(!title){alert('Quiz title required'); return}
-        if(id){
-          const q = mock.quizzes.find(x=>x.id==id); q.title=title; q.time=qs('#quizTime').value; q.desc=qs('#quizDesc').value;
-        } else {
-          const newQ = {id:Date.now(), title, time:qs('#quizTime').value, desc:qs('#quizDesc').value}; mock.quizzes.unshift(newQ);
-        }
-        renderQuizzes(); alert('Saved');
-      })
-
-      qs('#deleteQuiz').addEventListener('click', ()=>{
-        const id = Number(qs('#quizSelect').value);
-        if(!id) return alert('Select a quiz');
-        if(confirm('Delete this quiz?')){
-          mock.quizzes = mock.quizzes.filter(q=>q.id!==id); renderQuizzes();
-        }
-      })
-
-      qs('#globalSearch').addEventListener('keypress', e=>{ if(e.key==='Enter') qs('#searchBtn').click(); })
-      qs('#searchBtn').addEventListener('click', ()=>{
-        const q = qs('#globalSearch').value.trim();
-        if(!q) return alert('Type something to search');
-        // simple search: prioritize users
-        renderUsers(q);
-        showView('users');
-      })
-
-      qs('#userSearch').addEventListener('input', e=> renderUsers(e.target.value));
-
-      qs('#addUserBtn').addEventListener('click', ()=>{
-        const name = prompt('Name'); const email = prompt('Email'); if(!name||!email) return; mock.users.push({id:Date.now(),name,email,role:'Student',active:true,score:0}); renderUsers(); renderStats();
-      })
-
-      qs('#userTable').addEventListener('click', e=>{
-        const btn = e.target.closest('button'); if(!btn) return; const id = Number(btn.dataset.id);
-        if(btn.dataset.action==='deact'){
-          const u = mock.users.find(x=>x.id===id); if(!u) return; u.active=false; renderUsers(); renderStats();
-        }
-      })
-
-      qs('#lbTable').addEventListener('click', e=>{
-        const btn = e.target.closest('button'); if(!btn) return; alert('Edit leaderboard entry (demo)');
-      })
-
-      // quick action buttons
-      qs('#createQuizBtn').addEventListener('click', ()=>{ showView('quizzes'); })
-      qs('#viewLeaderboardBtn').addEventListener('click', ()=>{ showView('leaderboard'); })
-      qs('#manageUsersBtn').addEventListener('click', ()=>{ showView('users'); })
-
-      qs('#logoutBtn').addEventListener('click', ()=>alert('Logging out... (demo)'));
-      qs('#settingsBtn').addEventListener('click', ()=>alert('Open settings (demo)'));
-    });
   </script>
+  
 </body>
 </html>
