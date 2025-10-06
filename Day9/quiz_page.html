@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      margin:0;
+      padding:0;
+      background-color: #f8f8f8;
+    }
+
+    .header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #282c34;
+      color:white;
+      padding: 15px 30px;
+    }
+
+    .course-name{
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .user-name{
+      font-size: 18px;
+    }
+
+    .container{
+      max-width: 800px;
+      background-color: white;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .question{
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .options label{
+      display: block;
+      margin-bottom: 10px;
+      padding:10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .options input[type="radio"]{
+      margin-right: 10px;
+    }
+
+    .options label:hover{
+      background-color: #f0f0f0;
+    }
+
+    .navigation{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .navigation button{
+      background-color: #007bff;
+      color:white;
+      border:none;
+      padding:10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .navigation button:hover{
+      background-color: #0056b3;
+    }
+
+    .progress-bar{
+      width:100%;
+      background-color: #eee;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .progress{
+      height: 10px;
+      width: 0%;
+      background-color: #28a745;
+      border-radius: 5px;
+      transition: width 0.4s ease;
+    }
+
+    .timer{
+      text-align: right;
+      font-size: 16px;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    #resultContainer{
+      max-width: 800px;
+      background-color: white;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      display: none;
+    }
+
+    #scoreDisplay{
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    #homeBtn{
+      background-color: #007bff;
+      color:white;
+      border:none;
+      padding:10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #homeBtn:hover{
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="course-name" id="courseName">Course Name</div>
+    <div class="user-name" id="userName">User</div>
+  </div>
+
+  <div class="container" id="quizContainer">
+    <div class="timer" id="timer">Time: 30s</div>
+    <div class="question" id="questionText">Question text will appear here</div>
+    <div class="options" id="optionsBox"></div>
+
+    <div class="navigation">
+      <button id="backBtn">Back</button>
+      <button id="nextBtn">Next</button>
+      <button id="completeBtn" style="display:none;">Complete</button>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+  </div>
+
+  <div id="resultContainer">
+    <h2>Quiz Completed!</h2>
+    <div id="scoreDisplay"></div>
+    <button id="homeBtn">Go to Home</button>
+  </div>
+
+<script>
+ 
+  const questionBank = {
+     "Basic Java Script": [
+      {
+        text: "Which keyword is used to declare a variable in JavaScript?",
+        options: ["var", "let", "const", "All of the above"],
+        correct: 3
+      },
+      {
+        text: "What does typeof null return in JavaScript?",
+        options: ["object", "null", "undefined", "number"],
+        correct: 0
+      },
+      {
+        text: "Which operator is used for strict equality comparison in JavaScript?",
+        options: ["==", "!=", "===", "!=="],
+        correct: 2
+      },
+      {
+        text: "What is the output of console.log(3 + 2 + '7');?",
+        options: ['"57"', '"327"', "12", "NaN"],
+        correct: 0
+      },
+      {
+        text: "Which of the following is NOT a JavaScript data type?",
+        options: ["String", "Boolean", "Character", "Number"],
+        correct: 2
+      },
+      {
+        text: "How do you create a function in JavaScript?",
+        options: ["function myFunction()", "function:myFunction()", "function = myFunction()", "myFunction = function()"],
+        correct: 0
+      },
+      {
+        text: "What is the purpose of the return statement in a JavaScript function?",
+        options: ["To stop the execution of the function.", "To return a value from the function.", "To define the function's scope.", "Both a and b."],
+        correct: 3
+      },
+      {
+        text: "Which method is used to add an element to the end of an array in JavaScript?",
+        options: ["push()", "pop()", "unshift()", "shift()"],
+        correct: 0
+      },
+      {
+        text: "What is 'hoisting' in JavaScript?",
+        options: [
+          "A mechanism where variable and function declarations are moved to the top of their scope during compilation.",
+          "A way to prevent variable declarations from being moved.",
+          "A method for optimizing code execution speed.",
+          "A type of error handling."
+        ],
+        correct: 0
+      },
+      {
+        text: "How do you comment out a single line in JavaScript?",
+        options: ["<!-- comment -->", "// comment", "/* comment */", "# comment"],
+        correct: 1
+      }
+    ],
+    "Basic HTML": Array.from({length:10}).map((_,i)=>({
+      text: `HTML Sample Question ${i+1}?`,
+      options: ["Option A","Option B","Option C","Option D"],
+      correct: Math.floor(Math.random()*4)
+    })),
+    "Basic CSS": Array.from({length:10}).map((_,i)=>({
+      text: `CSS Sample Question ${i+1}?`,
+      options: ["Option A","Option B","Option C","Option D"],
+      correct: Math.floor(Math.random()*4)
+    }))
+  };
+
+  let currentQuestion = 0;
+  let timer = 30;
+  let timerInterval;
+  let questions = [];
+  let score = 0;
+  let selectedAnswers = {};
+
+  function loadUserAndCourse(){
+    const storedName = localStorage.getItem("username");
+    const storedCourse = localStorage.getItem("selectedCourse");
+
+    document.getElementById("userName").textContent = storedName ? JSON.parse(storedName) : "Guest";
+    document.getElementById("courseName").textContent = storedCourse || "Course";
+
+    questions = questionBank[storedCourse] || [];
+  }
+
+  function loadQuestion(){
+    const q = questions[currentQuestion];
+    document.getElementById("questionText").textContent = `Q${currentQuestion+1}. ${q.text}`;
+    const optionsBox = document.getElementById("optionsBox");
+    optionsBox.innerHTML = "";
+
+    q.options.forEach((opt, index)=>{
+      const label = document.createElement("label");
+      const input = document.createElement("input");
+      input.type = "radio";
+      input.name = "option";
+      input.value = index;
+
+      if(selectedAnswers[currentQuestion] === index){
+        input.checked = true;
+      }
+
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(opt));
+      optionsBox.appendChild(label);
+    });
+
+    const progressPercent = ((currentQuestion+1)/questions.length)*100;
+    document.getElementById("progress").style.width = progressPercent+"%";
+
+    if(currentQuestion === questions.length - 1){
+      document.getElementById("nextBtn").style.display = "none";
+      document.getElementById("completeBtn").style.display = "inline-block";
+    }else{
+      document.getElementById("nextBtn").style.display = "inline-block";
+      document.getElementById("completeBtn").style.display = "none";
+    }
+  }
+
+  function saveSelectedOption(){
+    const selected = document.querySelector('input[name="option"]:checked');
+    if(selected){
+      selectedAnswers[currentQuestion] = parseInt(selected.value);
+    }
+  }
+
+  document.getElementById("nextBtn").addEventListener("click", ()=>{
+    saveSelectedOption();
+    if(currentQuestion < questions.length - 1){
+      currentQuestion++;
+      loadQuestion();
+    }
+  });
+
+  document.getElementById("backBtn").addEventListener("click", ()=>{
+    saveSelectedOption();
+    if(currentQuestion > 0){
+      currentQuestion--;
+      loadQuestion();
+    }
+  });
+
+  document.getElementById("completeBtn").addEventListener("click", ()=>{
+    saveSelectedOption();
+    calculateScore();
+    showResultPage();
+  });
+
+  function calculateScore(){
+    score = 0;
+    questions.forEach((q, index)=>{
+      if(selectedAnswers[index] === q.correct){
+        score++;
+      }
+    });
+  }
+
+  function showResultPage(){
+    clearInterval(timerInterval);
+    document.getElementById("quizContainer").style.display = "none";
+    document.getElementById("resultContainer").style.display = "block";
+
+    const scoreDisplay = document.getElementById("scoreDisplay");
+    scoreDisplay.textContent = `Your Score: ${score} / 10`;
+
+    if(score === 0){
+      scoreDisplay.style.color = "red";
+    }else if(score <= 5){
+      scoreDisplay.style.color = "goldenrod";
+    }else{
+      scoreDisplay.style.color = "green";
+    }
+  }
+
+  function startTimer(){
+    timerInterval = setInterval(()=>{
+      timer--;
+      document.getElementById("timer").textContent = `Time: ${timer}s`;
+      if(timer <= 0){
+        clearInterval(timerInterval);
+        alert("Time's up!");
+        calculateScore();
+        showResultPage();
+      }
+    },1000);
+  }
+
+  document.getElementById("homeBtn").addEventListener("click", ()=>{
+    window.location.href = "quiz.html";
+  });
+
+  window.addEventListener("load", ()=>{
+    loadUserAndCourse();
+    loadQuestion();
+    startTimer();
+  });
+
+let selectedAnswer = new Array(questions.length).fill(null);
+
+
+document.getElementById('nextBtn').addEventListener('click', function () {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+
+  if (!selectedOption) {
+    alert(" Please choose an option before proceeding.");
+    return;
+  }
+
+  selectedAnswers[currentQuestion] = parseInt(selectedOption.value);
+
+    currentQuestion++;
+    loadQuestion();
+});
+
+document.getElementById('completeBtn').addEventListener('click', function () {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+
+  if (!selectedOption) {
+    alert(" Please choose an option before submitting.");
+    return;
+  }
+
+  selectedAnswer[currentQuestion] = parseInt(selectedOption.value);
+  calculateScore();
+  showResultPage();
+});
+
+
+</script>
+
+</body>
+</html>

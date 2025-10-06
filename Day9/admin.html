@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <style>
+        .page{
+            display: grid;
+            grid-template-rows:20% 80%;
+        }
+        .top{
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding:10px 20px;
+            gap:10px;
+            position: sticky;
+           top:0;
+            background-color: beige;
+            border-radius: 6px;
+            height: 80px;
+        }
+
+        .menu{
+          position: relative;
+          
+        }
+
+        .menu button{
+          border:none;
+          border-radius: 6px;
+          cursor:pointer;
+          font-size: 14px;
+        }
+
+        .menu-content{
+          height: 100%;
+          width:0;
+          position: fixed;
+          z-index: 1;
+          top:0;
+          left:0;
+          background-color: whitesmoke;
+          overflow-x: hidden;
+          transition:0.5s;
+          padding-top: 60px;
+        }
+
+      .menu-content a {
+      text-decoration: none;
+      padding:8px 8px 8px 32px;
+      font-size: 25px;
+      display: block;
+      transition:0.3s;
+    }
+
+    .menu-content a:hover {
+      color:rgb(180, 112, 9);
+    }
+
+       .menu-content .closebtn{
+        position: absolute;
+        top:0;
+        right:25px;
+        font-size: 36px;
+        margin-left: 50px;
+       }
+
+        
+        .content{
+            display: grid;
+            grid-template-rows: auto;
+            padding: 20px;
+            gap:20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <div class="top">
+            <div class="menu">
+          <div class="menu-content" id="menudropdown">
+            <a href="javascript:void(0)" class="closebtn" onclick="closenav()">&times;
+            </a>
+            <a href="leader.html">LeaderBoard Management</a>
+            <a href="#">A Create/Edit Quizzes</a>
+          </div>
+          <span style="font-size: 30px;cursor:pointer" onclick="opennav()">&#9776;
+          </span>
+        </div>
+        <h1 style="color: rgba(202, 51, 51, 0.486);">Admin Dashboard</h1>
+        </div>
+
+        <div class="content">
+
+        </div>
+    </div> 
+
+    <script>
+          function opennav() {
+        document.getElementById("menudropdown").style.width = "250px";
+      }
+
+       function closenav() {
+       document.getElementById("menudropdown").style.width = "0";
+      }
+    </script>
+    
+</body>
+</html>

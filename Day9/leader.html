@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Leaderboard</title>
+
+    <style>
+        .page{
+            display: grid;
+            grid-template-rows:20% 80%;
+        }
+        .top{
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding:10px 20px;
+            gap:10px;
+            position: sticky;
+           top:0;
+            background-color: beige;
+            border-radius: 6px;
+            height: 80px;
+        }
+
+          .content{
+            display: grid;
+            grid-template-rows: auto;
+            padding: 20px;
+            gap:20px;
+        }
+
+        option{
+            border-radius: 6px;
+            padding: 10px;
+            color: white;
+            background-color: rgb(170, 102, 18);
+        }
+
+        button{
+            color: white;
+            background-color: blue;
+            border-radius: 6px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="page"></div>
+    <div class="top">
+       <h1 style="color: rgba(223, 85, 85, 0.616);"> Manage Leaderboard </h1>
+        </div>
+        <div class="content">
+    <div class="dropdown">
+             <h2>Course/Quiz Selection</h2>
+            <select>
+                <option></option>
+                <option>Basics of JS</option>
+                <option>Basics of HTML</option>
+                <option>Basics of C</option>
+                <option>Advanced JS</option>
+                <option>Basics of C</option>
+            </select>
+            <button type="submit" value="submit" id="s1">Submit</button>
+          </div>
+         </div>
+    </div>
+</body>
+</html>

@@ -73,7 +73,6 @@
             grid-template-rows: auto auto;
             padding: 20px;
             gap:20px;
-            border:3px solid black;
         }
 
          #name{
@@ -95,7 +94,6 @@
           display: grid;
           grid-template-columns: auto auto auto auto;
           padding: 20px;
-          border: 1px solid black;
         }
 
     .quiz-box > div{
@@ -126,6 +124,41 @@
       height: 50px;
     }
 
+     .recent-quizzes {
+      margin-top: 20px;
+    }
+
+    .recent-quizzes h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .recent-list {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      gap: 15px;
+    }
+
+    .recent-item {
+      background-color: #f8f8f8;
+      border-radius: 6px;
+      padding: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .recent-item p {
+      margin: 5px 0;
+    }
+
+    .recent-item button {
+      background-color: green;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
     @media(max-width:768px){
       .top{
         flex-direction: column;
@@ -143,6 +176,10 @@
         grid-template-columns: auto auto;
       }
     }
+
+    .recent-list{
+      grid-template-columns: auto;
+    }
     </style>
 
 </head>
@@ -154,9 +191,9 @@
           <div class="menu-content" id="menudropdown">
             <a href="javascript:void(0)" class="closebtn" onclick="closenav()">&times;
             </a>
-            <a href="#">Dashboard</a>
+            <a href="admin.html">Admin Dashboard</a>
             <a href="#">My Quiz</a>
-            <a href="#">Settings</a>
+            <a href="#"></a>
           </div>
           <span style="font-size: 30px;cursor:pointer" onclick="opennav()">&#9776;
           </span>
@@ -188,60 +225,154 @@
               <P>Fundmentals(Oops,Operators)</P>
             <button>Start Quiz</button></div>
             <div class="quiz3">
-              <b style="font-size: large;">Basic Java Script</b><br>
+              <b style="font-size: large;">Advanced Java Script</b><br>
               <P>JS Fundmentals(Oops,Operators)</P>
             <button>Start Quiz</button></div>
-            <div class="quiz4"> <b style="font-size: large;">Basic Java Script</b><br>
+            <div class="quiz4"> <b style="font-size: large;">Basic Python</b><br>
               <P>JS Fundmentals(Oops,Operators)</P>
             <button>Start Quiz</button></div>
-            <div class="quiz5"> <b style="font-size: large;">Basic Java Script</b><br>
+            <div class="quiz5"> <b style="font-size: large;">Basic c</b><br>
               <P>JS Fundmentals(Oops,Operators)</P>
             <button>Start Quiz</button></div>
-            <div class="quiz6"> <b style="font-size: large;">Basic Java Script</b><br>
+            <div class="quiz6"> <b style="font-size: large;">Basic CSS</b><br>
               <P>JS Fundmentals(Oops,Operators)</P>
             <button>Start Quiz</button></div>
-            <div class="quiz7"> <b style="font-size: large;">Basic Java Script</b><br>
+            <div class="quiz7"> <b style="font-size: large;">Basic Java</b><br>
               <P>JS Fundmentals(Oops,Operators)</P>
             <button>Start Quiz</button></div>
-            <div class="quiz8"> <b style="font-size: large;">Basic Java Script</b><br>
+            <div class="quiz8"> <b style="font-size: large;">Basic C++</b><br>
               <P>JS Fundmentals(Oops,Operators)</P>
             <button>Start Quiz</button></div>
             
           </div>  
+
+          <div class="recent-quizzes">
+            <h2>Recent Quiz</h2>
+            <div class="recent-list" id="recentList">
+            </div>
+          </div>
+
         </div>
         </div>
 
       <script>
-        function opennav(){
-          document.getElementById("menudropdown").style.width="250px";
+        function opennav() {
+        document.getElementById("menudropdown").style.width = "250px";
+      }
+
+       function closenav() {
+       document.getElementById("menudropdown").style.width = "0";
+      }
+
+  const submitBtn = document.getElementById("submit");
+  submitBtn.addEventListener("click", () => {
+    const nameInput = document.getElementById("name");
+    const name = nameInput.value.trim();
+
+    if (name === "") {
+      alert("Please enter your name before submitting!");
+      return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    if (users.includes(name)) {
+      alert("This name is already taken. Please choose a unique name.");
+      return;
+    }
+
+    users.push(name);
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("currentUser", name);
+
+    alert("Name submitted successfully: " + name);
+    nameInput.value = "";
+    renderRecentQuizzes(); 
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const startButtons = document.querySelectorAll(".quiz-box button");
+
+    startButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const currentUser = localStorage.getItem("currentUser");
+        if (!currentUser) {
+          alert("Please fill in your name and submit before starting a quiz!");
+          return;
         }
-        
-        function closenav(){
-          document.getElementById("menudropdown").style.width="0";
+
+        const course = e.target.parentElement.querySelector("b").textContent.trim();
+
+        let userQuizzes = JSON.parse(localStorage.getItem("userQuizzes")) || {};
+        if (!userQuizzes[currentUser]) {
+          userQuizzes[currentUser] = [];
         }
+        if (!userQuizzes[currentUser].includes(course)) {
+          userQuizzes[currentUser].push(course);
+        }
+        localStorage.setItem("userQuizzes", JSON.stringify(userQuizzes));
 
-        document.getElementById("submit").addEventListener("click",function() {
-          const name = document.getElementById("name").value;
+        localStorage.setItem("selectedCourse", course);
 
-          if(name===""){
-            alert("enter name");
-          }else{
-            alert("Name submitted:" +name);
-            localStorage.setItem("username",JSON.stringify(name));
-            document.getElementById("name").value="";
-          }
-        });
+        window.location.href = "quiz_page.html";
+      });
+    });
 
-        window.addEventListener("load",function(){
-          const storedName = localStorage.getItem("username");
+    renderRecentQuizzes(); 
+  });
 
-          if(storedName){
-            const parsedName = JSON.parse(storedName);
+  
+  function renderRecentQuizzes() {
+    const recentList = document.getElementById("recentList");
+    if (!recentList) return;
 
-            console.log("Loaded name:",parsedName);
-          }
+    recentList.innerHTML = "";
 
-        });
+    const currentUser = localStorage.getItem("currentUser");
+    if (!currentUser) {
+      recentList.innerHTML = "<p>No recent quizzes found. Please enter your name to start.</p>";
+      return;
+    }
+
+    let userQuizzes = JSON.parse(localStorage.getItem("userQuizzes")) || {};
+    const recent = userQuizzes[currentUser] || [];
+
+    if (recent.length === 0) {
+      recentList.innerHTML = "<p>No recent quizzes found.</p>";
+      return;
+    }
+
+    recent.forEach((course) => {
+      const div = document.createElement("div");
+      div.classList.add("recent-item");
+      div.style.display = "flex";
+      div.style.justifyContent = "space-between";
+      div.style.alignItems = "center";
+      div.style.margin = "5px 0";
+      div.style.background = "#f5f5f5";
+      div.style.padding = "8px";
+      div.style.borderRadius = "6px";
+
+      div.innerHTML = `
+        <span>${course}</span>
+        <button onclick="quickStart('${course}')">Quick Start</button>
+      `;
+
+      recentList.appendChild(div);
+    });
+  }
+
+  function quickStart(course) {
+    const currentUser = localStorage.getItem("currentUser");
+    if (!currentUser) {
+      alert("Please enter your name first!");
+      return;
+    }
+
+    localStorage.setItem("selectedCourse", course);
+    window.location.href = "quiz_page.html";
+  }
+
       </script>
 </body>
 </html>
