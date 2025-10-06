@@ -73,7 +73,6 @@
             grid-template-rows: auto auto;
             padding: 20px;
             gap:20px;
-            border:3px solid black;
         }
 
          #name{
@@ -95,7 +94,6 @@
           display: grid;
           grid-template-columns: auto auto auto auto;
           padding: 20px;
-          border: 1px solid black;
         }
 
     .quiz-box > div{
@@ -212,36 +210,54 @@
         </div>
 
       <script>
-        function opennav(){
-          document.getElementById("menudropdown").style.width="250px";
-        }
-        
-        function closenav(){
-          document.getElementById("menudropdown").style.width="0";
-        }
+       
+  function opennav(){
+    document.getElementById("menudropdown").style.width="250px";
+  }
 
-        document.getElementById("submit").addEventListener("click",function() {
-          const name = document.getElementById("name").value;
+  function closenav(){
+    document.getElementById("menudropdown").style.width="0";
+  }
 
-          if(name===""){
-            alert("enter name");
-          }else{
-            alert("Name submitted:" +name);
-            localStorage.setItem("username",JSON.stringify(name));
-            document.getElementById("name").value="";
-          }
-        });
+  // Store Name
+  document.getElementById("submit").addEventListener("click",function() {
+    const name = document.getElementById("name").value;
+    if(name===""){
+      alert("Enter name");
+    }else{
+      alert("Name submitted: " + name);
+      localStorage.setItem("username", JSON.stringify(name));
+      document.getElementById("name").value="";
+    }
+  });
 
-        window.addEventListener("load",function(){
-          const storedName = localStorage.getItem("username");
+  window.addEventListener("load",function(){
+    const storedName = localStorage.getItem("username");
+    if(storedName){
+      console.log("Loaded name:", JSON.parse(storedName));
+    }
+  });
 
-          if(storedName){
-            const parsedName = JSON.parse(storedName);
+  // Attach course name & redirect for each start button
+  const startButtons = document.querySelectorAll(".quiz-box button");
+  startButtons.forEach((btn)=>{
+    btn.addEventListener("click", (e)=>{
+      const course = e.target.parentElement.querySelector("b").textContent.trim();
+      localStorage.setItem("selectedCourse", course);
+      window.location.href = "quiz_page.html";
+    });
+  });
 
-            console.log("Loaded name:",parsedName);
-          }
+  localStorage.setItem("quizResult", JSON.stringify({
+  score: score,
+  total: questions.length,
+  answers: selectedAnswer,
+  questions: questions
+}));
 
-        });
+window.location.href = "end_quiz.html";
+
+
       </script>
 </body>
 </html>
