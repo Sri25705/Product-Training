@@ -351,8 +351,10 @@ function getStored() {
 }
 
 function guardRedirect() {
-  const { user, course } = getStored();
-  if (!user || !course || !questionBank[course]) {
+  const user= localStorage.getItem('currentUser')
+  const course= localStorage.getItem('selectedCourse')
+ 
+  if (!user || !course) {
     alert('Missing user or course selection. Redirecting to start.');
     window.location.href = 'quiz.html';
     return true;
@@ -515,13 +517,22 @@ chooseBtn.addEventListener('click',()=>{
   window.location.href='quiz.html';
 });
 
-function escapeHtml(str){if(typeof str!=='string') return str; return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function escapeHtml(str){
+  if(typeof str!=='string') return str; 
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
 
 window.addEventListener('load',()=>{
   if(guardRedirect()) return;
-  const {user,course}=getStored();
-  questions=(questionBank[course]||[]).slice();
-  if(!questions.length){alert('No questions available for the selected course.'); window.location.href='quiz.html'; return;}
+ 
+  const quiz=JSON.parse(localStorage.getItem("quizzes"))||"";
+   const user= localStorage.getItem('currentUser')
+  const course= localStorage.getItem('selectedCourse')
+   questions=(quiz[course]||questionBank[course]).slice();
+  if(!questions.length)
+  {alert('No questions available for the selected course.'); 
+  window.location.href='quiz.html';
+   return;}
   courseNameEl.textContent=course;
   userNameEl.textContent=user;
   asideCourse.textContent=course;
@@ -534,6 +545,8 @@ window.addEventListener('load',()=>{
   loadQuestion();
   startTimer();
 });
+
 </script>
 </body>
 </html>
+

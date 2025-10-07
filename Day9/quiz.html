@@ -294,17 +294,17 @@ footer a {
               <img src="JS.png" alt="js">
               <b style="font-size: large;">Basic Java Script</b><br>
               <P>JS Fundmentals(Oops,Operators)</P>
-            <button>Start Quiz</button></div>
+            <button id="js_start">Start Quiz</button></div>
             <div class="quiz2">
               <img src="ht.png" alt="js">
               <b style="font-size: large;">Basic HTML</b><br>
               <P>Basic Tags of HTML</P>
-            <button>Start Quiz</button></div>
+            <button id="html_start">Start Quiz</button></div>
             <div class="quiz3">
               <img src="cs.png" alt="js">
               <b style="font-size: large;">Basic CSS</b><br>
               <P>Basic tags of CSS</P>
-            <button>Start Quiz</button></div>      
+            <button id="css_js" >Start Quiz</button></div>      
           </div>  
 
           <div class="recent-quizzes">
@@ -312,7 +312,7 @@ footer a {
             <div class="recent-list" id="recentList">
             </div>
           </div>
-
+          <p id="sss"></p>
         </div>
         </div>
 
@@ -363,7 +363,7 @@ footer a {
         }
 
         const course = e.target.parentElement.querySelector("b").textContent.trim();
-
+        
         let userQuizzes = JSON.parse(localStorage.getItem("userQuizzes")) || {};
         if (!userQuizzes[currentUser]) {
           userQuizzes[currentUser] = [];
@@ -380,8 +380,6 @@ footer a {
     });
 
     renderRecentQuizzes(); 
-
-    
   });
 
   
@@ -447,15 +445,16 @@ quizList.forEach(name => {
   const div = document.createElement("div");
   div.className = "quiz-extra";
   div.innerHTML = `
-    <img src="default.png" alt="quiz">
+   
     <b style="font-size: large;">${name}</b><br>
     <p>Custom Quiz Created by Admin</p>
     <button class="start-admin-quiz">Start Quiz</button>
   `;
-
+    
   const button = div.querySelector(".start-admin-quiz");
   button.addEventListener("click", () => {
     const currentUser = localStorage.getItem("currentUser");
+    
     if (!currentUser) {
       alert("Please enter your name first!");
       return;
@@ -470,6 +469,7 @@ quizList.forEach(name => {
 });
 
 });
+
 
       </script>
 </body>

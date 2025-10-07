@@ -10,128 +10,111 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
   }
 
   body {
-    background-color: #0b2b3c;
-    color: white;
+    background-color: #f8f7fc;
+    color: #333;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-  }
-
-  .page {
-    flex: 1;
-    display: grid;
-    grid-template-rows: 80px auto;
   }
 
   /* Top Bar */
   .top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #00a79d;
-    color: #f9d342;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    font-size: 24px;
+    background-color: #fff;
+    color: #6c4af2;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 28px;
     font-weight: 600;
-    letter-spacing: 1px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   }
 
   .content {
-    padding: 30px;
+    padding: 40px 80px;
     display: grid;
     gap: 30px;
   }
 
-  /* Dropdown Section */
-  .dropdown {
-    background-color: #003d49;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  /* Section cards */
+  .section-card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 25px 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   }
 
-  .dropdown h2 {
+  .section-card h2 {
+    color: #333;
     margin-bottom: 15px;
-    color: #f9d342;
+    font-size: 20px;
   }
 
+  /* Dropdown Section */
   .dropdown select {
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
     outline: none;
+    font-size: 15px;
     margin-right: 10px;
-    font-size: 16px;
   }
 
   .dropdown button {
-    padding: 10px 20px;
-    border-radius: 6px;
+    padding: 10px 18px;
+    border-radius: 8px;
     border: none;
-    background-color: #f9d342;
-    color: #003d49;
+    background-color: #6c4af2;
+    color: #fff;
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
   }
 
   .dropdown button:hover {
-    background-color: #ffe36d;
+    background-color: #5633e1;
   }
 
-  /* Leaderboard Table */
-  .leaderboard {
-    background-color: #003d49;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  }
-
-  .leaderboard h2 {
-    color: #f9d342;
-    margin-bottom: 15px;
-  }
-
-  table {
+  /* Table */
+  .leaderboard table {
     width: 100%;
     border-collapse: collapse;
+    border-radius: 10px;
     overflow: hidden;
-    border-radius: 8px;
-  }
-
-  th, td {
-    padding: 12px;
-    text-align: center;
   }
 
   th {
-    background-color: #00a79d;
-    color: #f9d342;
-  }
-
-  tr:nth-child(even) {
-    background-color: rgba(255,255,255,0.05);
+    background-color: #6c4af2;
+    color: #fff;
+    padding: 12px;
+    font-weight: 500;
   }
 
   td {
-    color: white;
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
   }
 
+  tr:nth-child(even) {
+    background-color: #faf8ff;
+  }
+
+  /* Buttons */
   td button {
     padding: 6px 12px;
+    border-radius: 6px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     font-weight: 500;
+    transition: 0.3s;
   }
 
   .edit-btn {
     background-color: #f9d342;
-    color: #003d49;
+    color: #333;
   }
 
   .edit-btn:hover {
@@ -140,41 +123,30 @@
 
   .delete-btn {
     background-color: #ff4d4d;
-    color: white;
+    color: #fff;
   }
 
   .delete-btn:hover {
-    background-color: #ff6666;
+    background-color: #ff6a6a;
   }
 
-  .add-score {
-    background-color: #003d49;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    display: grid;
-    gap: 10px;
-  }
-
-  .add-score h2 {
-    color: #f9d342;
-  }
-
+  /* Add Score */
   .add-score input {
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
     outline: none;
-    font-size: 16px;
+    font-size: 15px;
+    width: 100%;
   }
 
   .add-score button {
-    width: 150px;
-    padding: 10px;
-    border-radius: 6px;
+    width: fit-content;
+    padding: 10px 25px;
+    border-radius: 8px;
     border: none;
-    background-color: #f9d342;
-    color: #003d49;
+    background-color: #6c4af2;
+    color: #fff;
     font-weight: 600;
     font-size: 16px;
     cursor: pointer;
@@ -182,50 +154,55 @@
   }
 
   .add-score button:hover {
-    background-color: #ffe36d;
+    background-color: #5633e1;
+  }
+
+  .add-score form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
   }
 
   footer {
     text-align: center;
-    background-color: rgba(255,255,255,0.05);
-    padding: 12px 0;
+    background-color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
     margin-top: auto;
   }
 
   footer a {
     text-decoration: none;
-    color: #f9d342;
+    color: #6c4af2;
     font-weight: 600;
     margin: 0 15px;
+    transition: 0.3s;
   }
 
   footer a:hover {
-    color: #ffe36d;
+    color: #5633e1;
   }
 </style>
 </head>
 <body>
 
-<div class="page">
-
-  <div class="top">
-    Manage Leaderboard
-  </div>
+  <div class="top">Manage Leaderboard</div>
 
   <div class="content">
 
-    <div class="dropdown">
-      <h2>Course/Quiz Selection</h2>
+    <div class="section-card dropdown">
+      <h2>Course / Quiz Selection</h2>
       <select id="courseSelect">
         <option value="">--Select Course/Quiz--</option>
-        <option value="JS">Basics of JS</option>
-        <option value="HTML">Basics of HTML</option>
-        <option value="CSS">Basics of CSS</option>
+        <option value="JS">JavaScript Basics</option>
+        <option value="HTML">HTML Fundamentals</option>
+        <option value="CSS">CSS Design Principles</option>
       </select>
       <button id="loadLeaderboard">Load Leaderboard</button>
     </div>
 
-    <div class="leaderboard">
+    <div class="section-card leaderboard">
       <h2>Top Scores</h2>
       <table id="leaderboardTable">
         <thead>
@@ -242,22 +219,23 @@
       </table>
     </div>
 
-    <div class="add-score">
+    <div class="section-card add-score">
       <h2>Add Score Manually</h2>
-      <input type="text" id="userName" placeholder="User Name">
-      <input type="number" id="userScore" placeholder="Score">
-      <input type="date" id="scoreDate">
-      <button id="addScoreBtn">Add Score</button>
+      <form id="addScoreForm">
+        <input type="text" id="userName" placeholder="User Name">
+        <input type="number" id="userScore" placeholder="Score">
+        <input type="date" id="scoreDate">
+        <button id="addScoreBtn" type="button">Add Score</button>
+      </form>
     </div>
 
   </div>
-</div>
 
-<footer>
-  <a href="admin.html" id="backBtn">Back</a>
-  <a href="quiz.html">Home</a>
-  <a href="#" id="logoutBtn">Logout</a>
-</footer>
+  <footer>
+    <a href="admin.html" id="backBtn">Back</a>
+    <a href="quiz.html">Home</a>
+    <a href="#" id="logoutBtn">Logout</a>
+  </footer>
 
 <script>
   let leaderboardData = {
@@ -273,7 +251,7 @@
     leaderboardTable.innerHTML = "";
     const data = leaderboardData[course] || [];
 
-    data.sort((a,b) => b.score - a.score); 
+    data.sort((a,b) => b.score - a.score);
 
     data.forEach((entry, index) => {
       const row = document.createElement("tr");
@@ -348,7 +326,7 @@
     e.preventDefault();
     window.location.href = "admin-login.html";
   });
-  
+
   document.getElementById("backBtn").addEventListener("click", (e) => {
     e.preventDefault();
     window.location.href = "admin.html";
@@ -356,3 +334,4 @@
 </script>
 </body>
 </html>
+
