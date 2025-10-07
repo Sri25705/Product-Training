@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <script src="https://kit.fontawesome.com/a0dac2072e.js" crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      position: relative;
+      width: 380px;
+      background: #c4c4c4;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .header {
+      text-align: left;
+      padding: 30px 30px 0 30px;
+      color: white;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    form {
+      padding: 40px 30px 50px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .input-box {
+      position: relative;
+    }
+
+    .input-box input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+      outline: none;
+      color: white;
+      font-size: 14px;
+      padding: 10px 0 8px 30px;
+    }
+
+    .input-box i {
+      position: absolute;
+      left: 0;
+      top: 8px;
+      color: white;
+    }
+
+    .login-btn {
+      background: #8b3dff;
+      border: none;
+      padding: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      background: #9281ac;
+    }
+
+   footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      background-color: #8b3dff;
+      padding: 10px 0;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <span>LOGIN</span>
+    </div>
+
+    <form id="loginForm">
+      <div class="input-box">
+        <i class="fa fa-envelope"></i>
+        <input type="email" placeholder="Email ID" id="email" required>
+      </div>
+
+      <div class="input-box">
+        <i class="fa fa-lock"></i>
+        <input type="password" placeholder="Password" id="password" required>
+      </div>
+
+      <input type="submit" value="LOGIN" class="login-btn">
+      
+    </form>
+
+  </div>
+
+  <footer>
+    <a href="quiz.html">Home</a>
+  </footer>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault(); 
+      window.location.href = "admin.html";
+    });
+  </script>
+</body>
+</html>
