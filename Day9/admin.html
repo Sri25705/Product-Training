@@ -8,7 +8,6 @@
     body {
       background-color: #f3f5f7;
       color: #8b3dff;
-      margin: 0;
     }
 
     .page {
@@ -20,7 +19,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: #935de4;;
+      background-color: #935de4;
       padding: 0 20px;
       position: sticky;
       top: 0;
@@ -187,7 +186,7 @@
       </div>
 
       <div class="card">
-        <h2 id="avgScore">0%</h2>
+        <h2 id="avgScore">0</h2>
         <p>Average Quiz Score</p>
       </div>
 
@@ -210,18 +209,15 @@
     function loadDashboard() {
       const users = JSON.parse(localStorage.getItem("users")) || [];
       const quizzes = JSON.parse(localStorage.getItem("quizzes")) || {};
+      const leaderboard=JSON.parse(localStorage.getItem("quiz_leaderboard_v1")) || [];
 
       document.getElementById("totalUsers").innerText = users.length;
+      document.getElementById("totalQuizzes").innerText = Object.keys(quizzes).length;
 
-     document.getElementById("totalQuizzes").innerText = Object.keys(quizzes).length;
-
-      const totalQuizzes = Object.keys(quizzes).length;
       let avgScore = 0;
-      if (totalQuizzes > 0) {
-        const totalScore = Object.values(quizzes).reduce((sum, qArray) => {
-          return sum + (qArray.avgScore || 0);
-        }, 0);
-        avgScore = Math.round(totalScore / totalQuizzes);
+      if (leaderboard.length > 0) {
+        const total = leaderboard.reduce((sum, entry) => sum+entry.score,0); 
+        avgScore = Math.round(total / leaderboard.length);
       }
       document.getElementById("avgScore").innerText = avgScore + "%";
     }
@@ -231,20 +227,17 @@
   const userListDiv = document.getElementById("userList");
   const usersUl = document.getElementById("usersUl");
   
-  usersUl.innerHTML = ""; // Clear previous list
+  usersUl.innerHTML = ""; 
 
   if (users.length === 0) {
     usersUl.innerHTML = "<li>No users found</li>";
   } else {
     users.forEach(user => {
       const li = document.createElement("li");
-      li.textContent = user; // Directly use the string
+      li.textContent = user; 
       usersUl.appendChild(li);
     });
   }
-
-  userListDiv.style.display = "block"; // Show the div
-  userListDiv.scrollIntoView({behavior: "smooth"}); // Scroll to list
 });
 
     document.getElementById("totalQuizzesCard").addEventListener("click", () => {
@@ -263,9 +256,6 @@
           quizUl.appendChild(li);
         });
       }
-
-      quizListDiv.style.display = "block";
-      quizListDiv.scrollIntoView({behavior: "smooth"});
     });
 
     window.onload = loadDashboard;

@@ -6,31 +6,28 @@
 <title>Manage Leaderboard</title>
 
 <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-  }
 
   body {
     background-color: #f8f7fc;
     color: #333;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
   }
 
-  /* Top Bar */
-  .top {
-    background-color: #fff;
-    color: #6c4af2;
-    padding: 20px 0;
-    text-align: center;
-    font-size: 28px;
-    font-weight: 600;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  .page{
+    display: grid;
+    grid-template-rows: 10% 90%;
+    width: 100%;
   }
+
+.top {
+  background-color: #935de4;
+  font-size: larger;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
 
   .content {
     padding: 40px 80px;
@@ -38,7 +35,6 @@
     gap: 30px;
   }
 
-  /* Section cards */
   .section-card {
     background-color: #fff;
     border-radius: 16px;
@@ -52,7 +48,6 @@
     font-size: 20px;
   }
 
-  /* Dropdown Section */
   .dropdown select {
     padding: 10px 15px;
     border-radius: 8px;
@@ -77,7 +72,6 @@
     background-color: #5633e1;
   }
 
-  /* Table */
   .leaderboard table {
     width: 100%;
     border-collapse: collapse;
@@ -102,7 +96,6 @@
     background-color: #faf8ff;
   }
 
-  /* Buttons */
   td button {
     padding: 6px 12px;
     border-radius: 6px;
@@ -130,14 +123,12 @@
     background-color: #ff6a6a;
   }
 
-  /* Add Score */
   .add-score input {
     padding: 10px 15px;
     border-radius: 8px;
     border: 1px solid #ccc;
     outline: none;
     font-size: 15px;
-    width: 100%;
   }
 
   .add-score button {
@@ -159,10 +150,11 @@
 
   .add-score form {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns:auto auto auto auto;
     gap: 15px;
-    margin-top: 10px;
+    
   }
+
 
   footer {
     text-align: center;
@@ -183,11 +175,34 @@
   footer a:hover {
     color: #5633e1;
   }
+
+  @media(max-width:780px){
+    .top{
+      width:100%;
+    }
+  
+    .content{
+      padding: 10px;
+      width: 100%;
+    }
+    
+    .content>div{
+     
+      grid-template-rows: 6fr;
+      width:85%;
+    }
+    .add-score form{
+      grid-template-columns: 1fr;
+    }
+    footer{
+      min-width: 480px;
+    }
+  }
 </style>
 </head>
 <body>
-
-  <div class="top">Manage Leaderboard</div>
+<div class="page">
+  <div class="top"><b>Manage Leaderboard</b></div>
 
   <div class="content">
 
@@ -195,9 +210,6 @@
       <h2>Course / Quiz Selection</h2>
       <select id="courseSelect">
         <option value="">--Select Course/Quiz--</option>
-        <option value="JS">JavaScript Basics</option>
-        <option value="HTML">HTML Fundamentals</option>
-        <option value="CSS">CSS Design Principles</option>
       </select>
       <button id="loadLeaderboard">Load Leaderboard</button>
     </div>
@@ -228,110 +240,311 @@
         <button id="addScoreBtn" type="button">Add Score</button>
       </form>
     </div>
-
+</div>
   </div>
 
   <footer>
     <a href="admin.html" id="backBtn">Back</a>
     <a href="quiz.html">Home</a>
-    <a href="#" id="logoutBtn">Logout</a>
   </footer>
 
 <script>
-  let leaderboardData = {
-    "JS": [],
-    "HTML": [],
-    "CSS": []
-  };
 
-  const leaderboardTable = document.getElementById("leaderboardTable").querySelector("tbody");
-  const courseSelect = document.getElementById("courseSelect");
+const courseSelect = document.getElementById('courseSelect');
+const loadBtn = document.getElementById('loadLeaderboard');
+const tbody = document.querySelector('#leaderboardTable tbody');
+const addBtn = document.getElementById('addScoreBtn');
+const userNameInput = document.getElementById('userName');
+const userScoreInput = document.getElementById('userScore');
+const scoreDateInput = document.getElementById('scoreDate');
 
-  function renderLeaderboard(course) {
-    leaderboardTable.innerHTML = "";
-    const data = leaderboardData[course] || [];
+const defaultCourses = [
+  "Basic Java Script",
+  "Basic HTML",
+  "Basic CSS"
+];
 
-    data.sort((a,b) => b.score - a.score);
+function norm(s) {
+  if (!s) return '';
+  return String(s).toLowerCase().replace(/[^a-z0-9]/g,'');
+}
 
-    data.forEach((entry, index) => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
-        <td>${index + 1}</td>
-        <td>${entry.user}</td>
-        <td>${entry.score}</td>
-        <td>${entry.course}</td>
-        <td>${entry.date}</td>
-        <td>
-          <button class="edit-btn" onclick="editScore('${course}', ${index})">Edit</button>
-          <button class="delete-btn" onclick="deleteScore('${course}', ${index})">Delete</button>
-        </td>
-      `;
-      leaderboardTable.appendChild(row);
+function buildCourseList() {
+  const set = new Set();
+
+  defaultCourses.forEach(c => set.add(c));
+
+  const quizzes = JSON.parse(localStorage.getItem('quizzes')) || {};
+  Object.keys(quizzes).forEach(c => set.add(c));
+
+  const quizArr = JSON.parse(localStorage.getItem('quiz_leaderboard_v1')) || [];
+  quizArr.forEach(e => { if (e && e.course) set.add(e.course); });
+
+  const leaderboardMap = JSON.parse(localStorage.getItem('leaderboard')) || {};
+  Object.keys(leaderboardMap).forEach(k => set.add(k));
+
+  const leaderboardData = JSON.parse(localStorage.getItem('leaderboardData')) || {};
+  Object.keys(leaderboardData).forEach(k => set.add(k));
+
+  return Array.from(set).sort((a,b) => a.localeCompare(b));
+}
+
+function populateDropdown() {
+  const courses = buildCourseList();
+ 
+  courseSelect.innerHTML = '<option value="">--Select Course/Quiz--</option>';
+  courses.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c;
+    opt.textContent = c;
+    courseSelect.appendChild(opt);
+  });
+}
+
+function gatherEntriesForCourse(selectedCourse) {
+  const selectedNorm = norm(selectedCourse || '');
+  const combined = [];
+
+  const quizArr = JSON.parse(localStorage.getItem('quiz_leaderboard_v1')) || [];
+  quizArr.forEach(e => {
+    if (!e) return;
+    const entryCourse = e.course || '';
+    const entryNorm = norm(entryCourse);
+
+    const matches = entryNorm === selectedNorm
+                 || entryNorm.includes(selectedNorm)
+                 || selectedNorm.includes(entryNorm)
+                 || (selectedNorm === 'js' && entryNorm.includes('java'))
+                 || (selectedNorm === 'javascript' && entryNorm.includes('java'))
+                 || (selectedNorm === 'html' && entryNorm.includes('html'))
+                 || (selectedNorm === 'css' && entryNorm.includes('css'));
+
+    if (matches) {
+      combined.push({
+        name: e.name || e.user || e.username || 'Unknown',
+        score: Number(e.score) || 0,
+        date: e.at || e.date || e.time || (new Date()).toISOString(),
+        course: entryCourse
+      });
+    }
+  });
+
+  const leaderboardMap = JSON.parse(localStorage.getItem('leaderboard')) || {};
+  if (leaderboardMap && typeof leaderboardMap === 'object') {
+    Object.keys(leaderboardMap).forEach(courseKey => {
+      const arr = leaderboardMap[courseKey] || [];
+      const courseKeyNorm = norm(courseKey);
+      const matchesCourse = courseKeyNorm === selectedNorm
+                         || courseKeyNorm.includes(selectedNorm)
+                         || selectedNorm.includes(courseKeyNorm)
+                         || (selectedNorm === 'js' && courseKeyNorm.includes('java'));
+      if (matchesCourse) {
+        arr.forEach(e => {
+          combined.push({
+            name: e.name || e.user || e.username || 'Unknown',
+            score: Number(e.score) || 0,
+            date: e.date || e.at || (new Date()).toISOString(),
+            course: courseKey
+          });
+        });
+      }
     });
   }
 
-  document.getElementById("loadLeaderboard").addEventListener("click", () => {
-    const course = courseSelect.value;
-    if(course) {
-      renderLeaderboard(course);
-    } else {
-      alert("Please select a course/quiz!");
+  const leaderboardData = JSON.parse(localStorage.getItem('leaderboardData')) || {};
+  if (leaderboardData && typeof leaderboardData === 'object') {
+    Object.keys(leaderboardData).forEach(courseKey => {
+      const arr = leaderboardData[courseKey] || [];
+      const courseKeyNorm = norm(courseKey);
+      const matchesCourse = courseKeyNorm === selectedNorm
+                         || courseKeyNorm.includes(selectedNorm)
+                         || selectedNorm.includes(courseKeyNorm)
+                         || (selectedNorm === 'js' && courseKeyNorm.includes('java'));
+      if (matchesCourse) {
+        arr.forEach(e => {
+          combined.push({
+            name: e.name || e.user || e.username || 'Unknown',
+            score: Number(e.score) || 0,
+            date: e.date || e.at || (new Date()).toISOString(),
+            course: courseKey
+          });
+        });
+      }
+    });
+  }
+
+  const seen = new Set();
+  const unique = [];
+  combined.forEach(it => {
+    const key = `${norm(it.name)}|${it.score}|${norm(it.date)}`;
+    if (!seen.has(key)) {
+      seen.add(key);
+      unique.push(it);
     }
   });
 
-  document.getElementById("addScoreBtn").addEventListener("click", () => {
-    const course = courseSelect.value;
-    const user = document.getElementById("userName").value;
-    const score = parseInt(document.getElementById("userScore").value);
-    const date = document.getElementById("scoreDate").value;
+  return unique;
+}
 
-    if(!course || !user || isNaN(score) || !date) {
-      alert("Please fill all fields and select a course!");
+function renderLeaderboardFor(course) {
+  tbody.innerHTML = '';
+  if (!course) {
+    tbody.innerHTML = '<tr><td colspan="6">Please select a course and click Load Leaderboard.</td></tr>';
+    return;
+  }
+
+  const entries = gatherEntriesForCourse(course);
+
+  if (!entries.length) {
+    tbody.innerHTML = `<tr><td colspan="6">No records found for "${course}".</td></tr>`;
+    return;
+  }
+
+  entries.sort((a,b)=>{
+    if (b.score !== a.score) return b.score - a.score;
+    return new Date(b.date) - new Date(a.date);
+  });
+
+  const top = entries.slice(0,5);
+
+  top.forEach((e, idx) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${idx + 1}</td>
+      <td>${escapeHtml(e.name)}</td>
+      <td>${e.score}</td>
+      <td>${escapeHtml(e.course)}</td>
+      <td>${formatDate(e.date)}</td>
+      <td>
+        <button class="edit-btn" onclick="editScore('${escapeJs(course)}', ${idx})">Edit</button>
+        <button class="delete-btn" onclick="deleteScore('${escapeJs(course)}', ${idx})">Delete</button>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function escapeHtml(s){ if(s===null || s===undefined) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escapeJs(s){ return (s||'').replace(/'/g,"\\'").replace(/"/g,'\\"'); }
+function formatDate(d){
+  try {
+    const dt = new Date(d);
+    if (isNaN(dt)) return String(d).slice(0,19);
+    return dt.toLocaleString();
+  } catch(e) { return d; }
+}
+
+function addManualScore() {
+  const course = courseSelect.value;
+  const name = (userNameInput.value || '').trim();
+  const score = parseInt(userScoreInput.value, 10);
+  const dateInput = scoreDateInput.value; 
+  if (!course) { alert('Select a course first'); return; }
+  if (!name) { alert('Enter a user name'); return; }
+  if (Number.isNaN(score)) { alert('Enter a valid score'); return; }
+
+  const nowIso = new Date().toISOString();
+  const dateToStore = dateInput ? (new Date(dateInput)).toISOString() : nowIso;
+
+  const arrKey = 'quiz_leaderboard_v1';
+  const arr = JSON.parse(localStorage.getItem(arrKey)) || [];
+  arr.push({ name: name, course: course, score: score, at: dateToStore });
+  localStorage.setItem(arrKey, JSON.stringify(arr));
+
+  const mapKey = 'leaderboard';
+  const map = JSON.parse(localStorage.getItem(mapKey)) || {};
+  if (!Array.isArray(map[course])) map[course] = [];
+  map[course].push({ name: name, score: score, date: formatDate(dateToStore) });
+  localStorage.setItem(mapKey, JSON.stringify(map));
+
+  const altKey = 'leaderboardData';
+  const alt = JSON.parse(localStorage.getItem(altKey)) || {};
+  if (!Array.isArray(alt[course])) alt[course] = [];
+  alt[course].push({ name: name, score: score, date: formatDate(dateToStore) });
+  localStorage.setItem(altKey, JSON.stringify(alt));
+
+  renderLeaderboardFor(course);
+
+  userNameInput.value = '';
+  userScoreInput.value = '';
+  scoreDateInput.value = '';
+}
+
+loadBtn.addEventListener('click', ()=>{
+  const course = courseSelect.value;
+  renderLeaderboardFor(course);
+});
+
+addBtn.addEventListener('click', addManualScore);
+
+window.editScore = function(course, idx){
+  const entries = gatherEntriesForCourse(course).sort((a,b)=> b.score - a.score || (new Date(b.date)-new Date(a.date)));
+  const item = entries[idx];
+  if (!item) { alert('Item not found'); return; }
+
+  const newName = prompt('Edit name:', item.name);
+  const newScoreStr = prompt('Edit score:', String(item.score));
+  const newDateStr = prompt('Edit date/time (ISO or leave):', item.date);
+
+  if (newName === null || newScoreStr === null) return;
+
+  const newScore = parseInt(newScoreStr,10);
+  const newDate = newDateStr ? (new Date(newDateStr).toISOString() || item.date) : item.date;
+
+  const mapKey = 'leaderboard';
+  const map = JSON.parse(localStorage.getItem(mapKey)) || {};
+  if (Array.isArray(map[course])) {
+    
+    const foundIndex = map[course].findIndex(e => norm(e.name) === norm(item.name) && Number(e.score) === Number(item.score));
+    if (foundIndex !== -1) {
+      map[course][foundIndex] = { name: newName, score: Number(newScore), date: formatDate(newDate) };
+      localStorage.setItem(mapKey, JSON.stringify(map));
+
+      const arrKey = 'quiz_leaderboard_v1';
+      const arr = JSON.parse(localStorage.getItem(arrKey)) || [];
+      const arrIdx = arr.findIndex(e => norm(e.name) === norm(item.name) && Number(e.score) === Number(item.score));
+      if (arrIdx !== -1) {
+        arr[arrIdx] = { name: newName, course: course, score: Number(newScore), at: newDate };
+        localStorage.setItem(arrKey, JSON.stringify(arr));
+      }
+      renderLeaderboardFor(course);
       return;
     }
+  }
 
-    leaderboardData[course].push({user, score, course, date});
-    renderLeaderboard(course);
+  alert('Could not locate the original entry to edit reliably (best-effort). Manual edit updates map storage when possible.');
+};
 
-    document.getElementById("userName").value = "";
-    document.getElementById("userScore").value = "";
-    document.getElementById("scoreDate").value = "";
-  });
+window.deleteScore = function(course, idx){
+  if (!confirm('Delete this top entry?')) return;
+  const entries = gatherEntriesForCourse(course).sort((a,b)=> b.score - a.score || (new Date(b.date)-new Date(a.date)));
+  const item = entries[idx];
+  if (!item) { alert('Item not found'); return; }
 
-  function editScore(course, index) {
-    const entry = leaderboardData[course][index];
-    const newUser = prompt("Edit User Name:", entry.user);
-    const newScore = prompt("Edit Score:", entry.score);
-    const newDate = prompt("Edit Date:", entry.date);
-
-    if(newUser && newScore && newDate) {
-      leaderboardData[course][index] = {
-        user: newUser,
-        score: parseInt(newScore),
-        course,
-        date: newDate
-      };
-      renderLeaderboard(course);
+  const mapKey = 'leaderboard';
+  const map = JSON.parse(localStorage.getItem(mapKey)) || {};
+  if (Array.isArray(map[course])) {
+    const indexInMap = map[course].findIndex(e => norm(e.name) === norm(item.name) && Number(e.score) === Number(item.score));
+    if (indexInMap !== -1) {
+      map[course].splice(indexInMap, 1);
+      localStorage.setItem(mapKey, JSON.stringify(map));
     }
   }
 
-  function deleteScore(course, index) {
-    if(confirm("Are you sure you want to delete this score?")) {
-      leaderboardData[course].splice(index, 1);
-      renderLeaderboard(course);
-    }
-  }
+  const arrKey = 'quiz_leaderboard_v1';
+  let arr = JSON.parse(localStorage.getItem(arrKey)) || [];
+  arr = arr.filter(e => !(norm(e.name) === norm(item.name) && Number(e.score) === Number(item.score)));
+  localStorage.setItem(arrKey, JSON.stringify(arr));
 
-  document.getElementById("logoutBtn").addEventListener("click", (e) => {
-    e.preventDefault();
-    window.location.href = "admin-login.html";
-  });
+  renderLeaderboardFor(course);
+};
 
-  document.getElementById("backBtn").addEventListener("click", (e) => {
-    e.preventDefault();
-    window.location.href = "admin.html";
-  });
+populateDropdown();
+
+document.getElementById('backBtn').addEventListener('click', (e)=>{
+  e.preventDefault();
+  window.location.href = 'admin.html';
+});
 </script>
 </body>
 </html>
-

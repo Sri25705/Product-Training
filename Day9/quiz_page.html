@@ -5,19 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Quiz</title>
   <style>
-    :root{
-      --bg:#f4f7fb;
-      --card:#ffffff;
-      --muted:#985af7c9;
-      --accent: #8b3dff;
-      --good: #16a34a;
-      --warn: #d97706;
-      --bad: #dc2626;
-    }
+  
     body{
       margin:0;
-      font-family:Inter, Arial, sans-serif;
-      background:var(--bg);
       color:#111
     }
 
@@ -31,8 +21,14 @@
       box-shadow:0 2px 10px rgba(2,6,23,.08);
     }
 
-    .header .left{font-weight:700;font-size:18px}
-    .header .right{font-size:15px;color:#cbd5e1}
+    .header .left{
+      font-weight:700;
+      font-size:18px
+    }
+    .header .right{
+      font-size:15px;
+      color:#cbd5e1
+    }
 
     .wrap {
       width:100vw;
@@ -46,7 +42,7 @@
     }
 
     .card {
-      background:var(--card);
+      background:white;
       padding:40px 50px;
       border-radius:16px;
       width:80vw;
@@ -60,7 +56,7 @@
 
     .quiz-grid{
       display:grid;
-      grid-template-columns:1fr 320px;
+      grid-template-columns:1fr 1fr;
       gap:18px
     }
     .question{
@@ -75,13 +71,15 @@
       margin:8px 0;
       border:1px solid #e6eefb;
       cursor:pointer;
-      transition:all .12s}
+      transition:all .12s
+    }
 
     .options label:hover{
       background:#f8fbff
     }
     .options input{
-      margin-right:10px}
+      margin-right:10px
+    }
 
     .controls{
       display:flex;
@@ -91,7 +89,7 @@
     }
 
     .btn{
-      background:var(--accent);
+      background:#8b3dff;
       color:#fff;
       padding:10px 14px;
       border-radius:10px;
@@ -101,52 +99,96 @@
     }
     .btn.ghost{
       background:transparent;
-      color:var(--accent);
-      border:1px solid rgba(106, 37, 235, 0.12)}
-    .progress-linear{height:8px;background:#eef2ff;
-      border-radius:999px;
-      overflow:hidden;margin-top:12px}
-    .progress-linear > i{display:block;height:100%;
-      width:0;background:linear-gradient(90deg, #c6b3e4cb, #8b3dff);
-      transition:width .36s ease}
-    .aside{padding:12px}
-    .meta{font-size:13px;color:var(--muted);
-      margin-bottom:8px}
-    .meta strong{color:#111
+      color:#8b3dff;
+      border:1px solid rgba(106, 37, 235, 0.12)
     }
-    .small{font-size:13px;
-      color:var(--muted)
+    .progress-linear{
+      height:8px;background:#eef2ff;
+      border-radius:60px;
+      overflow:hidden;
+      margin-top:12px
+    }
+    .progress-linear > i{
+      display:block;
+      height:100%;
+      width:0;
+      background:linear-gradient(90deg, #c6b3e4cb, #8b3dff);
+      transition:width .36s ease
+    }
+    .aside{
+      padding:12px
+    }
+    .meta{
+      font-size:13px;
+      color:#985af7c9;
+      margin-bottom:8px
+    }
+    .meta strong{
+      color:#111
+    }
+    .small{
+      font-size:13px;
+      color:#985af7c9;
     }
     .circle-wrap{
       display:flex;
       justify-content:center;
       margin:18px 0
     }
-    .score-text{font-size:20px;
+    .score-text{
+      font-size:20px;
       font-weight:700;
-      margin-top:8px}
-    .summary-list{margin-top:14px;text-align:left}
-    .qitem{background:#fcfdff;
+      margin-top:8px
+    }
+    .summary-list{
+      margin-top:14px;
+      text-align:left
+    }
+    .qitem{
+      background:#fcfdff;
       border-radius:8px;padding:10px;
       margin-bottom:8px;
-      border:1px solid #eef3ff}
-    .qitem .correct{color:var(--good);font-weight:700}
-    .qitem .wrong{color:var(--bad);font-weight:700}
-    .leaderboard{margin-top:14px;text-align:left}
-    .lb-item{display:flex;justify-content:space-between;padding:8px;border-radius:8px;background:#fbfdff;margin-bottom:6px;border:1px solid #eef3ff}
-    .highlight{background:linear-gradient(90deg, #fffbe6, #fff6e6);border-color:#fef3c7}
-    .summary-actions{display:flex;
-      justify-content:center;gap:12px;
-      margin-top:14px}
+      border:1px solid #eef3ff;
+    }
+    .qitem .correct{
+      color:green;
+      font-weight:700
+    }
+    .qitem .wrong{
+      color:red;
+      font-weight:700
+    }
+    .leaderboard{
+      margin-top:14px;
+      text-align:left
+    }
+    .lb-item{
+      display:flex;
+      justify-content:space-between;
+      padding:8px;
+      border-radius:8px;
+      background:#fbfdff;
+      margin-bottom:6px;
+      border:1px solid #eef3ff;
+    }
+    .highlight{
+      background:linear-gradient(90deg, #fffbe6, #fff6e6);
+      border-color:#fef3c7
+    }
+    .summary-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      margin-top:14px
+    }
     @media(max-width:880px){
       .quiz-grid{
-        grid-template-columns:1fr
+        grid-template-columns:1fr;
       }
       .aside{
         order:2
       }
     }
-
     #resultCard{
       display:none;
     }
@@ -180,7 +222,7 @@
         </div>
         <aside class="aside">
           <div class="meta">Course: <strong id="asideCourse">-</strong></div>
-          <div class="meta">Player: <strong id="asideUser">-</strong></div>
+          <div class="meta">User Name: <strong id="asideUser">-</strong></div>
           <div style="margin-top:12px">
             <div class="small">Questions</div>
             <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap" id="qDots"></div>
@@ -201,7 +243,7 @@
           </svg>
         </div>
         <div class="score-text" id="scoreText">Score: 0 / 0</div>
-        <div style="margin-top:8px;color:var(--muted)" id="percentageDesc">Percentage</div>
+        <div style="margin-top:8px;color:#985af7c9" id="percentageDesc">Percentage</div>
         <div style="margin-top:18px">
           <button class="btn" id="summaryBtn">Show Summary</button>
         </div>
@@ -210,7 +252,7 @@
           <h2>End of Quiz Summary</h2>
           <div style="display:flex;justify-content:space-between;align-items:center">
             <div style="font-weight:700" id="summaryHeader">Course | User</div>
-            <div style="color:var(--muted)" id="summaryScore">Score</div>
+            <div style="color:#985af7c9" id="summaryScore">Score</div>
           </div>
           <div class="summary-list" id="breakdownList"></div>
           <div class="leaderboard">
@@ -230,16 +272,30 @@
 <script>
 const questionBank = {
   "Basic Java Script":[
-    { text: "Which keyword is used to declare a variable in JavaScript?", options: ["var","let","const","All of the above"], correct: 3 },
-    { text: "What does typeof null return in JavaScript?", options: ["object","null","undefined","number"], correct: 0 },
-    { text: "Which operator is used for strict equality comparison in JavaScript?", options: ["==","!=","===","!=="], correct: 2 },
-    { text: "What is the output of console.log(3 + 2 + '7');?", options: ['"57"','"327"',"12","NaN"], correct: 0 },
-    { text: "Which of the following is NOT a JavaScript data type?", options: ["String","Boolean","Character","Number"], correct: 2 },
-    { text: "How do you create a function in JavaScript?", options: ["function myFunction()","function:myFunction()","function = myFunction()","myFunction = function()"], correct: 0 },
-    { text: "What is the purpose of the return statement in a JavaScript function?", options: ["To stop the execution of the function.","To return a value from the function.","To define the function's scope.","Both a and b."], correct: 3 },
-    { text: "Which method is used to add an element to the end of an array in JavaScript?", options: ["push()","pop()","unshift()","shift()"], correct: 0 },
-    { text: "What is 'hoisting' in JavaScript?", options: ["A mechanism where variable and function declarations are moved to the top of their scope during compilation.","A way to prevent variable declarations from being moved.","A method for optimizing code execution speed.","A type of error handling."], correct: 0 },
-    { text: "How do you comment out a single line in JavaScript?", options: ["<!-- comment -->","// comment","/* comment */","# comment"], correct: 1 }
+    { text: "Which keyword is used to declare a variable in JavaScript?",
+     options: ["var","let","const","All of the above"],
+      correct: 3 },
+    { text: "What does typeof null return in JavaScript?",
+     options: ["object","null","undefined","number"],
+      correct: 0 },
+    { text: "Which operator is used for strict equality comparison in JavaScript?",
+     options: ["==","!=","===","!=="],
+      correct: 2 },
+    { text: "What is the output of console.log(3 + 2 + '7');?",
+     options: ['"57"','"327"',"12","NaN"], correct: 0 },
+    { text: "Which of the following is NOT a JavaScript data type?",
+     options: ["String","Boolean","Character","Number"], correct: 2 },
+    { text: "How do you create a function in JavaScript?",
+     options: ["function myFunction()","function:myFunction()","function = myFunction()","myFunction = function()"],
+      correct: 0 },
+    { text: "What is the purpose of the return statement in a JavaScript function?",
+     options: ["To stop the execution of the function.","To return a value from the function.","To define the function's scope.","Both a and b."], correct: 3 },
+    { text: "Which method is used to add an element to the end of an array in JavaScript?",
+     options: ["push()","pop()","unshift()","shift()"], correct: 0 },
+    { text: "What is 'hoisting' in JavaScript?",
+     options: ["A mechanism where variable and function declarations are moved to the top of their scope during compilation.","A way to prevent variable declarations from being moved.","A method for optimizing code execution speed.","A type of error handling."], correct: 0 },
+    { text: "How do you comment out a single line in JavaScript?",
+     options: ["<!-- comment -->","// comment","/* comment */","# comment"], correct: 1 }
   ],
   "Basic HTML":[
     { text: "What does HTML stand for?",
@@ -343,19 +399,11 @@ const chooseBtn = document.getElementById('chooseBtn');
 const circleRadius = 52;
 const circumference = 2 * Math.PI * circleRadius;
 
-function getStored() {
-  return {
-    user: localStorage.getItem('currentUser'),
-    course: localStorage.getItem('selectedCourse')
-  };
-}
-
 function guardRedirect() {
-  const user= localStorage.getItem('currentUser')
-  const course= localStorage.getItem('selectedCourse')
- 
+  const user = localStorage.getItem('currentUser');
+  const course = localStorage.getItem('selectedCourse');
   if (!user || !course) {
-    alert('Missing user or course selection. Redirecting to start.');
+    alert('Missing user or course selection. Redirecting to start page.');
     window.location.href = 'quiz.html';
     return true;
   }
@@ -363,12 +411,15 @@ function guardRedirect() {
 }
 
 function updateHeader() {
-  const { user, course } = getStored();
+  const user = localStorage.getItem('currentUser');
+  const course = localStorage.getItem('selectedCourse');
   courseNameEl.textContent = course || 'Course';
   userNameEl.textContent = user || 'Guest';
   asideCourse.textContent = course || '-';
   asideUser.textContent = user || '-';
-  qDots.innerHTML = questions.map((_, i) => `<div style="width:10px;height:10px;border-radius:50%;background:${i===currentQuestion?'#2563eb':'#e6eefb'};border:1px solid #dfe7f2"></div>`).join('');
+  qDots.innerHTML = questions.map((_, i) =>
+    `<div style="width:10px;height:10px;border-radius:50%;background:${i===currentQuestion?'#2563eb':'#e6eefb'};border:1px solid #dfe7f2"></div>`
+  ).join('');
 }
 
 function startTimer() {
@@ -380,15 +431,11 @@ function startTimer() {
     timerEl.textContent = `${timer}s`;
     if (timer <= 0) {
       clearInterval(timerInterval);
-      finishDueToTime();
+      alert("Time's up!");
+      calculateScore();
+      showResult();
     }
-  },1000);
-}
-
-function finishDueToTime() {
-  alert("Time's up!");
-  calculateScore();
-  showResult();
+  }, 1000);
 }
 
 function loadQuestion() {
@@ -396,37 +443,32 @@ function loadQuestion() {
   if (!q) return;
   questionTextEl.textContent = `Q${currentQuestion+1}. ${q.text}`;
   optionsBox.innerHTML = '';
-  q.options.forEach((opt, idx)=>{
+  q.options.forEach((opt, idx) => {
     const label = document.createElement('label');
     const input = document.createElement('input');
-    input.type='radio';
-    input.name='option';
+    input.type = 'radio';
+    input.name = 'option';
     input.value = idx;
-    if(selectedAnswers[currentQuestion]===idx) input.checked=true;
+    if (selectedAnswers[currentQuestion] === idx) input.checked = true;
     label.appendChild(input);
-    label.appendChild(document.createTextNode(' '+opt));
+    label.appendChild(document.createTextNode(' ' + opt));
     optionsBox.appendChild(label);
   });
   linearFill.style.width = Math.round(((currentQuestion+1)/questions.length)*100)+'%';
-  if(currentQuestion===questions.length-1){
-    nextBtn.style.display='none';
-    completeBtn.style.display='inline-block';
-  } else {
-    nextBtn.style.display='inline-block';
-    completeBtn.style.display='none';
-  }
+  nextBtn.style.display = currentQuestion === questions.length - 1 ? 'none' : 'inline-block';
+  completeBtn.style.display = currentQuestion === questions.length - 1 ? 'inline-block' : 'none';
   updateHeader();
 }
 
 function saveSelection(){
-  const sel=document.querySelector('input[name="option"]:checked');
-  if(!sel) return false;
-  selectedAnswers[currentQuestion]=parseInt(sel.value,10);
+  const sel = document.querySelector('input[name="option"]:checked');
+  if (!sel) return false;
+  selectedAnswers[currentQuestion] = parseInt(sel.value, 10);
   return true;
 }
 
 nextBtn.addEventListener('click',()=>{
-  if(!saveSelection()){alert('Please select an option before proceeding.'); return;}
+  if(!saveSelection()){alert('Please select an option before proceeding.');return;}
   currentQuestion++;
   loadQuestion();
 });
@@ -437,25 +479,25 @@ backBtn.addEventListener('click',()=>{
 });
 
 completeBtn.addEventListener('click',()=>{
-  if(!saveSelection()){alert('Please select an option before submitting.'); return;}
+  if(!saveSelection()){alert('Please select an option before submitting.');return;}
   calculateScore();
   showResult();
 });
 
 function calculateScore(){
-  score=0;
+  score = 0;
   questions.forEach((q,i)=>{
-    if(selectedAnswers[i]===q.correct) score++;
+    if(selectedAnswers[i] === q.correct) score++;
   });
 }
 
 function setCircleProgress(percentage){
   const offset = circumference - (percentage/100)*circumference;
-  progressCircle.style.transition='stroke-dashoffset 900ms ease, stroke 600ms ease';
-  progressCircle.style.strokeDasharray=`${circumference}`;
-  setTimeout(()=>{progressCircle.style.strokeDashoffset=offset;},20);
+  progressCircle.style.transition = 'stroke-dashoffset 900ms ease, stroke 600ms ease';
+  progressCircle.style.strokeDasharray = `${circumference}`;
+  setTimeout(()=>{progressCircle.style.strokeDashoffset = offset;},20);
   progressCircle.style.stroke = getColorForPercentage(percentage);
-  progressLabel.textContent=`${percentage}%`;
+  progressLabel.textContent = `${percentage}%`;
 }
 
 function getColorForPercentage(p){
@@ -466,49 +508,53 @@ function getColorForPercentage(p){
 
 function showResult(){
   clearInterval(timerInterval);
-  quizCard.style.display='none';
-  resultCard.style.display='block';
+  quizCard.style.display = 'none';
+  resultCard.style.display = 'block';
   const percentage = Math.round((score/questions.length)*100);
-  scoreTextEl.textContent=`Score: ${score} / ${questions.length}`;
-  percentageDesc.textContent=`${percentage}%`;
+  scoreTextEl.textContent = `Score: ${score} / ${questions.length}`;
+  percentageDesc.textContent = `${percentage}%`;
   setCircleProgress(percentage);
 }
 
 summaryBtn.addEventListener('click',()=>{
-  summarySection.style.display='block';
-  const {user,course}=getStored();
-  summaryHeader.textContent=`${course} | ${user}`;
-  summaryScore.textContent=`Score: ${score}/${questions.length}`;
+  summarySection.style.display = 'block';
+  const user = localStorage.getItem('currentUser');
+  const course = localStorage.getItem('selectedCourse');
+  summaryHeader.textContent = `${course} | ${user}`;
+  summaryScore.textContent = `Score: ${score}/${questions.length}`;
 
-  breakdownList.innerHTML='';
+  breakdownList.innerHTML = '';
   questions.forEach((q,i)=>{
     const your = selectedAnswers[i]!==undefined ? q.options[selectedAnswers[i]] : '<em>Not answered</em>';
     const correct = q.options[q.correct];
-    const div=document.createElement('div');
-    div.className='qitem';
+    const div = document.createElement('div');
+    div.className = 'qitem';
     const isCorrect = selectedAnswers[i]===q.correct;
-    div.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-                      <div style="font-weight:700">Q${i+1}</div>
-                      <div style="font-size:13px;color:${isCorrect?getColorForPercentage(100):'#6b7280'}">${isCorrect?'Correct':'Wrong'}</div>
-                    </div>
-                    <div style="margin-bottom:6px">${q.text}</div>
-                    <div style="font-size:14px"><strong>Your:</strong> ${escapeHtml(your)}</div>
-                    <div style="font-size:14px"><strong>Correct:</strong> ${escapeHtml(correct)}</div>`;
+    div.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div style="font-weight:700">Q${i+1}</div>
+        <div style="font-size:13px;color:${isCorrect?getColorForPercentage(100):'#6b7280'}">
+          ${isCorrect?'Correct':'Wrong'}</div>
+      </div>
+      <div style="margin-bottom:6px">${q.text}</div>
+      <div style="font-size:14px"><strong>Your:</strong> ${escapeHtml(your)}</div>
+      <div style="font-size:14px"><strong>Correct:</strong> ${escapeHtml(correct)}</div>`;
     breakdownList.appendChild(div);
   });
 
-  const lbKey='quiz_leaderboard_v1';
-  const prev=JSON.parse(localStorage.getItem(lbKey)||'[]');
-  prev.push({name:user,course:course,score:score,at:new Date().toISOString()});
-  localStorage.setItem(lbKey,JSON.stringify(prev));
-  const courseBoard=prev.filter(e=>e.course===course).sort((a,b)=>b.score-a.score || new Date(a.at)-new Date(b.at)).slice(0,5);
-  leaderboardList.innerHTML=courseBoard.map((e,idx)=>{
+  const lbKey = 'quiz_leaderboard_v1';
+  const prev = JSON.parse(localStorage.getItem(lbKey) || '[]');
+  prev.push({name:user, course:course, score:score, at:new Date().toISOString()});
+  localStorage.setItem(lbKey, JSON.stringify(prev));
+
+  const courseBoard = prev.filter(e=>e.course===course).sort((a,b)=>b.score-a.score || new Date(a.at)-new Date(b.at)).slice(0,5);
+  leaderboardList.innerHTML = courseBoard.map((e,idx)=>{
     const highlight=(e.name===user && e.score===score)?'highlight':'';
     return `<div class="lb-item ${highlight}">
               <div>${idx+1}. ${escapeHtml(e.name)}</div>
               <div style="font-weight:700">${e.score}</div>
             </div>`;
-  }).join('')||'<div style="color:#6b7280">No leaderboard entries yet.</div>';
+  }).join('') || '<div style="color:#6b7280">No leaderboard entries yet.</div>';
 });
 
 retakeBtn.addEventListener('click',()=>{location.reload();});
@@ -518,35 +564,37 @@ chooseBtn.addEventListener('click',()=>{
 });
 
 function escapeHtml(str){
-  if(typeof str!=='string') return str; 
+  if(typeof str!=='string') return str;
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
 window.addEventListener('load',()=>{
   if(guardRedirect()) return;
- 
-  const quiz=JSON.parse(localStorage.getItem("quizzes"))||"";
-   const user= localStorage.getItem('currentUser')
-  const course= localStorage.getItem('selectedCourse')
-   questions=(quiz[course]||questionBank[course]).slice();
-  if(!questions.length)
-  {alert('No questions available for the selected course.'); 
-  window.location.href='quiz.html';
-   return;}
-  courseNameEl.textContent=course;
-  userNameEl.textContent=user;
-  asideCourse.textContent=course;
-  asideUser.textContent=user;
 
-  progressCircle.style.strokeDasharray=`${circumference}`;
-  progressCircle.style.strokeDashoffset=`${circumference}`;
-  qDots.innerHTML=questions.map((_,i)=>`<div style="width:10px;height:10px;border-radius:50%;background:${i===0?'#2563eb':'#e6eefb'};border:1px solid #dfe7f2"></div>`).join('');
+  const course = localStorage.getItem('selectedCourse');
+  const user = localStorage.getItem('currentUser');
+  const quiz = JSON.parse(localStorage.getItem('quizzes') || '{}');
+
+  questions = (quiz[course] || questionBank[course] || []).slice();
+  if(!questions.length){
+    alert('No questions available for the selected course.');
+    window.location.href='quiz.html';
+    return;
+  }
+
+  courseNameEl.textContent = course;
+  userNameEl.textContent = user;
+  asideCourse.textContent = course;
+  asideUser.textContent = user;
+
+  progressCircle.style.strokeDasharray = `${circumference}`;
+  progressCircle.style.strokeDashoffset = `${circumference}`;
+  qDots.innerHTML = questions.map((_,i)=>
+    `<div style="width:10px;height:10px;border-radius:50%;background:${i===0?'#2563eb':'#e6eefb'};
+    border:1px solid #dfe7f2"></div>`
+  ).join('');
 
   loadQuestion();
   startTimer();
 });
-
 </script>
-</body>
-</html>
-
