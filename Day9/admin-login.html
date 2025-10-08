@@ -8,6 +8,7 @@
 
   <style>
     body {
+      font-family: 'Times New Roman', Times, serif;
       background-color: white;
       display: flex;
       align-items: center;
@@ -18,7 +19,7 @@
     .container {
       position: relative;
       width: 380px;
-      background: #c4c4c4;
+      background: #dabfdb;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       overflow: hidden;
       border-radius: 4px;
@@ -64,7 +65,7 @@
     }
 
     .login-btn {
-      background: #8b3dff;
+      background: #765c9e;
       border: none;
       padding: 10px;
       font-weight: 600;
@@ -83,7 +84,7 @@
       bottom: 0;
       width: 100%;
       text-align: center;
-      background-color: #8b3dff;
+      background-color:#765c9e;;
       padding: 10px 0;
     }
 
@@ -99,7 +100,7 @@
 <body>
   <div class="container">
     <div class="header">
-      <span>LOGIN</span>
+      <span>ADMIN LOGIN</span>
     </div>
 
     <form id="loginForm">
@@ -114,6 +115,8 @@
       </div>
 
       <input type="submit" value="LOGIN" class="login-btn">
+      <p style="color: gray;font-size: large;">Email: admin@gmail.com<br>
+      Password: admin</p>
       
     </form>
   </div>

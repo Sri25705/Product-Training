@@ -8,6 +8,7 @@
 <style>
 
   body {
+    font-family: 'Times New Roman', Times, serif;
     background-color: #f8f7fc;
     color: #333;
   }
@@ -15,7 +16,7 @@
   .page{
     display: grid;
     grid-template-rows: 10% 90%;
-    width: 100%;
+    
   }
 
 .top {
@@ -178,7 +179,8 @@
 
   @media(max-width:780px){
     .top{
-      width:100%;
+      flex-direction: column;
+      align-items: flex-start;
     }
   
     .content{
@@ -187,7 +189,6 @@
     }
     
     .content>div{
-     
       grid-template-rows: 6fr;
       width:85%;
     }
@@ -245,7 +246,8 @@
 
   <footer>
     <a href="admin.html" id="backBtn">Back</a>
-    <a href="quiz.html">Home</a>
+    <a href="admin-login.html" id="logoutBtn">Logout</a>
+
   </footer>
 
 <script>
@@ -511,8 +513,6 @@ window.editScore = function(course, idx){
       return;
     }
   }
-
-  alert('Could not locate the original entry to edit reliably (best-effort). Manual edit updates map storage when possible.');
 };
 
 window.deleteScore = function(course, idx){
