@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\Interface\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{464AD4A8-A185-4084-BB11-826212631AA7}|Interface\\Interface.csproj|c:\\users\\user\\desktop\\product-training\\day13\\interface\\interface\\log.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{464AD4A8-A185-4084-BB11-826212631AA7}|Interface\\Interface.csproj|solutionrelative:interface\\log.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{464AD4A8-A185-4084-BB11-826212631AA7}|Interface\\Interface.csproj|c:\\users\\user\\desktop\\product-training\\day13\\interface\\interface\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{464AD4A8-A185-4084-BB11-826212631AA7}|Interface\\Interface.csproj|solutionrelative:interface\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "log.txt",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\Interface\\Interface\\log.txt",
+              "RelativeDocumentMoniker": "Interface\\log.txt",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\Interface\\Interface\\log.txt",
+              "RelativeToolTip": "Interface\\log.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-10-13T12:20:24.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\Interface\\Interface\\Program.cs",
+              "RelativeDocumentMoniker": "Interface\\Program.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\Interface\\Interface\\Program.cs",
+              "RelativeToolTip": "Interface\\Program.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAuwCQAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T11:38:15.873Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

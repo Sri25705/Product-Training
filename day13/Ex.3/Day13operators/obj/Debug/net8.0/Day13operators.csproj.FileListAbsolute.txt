@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\obj\Debug\net8.0\Day13operators.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\obj\Debug\net8.0\Day13operators.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\obj\Debug\net8.0\Day13operators.AssemblyInfo.cs
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\obj\Debug\net8.0\Day13operators.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\obj\Debug\net8.0\Day13operators.sourcelink.json
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\bin\Debug\net8.0\Day13operators.exe
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\bin\Debug\net8.0\Day13operators.deps.json
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\bin\Debug\net8.0\Day13operators.runtimeconfig.json
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\bin\Debug\net8.0\Day13operators.dll
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\bin\Debug\net8.0\Day13operators.pdb
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\obj\Debug\net8.0\Day13operators.dll
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\obj\Debug\net8.0\refint\Day13operators.dll
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\obj\Debug\net8.0\Day13operators.pdb
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\obj\Debug\net8.0\Day13operators.genruntimeconfig.cache
+C:\Users\user\Desktop\Product-Training\Day13operators\Day13operators\obj\Debug\net8.0\ref\Day13operators.dll

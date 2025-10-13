@@ -1,0 +1,9 @@
+13-10-2025 17:44:03:Info:Application started
+13-10-2025 17:44:03:Warning:Detected
+13-10-2025 17:44:03:Error:Error
+13-10-2025 17:45:09:Info:Application started
+13-10-2025 17:45:09:Warning:Detected
+13-10-2025 17:45:09:Error:Error
+13-10-2025 17:48:55:Info:Application started
+13-10-2025 17:48:55:Warning:Detected
+13-10-2025 17:48:55:Error:Error
