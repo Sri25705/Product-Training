@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\bin\Debug\net8.0\Lambdaex.exe
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\bin\Debug\net8.0\Lambdaex.deps.json
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\bin\Debug\net8.0\Lambdaex.runtimeconfig.json
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\bin\Debug\net8.0\Lambdaex.dll
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\bin\Debug\net8.0\Lambdaex.pdb
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\obj\Debug\net8.0\Lambdaex.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\obj\Debug\net8.0\Lambdaex.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\obj\Debug\net8.0\Lambdaex.AssemblyInfo.cs
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\obj\Debug\net8.0\Lambdaex.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\obj\Debug\net8.0\Lambdaex.sourcelink.json
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\obj\Debug\net8.0\Lambdaex.dll
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\obj\Debug\net8.0\refint\Lambdaex.dll
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\obj\Debug\net8.0\Lambdaex.pdb
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\obj\Debug\net8.0\Lambdaex.genruntimeconfig.cache
+C:\Users\user\Desktop\Product-Training\Lambdaex\Lambdaex\obj\Debug\net8.0\ref\Lambdaex.dll

@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\Product-Training\generics\generics\bin\Debug\net8.0\generics.exe
+C:\Users\user\Desktop\Product-Training\generics\generics\bin\Debug\net8.0\generics.deps.json
+C:\Users\user\Desktop\Product-Training\generics\generics\bin\Debug\net8.0\generics.runtimeconfig.json
+C:\Users\user\Desktop\Product-Training\generics\generics\bin\Debug\net8.0\generics.dll
+C:\Users\user\Desktop\Product-Training\generics\generics\bin\Debug\net8.0\generics.pdb
+C:\Users\user\Desktop\Product-Training\generics\generics\obj\Debug\net8.0\generics.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Product-Training\generics\generics\obj\Debug\net8.0\generics.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Product-Training\generics\generics\obj\Debug\net8.0\generics.AssemblyInfo.cs
+C:\Users\user\Desktop\Product-Training\generics\generics\obj\Debug\net8.0\generics.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Product-Training\generics\generics\obj\Debug\net8.0\generics.sourcelink.json
+C:\Users\user\Desktop\Product-Training\generics\generics\obj\Debug\net8.0\generics.dll
+C:\Users\user\Desktop\Product-Training\generics\generics\obj\Debug\net8.0\refint\generics.dll
+C:\Users\user\Desktop\Product-Training\generics\generics\obj\Debug\net8.0\generics.pdb
+C:\Users\user\Desktop\Product-Training\generics\generics\obj\Debug\net8.0\generics.genruntimeconfig.cache
+C:\Users\user\Desktop\Product-Training\generics\generics\obj\Debug\net8.0\ref\generics.dll
