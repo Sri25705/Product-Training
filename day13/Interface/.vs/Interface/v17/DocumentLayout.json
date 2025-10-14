@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\Interface\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{464AD4A8-A185-4084-BB11-826212631AA7}|Interface\\Interface.csproj|c:\\users\\user\\desktop\\product-training\\day13\\interface\\interface\\log.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{464AD4A8-A185-4084-BB11-826212631AA7}|Interface\\Interface.csproj|solutionrelative:interface\\log.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{464AD4A8-A185-4084-BB11-826212631AA7}|Interface\\Interface.csproj|c:\\users\\user\\desktop\\product-training\\day13\\interface\\interface\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{464AD4A8-A185-4084-BB11-826212631AA7}|Interface\\Interface.csproj|solutionrelative:interface\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{464AD4A8-A185-4084-BB11-826212631AA7}|Interface\\Interface.csproj|c:\\users\\user\\desktop\\product-training\\day13\\interface\\interface\\interface.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{464AD4A8-A185-4084-BB11-826212631AA7}|Interface\\Interface.csproj|solutionrelative:interface\\interface.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,30 +18,29 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "log.txt",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\Interface\\Interface\\log.txt",
-              "RelativeDocumentMoniker": "Interface\\log.txt",
-              "ToolTip": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\Interface\\Interface\\log.txt",
-              "RelativeToolTip": "Interface\\log.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-10-13T12:20:24.964Z",
-              "EditorCaption": ""
+              "DocumentIndex": 1,
+              "Title": "Interface.csproj",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\Interface\\Interface\\Interface.csproj",
+              "RelativeDocumentMoniker": "Interface\\Interface.csproj",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\Interface\\Interface\\Interface.csproj",
+              "RelativeToolTip": "Interface\\Interface.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-14T04:24:50.374Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\Interface\\Interface\\Program.cs",
               "RelativeDocumentMoniker": "Interface\\Program.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\Interface\\Interface\\Program.cs",
               "RelativeToolTip": "Interface\\Program.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAuwCQAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-13T11:38:15.873Z",
               "EditorCaption": ""

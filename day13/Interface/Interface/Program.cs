@@ -30,9 +30,9 @@ public class ConsoleLogger : ILogger
     }
 }
 
-public class FileLogger:ILogger
+public class FileLogger : ILogger
 {
-    private readonly string filepath = "log.txt";
+    private readonly string filepath = Path.Combine(Environment.CurrentDirectory, "log.txt");
 
     public void LogInfo(string message)
     {
@@ -49,28 +49,55 @@ public class FileLogger:ILogger
     }
     private void LogToFile(string message)
     {
-        using (StreamWriter sw=new StreamWriter(filepath,append:true))
+        try
         {
-            sw.WriteLine($"{DateTime.Now}:{message}");
+            using (StreamWriter sw = new StreamWriter(filepath, append: true))
+            {
+                sw.WriteLine($"{DateTime.Now}:{message}");
+                sw.Flush();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"File logging failed:{ex.Message}");
+        }
+    }
+
+    public void DisplayLogs()
+    {
+        Console.WriteLine("Log file path");
+        if (File.Exists(filepath))
+        {
+            using (StreamReader reader = new StreamReader(filepath))
+            {
+                string line;
+                while((line=reader.ReadLine())!=null)
+                {
+                    Console.WriteLine(line);
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("log file not found");
         }
     }
 }
 
 public class AppService
 {
-    private readonly ILogger _logger;
+    private readonly ILogger logger;
     public AppService(ILogger logger)
     {
-        _logger = logger;
+        this.logger = logger;
     }
     public void Run()
     {
-        _logger.LogInfo("Application started");
-        _logger.LogWarning("Detected");
-        _logger.LogError("Error");
+        logger.LogInfo("Application started");
+        logger.LogWarning("Detected");
+        logger.LogError("Error");
     }
 }
-
 public class Program
     {
         public static void Main()
@@ -90,6 +117,11 @@ public class Program
 
         AppService app = new AppService(logger);
         app.Run();
+
+        if(logger is FileLogger fileLogger)
+        {
+            fileLogger.DisplayLogs();
+        }
 
         Console.WriteLine("completed");
     }
