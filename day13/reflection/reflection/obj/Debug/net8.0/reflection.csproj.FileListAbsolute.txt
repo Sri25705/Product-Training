@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\bin\Debug\net8.0\reflection.exe
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\bin\Debug\net8.0\reflection.deps.json
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\bin\Debug\net8.0\reflection.runtimeconfig.json
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\bin\Debug\net8.0\reflection.dll
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\bin\Debug\net8.0\reflection.pdb
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\obj\Debug\net8.0\reflection.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\obj\Debug\net8.0\reflection.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\obj\Debug\net8.0\reflection.AssemblyInfo.cs
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\obj\Debug\net8.0\reflection.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\obj\Debug\net8.0\reflection.sourcelink.json
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\obj\Debug\net8.0\reflection.dll
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\obj\Debug\net8.0\refint\reflection.dll
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\obj\Debug\net8.0\reflection.pdb
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\obj\Debug\net8.0\reflection.genruntimeconfig.cache
+C:\Users\user\Desktop\Product-Training\day13\reflection\reflection\obj\Debug\net8.0\ref\reflection.dll

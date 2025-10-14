@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\reflection\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FF18E19D-9366-4AC5-BE83-2BBC5C6E79F6}|reflection\\reflection.csproj|c:\\users\\user\\desktop\\product-training\\day13\\reflection\\reflection\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF18E19D-9366-4AC5-BE83-2BBC5C6E79F6}|reflection\\reflection.csproj|solutionrelative:reflection\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\reflection\\reflection\\Program.cs",
+              "RelativeDocumentMoniker": "reflection\\Program.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Product-Training\\day13\\reflection\\reflection\\Program.cs",
+              "RelativeToolTip": "reflection\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA5wBQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T10:19:31.588Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
