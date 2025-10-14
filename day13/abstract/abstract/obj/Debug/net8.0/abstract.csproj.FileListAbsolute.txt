@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\bin\Debug\net8.0\abstract.exe
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\bin\Debug\net8.0\abstract.deps.json
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\bin\Debug\net8.0\abstract.runtimeconfig.json
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\bin\Debug\net8.0\abstract.dll
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\bin\Debug\net8.0\abstract.pdb
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\obj\Debug\net8.0\abstract.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\obj\Debug\net8.0\abstract.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\obj\Debug\net8.0\abstract.AssemblyInfo.cs
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\obj\Debug\net8.0\abstract.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\obj\Debug\net8.0\abstract.sourcelink.json
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\obj\Debug\net8.0\abstract.dll
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\obj\Debug\net8.0\refint\abstract.dll
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\obj\Debug\net8.0\abstract.pdb
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\obj\Debug\net8.0\abstract.genruntimeconfig.cache
+C:\Users\user\Desktop\Product-Training\day13\abstract\abstract\obj\Debug\net8.0\ref\abstract.dll
