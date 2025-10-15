@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .outer{
+            display:grid;
+            grid-template-rows: auto auto;
+            background-color: rgb(198, 213, 218);
+        }
+        .one{
+            background-color: white;
+            width:fit-content;
+            padding: 20px;
+            margin:100px auto;
+            border: 2px solid blue;
+            border-radius: 6px;
+        }
+        .second{
+             background-color: white;
+            border-radius: 6px;
+            padding: 20px;
+            width: fit-content;
+            margin:100px auto;
+            border:2px solid blue;
+        }
+
+        input{
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        #add{
+            border-radius: 6px;
+            padding:10px;
+            background-color: rgb(61, 61, 243);
+            color:white;
+        }
+
+        table{
+            border:collapse;
+            padding:10px;
+             width: 100%;
+             margin-top: 15px;
+    
+            
+        }
+
+        th{
+            background-color: rgb(206, 201, 201);
+            border-color: lightgray;
+            padding: 10px;
+            border-bottom: 1px;
+        }
+
+        td{
+            border-bottom: 1px;
+            padding: 10px;
+            border-color: lightgray;
+        }
+
+        @media(max-width:780px)
+        {
+            .outer{
+                grid-template-columns: auto;
+                
+                background-color: rgb(198, 213, 218);
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="outer">
+        <div class="one">
+             <form name="myform" method="post" onsubmit="return addproduct(event)">
+            <h1><b>Product Inventory Management</b></h1>
+            <label>Product Name</label>
+            <input type="text" placeholder="Enter product name" name="Name"><br><br>
+            <label>Quantity</label>
+            <input type="number" placeholder="Enter quantity" name="Quantity"><br><br>
+            <lable>Category</lable>
+            <input type="text" placeholder="Enter Category" name="Category"><br><br>
+            <input type="submit" value="Add Product" id="add">
+            </form>
+        </div>
+    
+        <div class="second">
+            <h1><b>Product Inventory Management</b></h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Category</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tbody id="invent"></tbody>
+                </thead>
+            </table>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    class Product{
+        constructor(pname,quantity,category,actions)
+        {
+            this.pname=pname;
+            this.quantity=quantity;
+            this.category=category;
+            this.actions=actions;
+        }
+        updateQuantity(amount) {
+        this.quantity += amount;
+        if (this.quantity < 0) this.quantity = 0;
+      }
+    }
+
+    class Inventory{
+        constructor(products)
+        {
+            this.products=[];
+            this.tbody=document.getElementById("invent");
+        }
+
+    addproduct(products)
+    {
+        this.Product.push(products);
+        this.updatetable();
+    }
+
+    updateTable() {
+        this.tbody.innerHTML = "";
+        this.products.forEach(p => {
+          let row = document.createElement("tr");
+
+          let namebox = document.createElement("td");
+          namebox.textContent = p.pname;
+
+          let quantitybox = document.createElement("td");
+          pricebox.textContent = p.quantity;
+
+          let cagegorybox = document.createElement("td");
+          qtybox.textContent = p.category;
+
+          row.appendChild(namebox);
+          row.appendChild(quantitybox);
+          row.appendChild(cagegorybox);
+
+          this.tbody.appendChild(row);
+        });
+      }
+}
+
+    let inventory=new inventory()
+
+    function addProduct(event){
+     let pname = document.myform.Name.value;
+      let quantity = parseFloat(document.myform.Quantity.value);
+      let category = parseInt(document.myform.Category.value);
+
+      if (pname && !isNaN(quantity) && !isNaN(category)) {
+        let newProduct = new Product(pname, quantity, category);
+        inventory.addProduct(products);
+
+        document.myform.reset();
+      } else {
+        alert("Enter all details");
+      }
+    }
+</script>
+</html>
