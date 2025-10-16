@@ -124,6 +124,5 @@ public class Program
         }
 
         Console.WriteLine("completed");
-        Console.WriteLine("------------------------");
     }
 }
