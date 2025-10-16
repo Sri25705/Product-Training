@@ -32,7 +32,14 @@
     }
 
     input {
-      width: 60%;
+      width: fit-content;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid rgb(235, 235, 235);
+    }
+
+    select{
+      width: fit-content;
       padding: 10px;
       border-radius: 6px;
       border: 1px solid rgb(235, 235, 235);
@@ -107,10 +114,16 @@
         <input type="text" placeholder="Enter product name" name="Name" required><br><br>
 
         <label>Quantity</label>
-        <input type="number" placeholder="Enter quantity" name="Quantity" required><br><br>
+        <input type="number" placeholder="Enter quantity" name="Quantity" required>
+        <label><input type="radio" name="home" value="HomeGoods">Home Goods</label><br><br>
 
         <label>Category</label>
-        <input type="text" placeholder="Enter category" name="Category" required>
+        <select id="categ" name="category">
+          <option value="">select</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Gadgets">Gadgets</option>
+          <option value="Snacks">Snacks</option>
+        </select><br><br>
 
         <input type="submit" value="Add Product" id="add">
       </form>
@@ -133,98 +146,95 @@
   </div>
 
   <script>
-    class Product {
-      constructor(pname, quantity, category) {
-        this.pname = pname;
-        this.quantity = quantity;
-        this.category = category;
-      }
+     class Product {
+    constructor(pname, quantity, category) {
+      this.pname = pname;
+      this.quantity = quantity;
+      this.category = category;
+    }
+  }
+
+  class Inventory {
+    constructor() {
+      this.products = [];
+      this.tbody = document.getElementById("invent");
     }
 
-    class Inventory {
-      constructor() {
-        this.products = [];
-        this.tbody = document.getElementById("invent");
-      }
-
-      addProduct(product) {
-        this.products.push(product);
-        this.updateTable();
-      }
-
-      deleteProduct(index) {
-        this.products.splice(index, 1);
-        this.updateTable();
-      }
-
-      editProduct(index) {
-        let p = this.products[index];
-        document.myform.Name.value = p.pname;
-        document.myform.Quantity.value = p.quantity;
-        document.myform.Category.value = p.category;
-
-        this.products.splice(index, 1);
-        this.updateTable();
-      }
-
-      updateTable() {
-        this.tbody.innerHTML = "";
-        this.products.forEach((p, index) => {
-          let row = document.createElement("tr");
-
-          let namebox = document.createElement("td");
-          namebox.textContent = p.pname;
-
-          let quantitybox = document.createElement("td");
-          quantitybox.textContent = p.quantity;
-
-          let categorybox = document.createElement("td");
-          categorybox.textContent = p.category;
-
-          let actionbox = document.createElement("td");
-          let editBtn = document.createElement("button");
-          editBtn.textContent = "Edit";
-          editBtn.classList.add("action-btn");
-          editBtn.onclick = () => this.editProduct(index);
-
-          let deleteBtn = document.createElement("button");
-          deleteBtn.textContent = "Delete";
-          deleteBtn.classList.add("action-btn", "delete-btn");
-          deleteBtn.onclick = () => this.deleteProduct(index);
-
-          actionbox.appendChild(editBtn);
-          actionbox.appendChild(deleteBtn);
-
-          row.appendChild(namebox);
-          row.appendChild(quantitybox);
-          row.appendChild(categorybox);
-          row.appendChild(actionbox);
-
-          this.tbody.appendChild(row);
-        });
-      }
+    addProduct(product) {
+      this.products.push(product);
+      this.updateTable();
     }
 
-    const inventory = new Inventory();
-
-    function addProduct(event) {
-      event.preventDefault();
-
-      let pname = document.myform.Name.value;
-      let quantity = document.myform.Quantity.value;
-      let category = document.myform.Category.value;
-
-      if (pname && quantity && category) {
-        let newProduct = new Product(pname, quantity, category);
-        inventory.addProduct(newProduct);
-        document.myform.reset();
-      } else {
-        alert("Enter all the details.");
-      }
+    deleteProduct(index) {
+      this.products.splice(index, 1);
+      this.updateTable();
     }
+
+    editProduct(index) {
+      let p = this.products[index];
+      document.myform.Name.value = p.pname;
+      document.myform.Quantity.value = p.quantity;
+      document.myform.category.value = p.category;   
+      this.products.splice(index, 1);
+      this.updateTable();
+    }
+
+    updateTable() {
+      this.tbody.innerHTML = "";
+      this.products.forEach((p, index) => {
+        let row = document.createElement("tr");
+
+        let namebox = document.createElement("td");
+        namebox.textContent = p.pname;
+
+        let quantitybox = document.createElement("td");
+        quantitybox.textContent = p.quantity;
+
+        let categorybox = document.createElement("td");
+        categorybox.textContent = p.category;
+
+        let actionbox = document.createElement("td");
+        let editBtn = document.createElement("button");
+        editBtn.textContent = "Edit";
+        editBtn.classList.add("action-btn");
+        editBtn.onclick = () => this.editProduct(index);
+
+        let deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.classList.add("action-btn", "delete-btn");
+        deleteBtn.onclick = () => this.deleteProduct(index);
+
+        actionbox.appendChild(editBtn);
+        actionbox.appendChild(deleteBtn);
+
+        row.appendChild(namebox);
+        row.appendChild(quantitybox);
+        row.appendChild(categorybox);
+        row.appendChild(actionbox);
+
+        this.tbody.appendChild(row);
+      });
+    }
+  }
+
+  const inventory = new Inventory();
+
+  function addProduct(event) {
+    event.preventDefault();
+
+    let pname = document.myform.Name.value;
+    let quantity = document.myform.Quantity.value;
+    let category = document.myform.category.value;  
+
+    if (pname && quantity && category) {
+      let newProduct = new Product(pname, quantity, category);
+      inventory.addProduct(newProduct);
+      document.myform.reset();
+    } else {
+      alert("Enter all the details.");
+    }
+  }
   </script>
 </body>
 </html>
-
-
 
