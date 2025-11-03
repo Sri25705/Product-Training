@@ -1,0 +1,121 @@
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center register-bg" *ngIf="registerForm">
+  <div class="row w-100 h-100">
+
+    <div class="col-md-6 d-none d-md-flex register-left text-white align-items-center justify-content-center">
+      <div class="text-center">
+        <h1 class="display-5 fw-bold">Create Your Account</h1>
+        <p class="lead">Join Bringova and manage your orders smartly</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+      <div class="card reg-card shadow p-4 rounded-4">
+
+        <h3 class="text-center mb-3 fw-semibold">Register</h3>
+        <p class="text-center text-muted mb-4">Fill in your details</p>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" formControlName="name" class="form-control"
+              placeholder="Enter your name" [ngClass]="{'is-invalid': submitted && f['name']?.errors}" />
+
+            <div *ngIf="submitted && f['name']?.errors" class="invalid-feedback">
+              <div *ngIf="f['name']?.errors?.['required']">Name is required</div>
+              <div *ngIf="f['name']?.errors?.['minlength']">Minimum 3 characters</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input type="text" formControlName="phoneNo" class="form-control"
+              placeholder="Enter phone number" [ngClass]="{'is-invalid': submitted && f['phoneNo']?.errors}" />
+
+            <div *ngIf="submitted && f['phoneNo']?.errors" class="invalid-feedback">
+              <div *ngIf="f['phoneNo']?.errors?.['required']">Phone number is required</div>
+              <div *ngIf="f['phoneNo']?.errors?.['pattern']">Enter valid 10 digits</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Address Line</label>
+            <input type="text" formControlName="addressLine" class="form-control"
+              placeholder="Enter address line" [ngClass]="{'is-invalid': submitted && f['addressLine']?.errors}" />
+
+            <div *ngIf="submitted && f['addressLine']?.errors" class="invalid-feedback">
+              <div>Address is required</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Building Name</label>
+            <input type="text" formControlName="buildingName" class="form-control"
+              placeholder="Enter building name" [ngClass]="{'is-invalid': submitted && f['buildingName']?.errors}" />
+
+            <div *ngIf="submitted && f['buildingName']?.errors" class="invalid-feedback">
+              <div>Building name is required</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Street</label>
+            <input type="text" formControlName="street" class="form-control"
+              placeholder="Enter street" [ngClass]="{'is-invalid': submitted && f['street']?.errors}" />
+
+            <div *ngIf="submitted && f['street']?.errors" class="invalid-feedback">
+              <div>Street is required</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Postal Code</label>
+            <input type="text" formControlName="postalCode" class="form-control"
+              placeholder="Enter postal code" [ngClass]="{'is-invalid': submitted && f['postalCode']?.errors}" />
+
+            <div *ngIf="submitted && f['postalCode']?.errors" class="invalid-feedback">
+              <div *ngIf="f['postalCode']?.errors?.['required']">Postal code is required</div>
+              <div *ngIf="f['postalCode']?.errors?.['pattern']">Enter valid 6 digits</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" formControlName="password" class="form-control"
+              placeholder="Enter password" [ngClass]="{'is-invalid': submitted && f['password']?.errors}" />
+
+            <div *ngIf="submitted && f['password']?.errors" class="invalid-feedback">
+              <div *ngIf="f['password']?.errors?.['required']">Password is required</div>
+              <div *ngIf="f['password']?.errors?.['minlength']">Minimum 6 characters</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Confirm Password</label>
+            <input type="password" formControlName="confirmPassword" class="form-control"
+              placeholder="Re-enter password" [ngClass]="{'is-invalid': submitted && f['confirmPassword']?.errors}" />
+
+            <div *ngIf="submitted && f['confirmPassword']?.errors" class="invalid-feedback">
+              <div *ngIf="f['confirmPassword']?.errors?.['required']">Confirm Password is required</div>
+            </div>
+
+            <div *ngIf="submitted && registerForm.value.password !== registerForm.value.confirmPassword"
+              class="text-danger small">
+              Passwords do not match
+            </div>
+          </div>
+
+          <div *ngIf="errorMessage" class="alert alert-danger py-2 text-center">{{ errorMessage }}</div>
+          <div *ngIf="successMessage" class="alert alert-success py-2 text-center">{{ successMessage }}</div>
+
+          <button type="submit" class="btn reg-btn w-100 mt-2 rounded-3">Register</button>
+        </form>
+
+        <p class="text-center mt-3 text-muted">
+          Already have an account?
+          <a (click)="goToLogin()" class="text-pink fw-semibold" style="cursor:pointer">Login here</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

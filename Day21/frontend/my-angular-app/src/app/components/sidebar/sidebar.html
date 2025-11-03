@@ -1,0 +1,30 @@
+<div class="col-md-3 bg-white rounded-start-4 p-4 d-flex flex-column justify-content-between w-100">
+
+  <ul class="nav flex-column">
+
+     <li class="nav-item mb-2">
+      <a class="nav-link text-dark" [routerLink]="['/home', userId, 'liveorders']">
+        <i class="fa-solid fa-cart-shopping"></i> Live orders
+      </a>
+    </li>
+
+    <li class="nav-item mb-2">
+      <a class="nav-link text-dark" [routerLink]="['/home', userId, 'orderhistory']">
+       <i class="fa-solid fa-file-lines"></i>  Order History
+      </a>
+    </li>
+
+    <li class="nav-item mb-2">
+      <a class="nav-link text-dark" [routerLink]="['/home', userId, 'products']">
+        <i class="fa-solid fa-box-archive"></i> Products
+      </a>
+    </li>
+
+    <li class="nav-item mb-2">
+      <a class="nav-link text-dark" [routerLink]="['/home', userId, 'offers']">
+        <i class="fa-solid fa-award"></i> Offers
+      </a>
+    </li>
+  </ul>
+
+</div>

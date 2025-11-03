@@ -1,0 +1,104 @@
+.container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.table {
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.badge {
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 10px;
+}
+
+
+table td {
+  vertical-align: middle;
+}
+
+.table-bordered {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-bordered td {
+  background: #fff;
+}
+.modal {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  border-radius: 10px;
+}
+
+.modal-backdrop {
+  z-index: 10;
+}
+
+.modal.show {
+  display: block;
+}
+
+@media (max-width: 768px) {
+
+  .table-responsive{
+    width: 100%;
+  }
+  .table-light{
+     width: 100%;
+  }
+  .col-md-4 {
+    width: 100%;
+  }
+
+  .col-md-4 table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .col-md-4 table tbody,.col-md-4 table thead {
+    width: 100%;        
+    display: table;
+  }
+
+  .col-md-4 td {
+    white-space: nowrap;
+  }
+  
+  .title-wrap {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 10px;
+  }
+
+  .title-wrap button {
+    width: 100% !important;
+  }
+}

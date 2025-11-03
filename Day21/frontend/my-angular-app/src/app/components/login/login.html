@@ -1,0 +1,61 @@
+<div class="container-fluid vh-100 d-flex align-items-center justify-content-center bg-pink" *ngIf="loginForm">
+  <div class="row w-100 h-100">
+  
+    <div class="col-md-6 d-none d-md-flex pink-left text-dark align-items-center justify-content-center">
+      <div class="text-center">
+        <h1 class="display-5 fw-bold">Welcome to Bringova</h1>
+        <p class="lead">Smart order management system</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+      <div class="card shadow p-4 rounded-4 login-box">
+
+        <h3 class="text-center mb-3 fw-semibold text-pink-dark">Login</h3>
+        <p class="text-center text-muted mb-4">Sign in to continue</p>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input
+              type="text"
+              formControlName="name"
+              class="form-control"
+              placeholder="Enter your name"
+              [ngClass]="{'is-invalid': submitted && f['name']?.errors}"
+            />
+            <div *ngIf="submitted && f['name']?.errors" class="invalid-feedback">
+              <div *ngIf="f['name']?.errors?.['required']">Name is required</div>
+              <div *ngIf="f['name']?.errors?.['minlength']">Minimum 3 characters</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              placeholder="Enter your password"
+              [ngClass]="{'is-invalid': submitted && f['password']?.errors}"
+            />
+            <div *ngIf="submitted && f['password']?.errors" class="invalid-feedback">
+              <div *ngIf="f['password']?.errors?.['required']">Password is required</div>
+              <div *ngIf="f['password']?.errors?.['minlength']">Minimum 6 characters</div>
+            </div>
+          </div>
+          <div *ngIf="errorMessage" class="alert alert-danger py-2 text-center">
+            {{ errorMessage }}
+          </div>
+
+          <button type="submit" class="btn btn-pink w-100 mt-2 rounded-3">Login</button>
+        </form>
+
+        <p class="text-center mt-3 text-muted">
+          Don't have an account?
+          <a (click)="goToRegister()" class="text-pink-dark fw-semibold" style="cursor:pointer">Register here</a>
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>

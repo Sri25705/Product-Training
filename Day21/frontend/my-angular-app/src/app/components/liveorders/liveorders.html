@@ -1,0 +1,143 @@
+
+  <div class="container">
+
+    <div class="row g-4 align-items-start w-100">
+    
+      <div class="col-md-8">
+
+        <div class="d-flex justify-content-between align-items-center mb-3 title-wrap">
+          <h5 class="fw-bold text-danger m-0">
+            Order ID #{{ order?.orderId }}
+          </h5>
+          <button class="btn btn-dark btn-sm">Message Customer</button>
+        </div>
+
+        <div class="table-responsive mb-4">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let i of items">
+                <td>{{ i.productName }}</td>
+                <td>{{ i.qty }}</td>
+                <td>₹ {{ i.price }}</td>
+                <td>₹ {{ i.totalPrice }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h6 class="fw-bold text-dark mb-3">Customer & Order Details</h6>
+
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered align-middle mb-0">
+            <tbody>
+              <tr>
+                <td class="fw-bold">Customer Name</td>
+                <td>{{ customer?.name }}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Phone Number</td>
+                <td>{{ customer?.phoneno }}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Bag Option</td>
+                <td>{{ order?.bagOption }}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Type</td>
+                <td>{{ order?.type }}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Note</td>
+                <td>{{ order?.note }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <div class="col-md-4">
+
+        <h6 class="fw-bold text-dark mb-3">Order Summary</h6>
+        <table class="table table-sm mb-4">
+          <tbody>
+            <tr>
+              <td>Date</td>
+              <td>{{ order?.orderCreated | date:'medium' }}</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>
+                <span class="badge bg-success">{{ order?.status }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      <h6 class="fw-bold text-dark mb-3">Delivery Address
+
+        <button class="btn btn-primary btn-sm mb-2" (click)="openEditModal()">Edit</button>
+      </h6>
+
+<table class="table table-sm">
+  <tbody>
+    <tr><td>Address Line</td> <td>{{ customer?.addressLine }}</td></tr>
+    <tr><td>Building</td> <td>{{ customer?.buildingName }}</td></tr>
+    <tr><td>Street</td> <td>{{ customer?.street }}</td></tr>
+    <tr><td>Postal</td> <td>{{ customer?.postalCode }}</td></tr>
+  </tbody>
+</table>
+
+<div class="modal" tabindex="-1" [ngClass]="{'show d-block': showModal}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Edit Address</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="mb-2">
+          <label>Address Line</label>
+          <input class="form-control" [(ngModel)]="editAddress.addressLine">
+        </div>
+
+        <div class="mb-2">
+          <label>Building Name</label>
+          <input class="form-control" [(ngModel)]="editAddress.buildingName">
+        </div>
+
+        <div class="mb-2">
+          <label>Street</label>
+          <input class="form-control" [(ngModel)]="editAddress.street">
+        </div>
+
+        <div class="mb-2">
+          <label>Postal Code</label>
+          <input class="form-control" [(ngModel)]="editAddress.postalCode">
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+        <button class="btn btn-success" (click)="saveAddress()">Save</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop fade show" *ngIf="showModal"></div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,43 @@
+.bg-pink {
+  background: #ffe6ee !important;
+}
+
+.pink-left {
+  background: linear-gradient(135deg, #ffb3c6, #ff8fab) !important;
+  color: #fff;
+}
+
+.login-box {
+  background-color: #fff;
+  border: 2px solid #ffb3c6;
+}
+
+.btn-pink {
+  background-color: #ff8fab !important;
+  border: none;
+  color: white;
+  font-weight: 600;
+}
+
+.btn-pink:hover {
+  background-color: #ff6f91 !important;
+}
+.text-pink-dark {
+  color: #ff6f91 !important;
+}
+
+.is-invalid {
+  border-color: #e63946 !important;
+}
+
+.invalid-feedback {
+  display: block;
+  color: #e63946;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .login-box {
+    width: 90% !important;
+  }
+}

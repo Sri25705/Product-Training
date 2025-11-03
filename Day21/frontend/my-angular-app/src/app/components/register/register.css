@@ -1,0 +1,47 @@
+.register-bg {
+  background: #ffe6ee !important;
+}
+
+.register-left {
+  background: linear-gradient(135deg, #ff6f91, #ff3b73);
+}
+
+.reg-card {
+  background: #ffffff;
+  border: 2px solid #ffd2e0;
+}
+
+.register-bg {
+  background: #ffe6ee !important;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.reg-btn {
+  background-color: #ff6f91;
+  border: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.reg-btn:hover {
+  background-color: #ff3b73;
+}
+
+.text-pink {
+  color: #ff3b73 !important;
+}
+
+.is-invalid {
+  border-color: #ff3b73 !important;
+}
+
+.invalid-feedback {
+  color: #ff3b73;
+}
+
+@media (max-width: 768px) {
+  .reg-card {
+    width: 90% !important;
+  }
+}

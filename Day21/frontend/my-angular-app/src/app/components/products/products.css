@@ -1,0 +1,43 @@
+.scroll-box {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  min-width: 600px;
+}
+
+.btn-action,.btn-buy {
+  background-color: #ff9ab6 !important;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.btn-action:hover,.btn-buy:hover {
+  background-color: #ff6f91 !important;
+}
+
+.btn-action.cancel {
+  background-color: #f3b5c7 !important;
+}
+
+.btn-action.cancel:hover {
+  background-color: #e88faa !important;
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .btn-row {
+    flex-direction: row;
+    justify-content: start;
+  }
+}
