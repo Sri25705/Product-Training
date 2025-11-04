@@ -1,0 +1,48 @@
+<div class="container mt-4">
+
+  <button class="btn btn-back mb-3" (click)="goBack()">
+    ← Back
+  </button>
+
+  <h3 class="fw-bold text-pink mb-3">Admin Manage Products</h3>
+
+  <div class="card admin-card p-4 shadow mb-4">
+
+    <h5 class="mb-3 fw-bold text-secondary">Add Product</h5>
+
+    <label class="fw-semibold">Product Name</label>
+    <input class="form-control mb-3"
+           [(ngModel)]="newProduct.productName"
+           placeholder="Enter product name" />
+
+    <label class="fw-semibold">Price (₹)</label>
+    <input type="number"
+           class="form-control mb-3"
+           [(ngModel)]="newProduct.price"
+           placeholder="Enter price" />
+
+    <button class="btn btn-pink w-100" (click)="addProduct()">
+      Add Product
+    </button>
+
+  </div>
+
+  <table class="table custom-table text-center">
+    <thead>
+      <tr class="text-center">
+        <th>ID</th>
+        <th>Name</th>
+        <th>₹ Price</th>
+      </tr>
+    </thead>
+
+    <tbody class="text-center">
+      <tr *ngFor="let p of products">
+        <td>{{ p.productId }}</td>
+        <td>{{ p.productName }}</td>
+        <td>₹ {{ p.price }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

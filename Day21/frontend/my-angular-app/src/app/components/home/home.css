@@ -15,11 +15,11 @@ body {
    }
 
 .card {
-  border: none !important;
+  border: none;
 }
 
 .sidebar {
-  border: none !important;
+  border: none;
 }
 
 .search-bar{
@@ -27,16 +27,14 @@ body {
   overflow: hidden;
 }
 .content-area {
-  border: none !important;
+  border: none;
 }
-
-
 
 @media (max-width: 768px) {
 
   .header-section {
     flex-direction: column;
-    align-items: flex-start !important;
+    align-items: flex-start;
     gap: 10px;
   }
 
@@ -48,7 +46,7 @@ body {
   }
 
   .search-bar {
-    width: 100% !important;
+    width: 100%;
     margin-top: 8px;
   }
 

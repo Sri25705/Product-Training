@@ -3,75 +3,68 @@
   "WorkspaceRootPath": "C:\\Product-Training\\Day21\\BackendAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\models\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\models\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\models\\orderupdatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\models\\orderupdatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\models\\orderdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\models\\orderdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\data\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\data\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\data\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\data\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\data\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\data\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\data\\orderitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\data\\orderitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\repository\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\repository\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\controllers\\orderitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\controllers\\orderitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\Downloads\\Day21-Final\\Day21-Final\\BackendAPI\\BackendAPI\\Controllers\\OrderController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\repository\\orderitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\repository\\orderitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|c:\\product-training\\day21\\backendapi\\backendapi\\models\\orderdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E1A5345-7C96-47FC-BBA5-12D1970528A9}|BackendAPI\\BackendAPI.csproj|solutionrelative:backendapi\\models\\orderdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -81,50 +74,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "BackendAPI\\appsettings.json",
-              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\appsettings.json",
-              "RelativeToolTip": "BackendAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-03T04:20:22.514Z",
+              "DocumentIndex": 6,
+              "Title": "OrderItemRepository.cs",
+              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Repository\\OrderItemRepository.cs",
+              "RelativeDocumentMoniker": "BackendAPI\\Repository\\OrderItemRepository.cs",
+              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Repository\\OrderItemRepository.cs",
+              "RelativeToolTip": "BackendAPI\\Repository\\OrderItemRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T09:27:23.617Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\User.cs",
+              "RelativeDocumentMoniker": "BackendAPI\\Models\\User.cs",
+              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\User.cs",
+              "RelativeToolTip": "BackendAPI\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T11:34:44.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Program.cs",
               "RelativeDocumentMoniker": "BackendAPI\\Program.cs",
               "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Program.cs",
               "RelativeToolTip": "BackendAPI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-03T04:20:11.246Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\Product.cs",
-              "RelativeDocumentMoniker": "BackendAPI\\Models\\Product.cs",
-              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\Product.cs",
-              "RelativeToolTip": "BackendAPI\\Models\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "BackendAPI\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "BackendAPI\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T04:20:04.577Z",
+              "WhenOpened": "2025-11-04T09:27:26.56Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
+              "Title": "OrderRepository.cs",
+              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Repository\\OrderRepository.cs",
+              "RelativeDocumentMoniker": "BackendAPI\\Repository\\OrderRepository.cs",
+              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Repository\\OrderRepository.cs",
+              "RelativeToolTip": "BackendAPI\\Repository\\OrderRepository.cs",
+              "ViewState": "AgIAAMQAAAAAAAAAAADwv9oAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T06:15:43.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "OrderItem.cs",
               "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\OrderItem.cs",
               "RelativeDocumentMoniker": "BackendAPI\\Models\\OrderItem.cs",
@@ -137,118 +156,93 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "OrderDetailsDto.cs",
-              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\OrderDetailsDto.cs",
-              "RelativeDocumentMoniker": "BackendAPI\\Models\\OrderDetailsDto.cs",
-              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\OrderDetailsDto.cs",
-              "RelativeToolTip": "BackendAPI\\Models\\OrderDetailsDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T04:19:51.695Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 2,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "BackendAPI\\Controllers\\ProductController.cs",
               "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Controllers\\ProductController.cs",
               "RelativeToolTip": "BackendAPI\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T04:18:24.809Z",
+              "WhenOpened": "2025-11-04T09:44:07.807Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\Day21-Final\\Day21-Final\\BackendAPI\\BackendAPI\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\Users\\admin\\Downloads\\Day21-Final\\Day21-Final\\BackendAPI\\BackendAPI\\Controllers\\OrderController.cs",
-              "ToolTip": "C:\\Users\\admin\\Downloads\\Day21-Final\\Day21-Final\\BackendAPI\\BackendAPI\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "..\\..\\..\\Users\\admin\\Downloads\\Day21-Final\\Day21-Final\\BackendAPI\\BackendAPI\\Controllers\\OrderController.cs",
-              "ViewState": "AgIAAGIAAAAAAAAAAAAUwHIAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T03:49:02.337Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\User.cs",
-              "RelativeDocumentMoniker": "BackendAPI\\Models\\User.cs",
-              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\User.cs",
-              "RelativeToolTip": "BackendAPI\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T11:34:44.369Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 1,
               "Title": "OrderItemController.cs",
               "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Controllers\\OrderItemController.cs",
               "RelativeDocumentMoniker": "BackendAPI\\Controllers\\OrderItemController.cs",
               "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Controllers\\OrderItemController.cs",
               "RelativeToolTip": "BackendAPI\\Controllers\\OrderItemController.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-01T11:24:28.452Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "OrderUpdateModel.cs",
-              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\OrderUpdateModel.cs",
-              "RelativeDocumentMoniker": "BackendAPI\\Models\\OrderUpdateModel.cs",
-              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\OrderUpdateModel.cs",
-              "RelativeToolTip": "BackendAPI\\Models\\OrderUpdateModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T10:36:03.082Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "BackendAPI\\Controllers\\OrderController.cs",
-              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "BackendAPI\\Controllers\\OrderController.cs",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAUwG8AAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T08:01:46.741Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "BackendAPI\\Models\\Order.cs",
-              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\Order.cs",
-              "RelativeToolTip": "BackendAPI\\Models\\Order.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Repository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "BackendAPI\\Repository\\UserRepository.cs",
+              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Repository\\UserRepository.cs",
+              "RelativeToolTip": "BackendAPI\\Repository\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T05:55:38.415Z",
+              "WhenOpened": "2025-11-04T09:43:59.991Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\Login.cs",
-              "RelativeDocumentMoniker": "BackendAPI\\Models\\Login.cs",
-              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\Login.cs",
-              "RelativeToolTip": "BackendAPI\\Models\\Login.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "BackendAPI\\appsettings.json",
+              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\appsettings.json",
+              "RelativeToolTip": "BackendAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-04T04:41:32.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "BackendAPI\\Models\\Product.cs",
+              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\Product.cs",
+              "RelativeToolTip": "BackendAPI\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T12:03:47.371Z",
+              "WhenOpened": "2025-11-03T04:20:04.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Repository\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "BackendAPI\\Repository\\ProductRepository.cs",
+              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Repository\\ProductRepository.cs",
+              "RelativeToolTip": "BackendAPI\\Repository\\ProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T05:59:46.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "BackendAPI\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "BackendAPI\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T09:44:18.285Z",
               "EditorCaption": ""
             },
             {
@@ -259,61 +253,35 @@
               "RelativeDocumentMoniker": "BackendAPI\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Controllers\\UserController.cs",
               "RelativeToolTip": "BackendAPI\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T10:55:32.994Z",
+              "WhenOpened": "2025-11-04T09:44:15.978Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "OrderItemRepository.cs",
-              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Data\\OrderItemRepository.cs",
-              "RelativeDocumentMoniker": "BackendAPI\\Data\\OrderItemRepository.cs",
-              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Data\\OrderItemRepository.cs",
-              "RelativeToolTip": "BackendAPI\\Data\\OrderItemRepository.cs",
-              "ViewState": "AgIAAIMAAAAAAAAAAAAswIkAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "BackendAPI\\Models\\Order.cs",
+              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\Order.cs",
+              "RelativeToolTip": "BackendAPI\\Models\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T10:22:24.888Z",
+              "WhenOpened": "2025-11-04T09:44:05.69Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "OrderRepository.cs",
-              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Data\\OrderRepository.cs",
-              "RelativeDocumentMoniker": "BackendAPI\\Data\\OrderRepository.cs",
-              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Data\\OrderRepository.cs",
-              "RelativeToolTip": "BackendAPI\\Data\\OrderRepository.cs",
-              "ViewState": "AgIAAEYBAAAAAAAAAAAAAPAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "OrderDetailsDto.cs",
+              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\OrderDetailsDto.cs",
+              "RelativeDocumentMoniker": "BackendAPI\\Models\\OrderDetailsDto.cs",
+              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Models\\OrderDetailsDto.cs",
+              "RelativeToolTip": "BackendAPI\\Models\\OrderDetailsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T06:31:31.375Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "userRepository.cs",
-              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Data\\userRepository.cs",
-              "RelativeDocumentMoniker": "BackendAPI\\Data\\userRepository.cs",
-              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Data\\userRepository.cs",
-              "RelativeToolTip": "BackendAPI\\Data\\userRepository.cs",
-              "ViewState": "AgIAALIAAAAAAAAAAADwvx8AAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-01T05:58:01.408Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ProductRepository.cs",
-              "DocumentMoniker": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Data\\ProductRepository.cs",
-              "RelativeDocumentMoniker": "BackendAPI\\Data\\ProductRepository.cs",
-              "ToolTip": "C:\\Product-Training\\Day21\\BackendAPI\\BackendAPI\\Data\\ProductRepository.cs",
-              "RelativeToolTip": "BackendAPI\\Data\\ProductRepository.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAswGUAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T05:59:46.935Z",
+              "WhenOpened": "2025-11-03T04:19:51.695Z",
               "EditorCaption": ""
             }
           ]

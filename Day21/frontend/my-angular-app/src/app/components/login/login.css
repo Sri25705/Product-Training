@@ -1,9 +1,9 @@
 .bg-pink {
-  background: #ffe6ee !important;
+  background: #ffe6ee;
 }
 
 .pink-left {
-  background: linear-gradient(135deg, #ffb3c6, #ff8fab) !important;
+  background: linear-gradient(135deg, #ffb3c6, #ff8fab);
   color: #fff;
 }
 
@@ -13,21 +13,21 @@
 }
 
 .btn-pink {
-  background-color: #ff8fab !important;
+  background-color: #ff8fab;
   border: none;
   color: white;
   font-weight: 600;
 }
 
 .btn-pink:hover {
-  background-color: #ff6f91 !important;
+  background-color: #ff6f91;
 }
 .text-pink-dark {
-  color: #ff6f91 !important;
+  color: #ff6f91;
 }
 
 .is-invalid {
-  border-color: #e63946 !important;
+  border-color: #e63946;
 }
 
 .invalid-feedback {
@@ -38,6 +38,6 @@
 
 @media (max-width: 768px) {
   .login-box {
-    width: 90% !important;
+    width: 90%;
   }
 }

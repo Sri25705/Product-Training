@@ -9,7 +9,7 @@ table {
 }
 
 .btn-action,.btn-buy {
-  background-color: #ff9ab6 !important;
+  background-color: #ff9ab6;
   border: none;
   padding: 6px 16px;
   border-radius: 20px;
@@ -19,15 +19,15 @@ table {
 }
 
 .btn-action:hover,.btn-buy:hover {
-  background-color: #ff6f91 !important;
+  background-color: #ff6f91;
 }
 
 .btn-action.cancel {
-  background-color: #f3b5c7 !important;
+  background-color: #f3b5c7;
 }
 
 .btn-action.cancel:hover {
-  background-color: #e88faa !important;
+  background-color: #e88faa;
 }
 
 .btn-row {

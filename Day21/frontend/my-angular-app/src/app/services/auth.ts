@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  private api = "https://localhost:7206/api/User";
+  private api = "http://localhost:8009/api/User";
 
   constructor(private http: HttpClient) {}
 
@@ -15,14 +15,13 @@ export class AuthService {
   }
 
   postRegister(data: any) {
-  return this.http.post<any>("https://localhost:7206/api/User", data);
+  return this.http.post<any>("http://localhost:8009/api/User", data);
 }
 
   getUserById(id: number) {
     return this.http.get<any>(`${this.api}/${id}`);
   }
   updateUser(data: any) {
-  return this.http.put<any>("https://localhost:7206/api/User", data);
+  return this.http.put<any>("http://localhost:8009/api/User", data);
 }
-
 }

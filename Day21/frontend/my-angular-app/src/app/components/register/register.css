@@ -1,5 +1,5 @@
 .register-bg {
-  background: #ffe6ee !important;
+  background: #ffe6ee;
 }
 
 .register-left {
@@ -12,7 +12,7 @@
 }
 
 .register-bg {
-  background: #ffe6ee !important;
+  background: #ffe6ee;
   width: 100%;
   min-height: 100vh;
 }
@@ -29,11 +29,11 @@
 }
 
 .text-pink {
-  color: #ff3b73 !important;
+  color: #ff3b73;
 }
 
 .is-invalid {
-  border-color: #ff3b73 !important;
+  border-color: #ff3b73;
 }
 
 .invalid-feedback {
@@ -42,6 +42,6 @@
 
 @media (max-width: 768px) {
   .reg-card {
-    width: 90% !important;
+    width: 90%;
   }
 }

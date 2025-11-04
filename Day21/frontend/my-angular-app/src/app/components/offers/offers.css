@@ -59,7 +59,7 @@
     min-width: unset;
     min-height: 140px;
     padding: 20px;
-    transform: scale(1) !important; 
+    transform: scale(1); 
   }
 
   .offer-card:hover {

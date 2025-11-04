@@ -13,7 +13,7 @@
 
 .nav-link:hover {
   background-color: #f8f9fa;
-  color: #e7283b !important;
+  color: #e7283b;
   border-left: 5px solid rgb(228, 18, 60);
 }
 

@@ -44,7 +44,7 @@ export class Login {
     this.auth.postLogin({ name, password }).subscribe(
       (res: any) => {
         if (res && res.id) {
-          this.router.navigate(['/home', res.id, 'liveorders']);
+          this.router.navigate(['/home', res.id, 'products']);
         } else {
           this.errorMessage = 'Invalid username or password';
         }
@@ -58,4 +58,8 @@ export class Login {
   goToRegister() {
     this.router.navigate(['/register']);
   }
+
+  goToAdmin() {
+  this.router.navigate(['/admin']);
+}
 }

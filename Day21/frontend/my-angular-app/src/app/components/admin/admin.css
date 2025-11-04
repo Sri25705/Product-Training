@@ -1,0 +1,72 @@
+.text-pink {
+  color: #d63384;
+}
+
+.btn-back {
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: #d63384;
+  cursor: pointer;
+}
+
+.btn-back:hover {
+  color: #b32268;
+}
+
+.admin-card {
+  background: #ffe6f3;
+  border-radius: 12px;
+  border: 1px solid #f7c9df;
+}
+
+.btn-pink {
+  background-color: #d63384;
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.btn-pink:hover {
+  background-color: #b32268;
+}
+
+.custom-table {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ffd1e9;
+}
+
+.custom-table thead {
+  background: #f8c1d9;
+  color: #700d3a;
+  font-weight: 600;
+}
+
+.custom-table th, .custom-table td {
+  padding: 14px;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+
+  .custom-table th,.custom-table td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .custom-table th:nth-child(1),.custom-table td:nth-child(1) {
+    width: 20%;
+  }
+
+  .custom-table th:nth-child(2),.custom-table td:nth-child(2) {
+    width: 50%;
+  }
+
+  .custom-table th:nth-child(3),.custom-table td:nth-child(3) {
+    width: 30%;
+  }
+}
+

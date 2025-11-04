@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class OrderService {
 
-  private api = "https://localhost:7206/api/Order";
+  private api = "http://localhost:8009/api/Order";
 
   constructor(private http: HttpClient) {}
 
@@ -29,7 +29,7 @@ getAllItems(userId: number) {
   return this.http.get<any[]>(`${this.api}/all-items/${userId}`);
 }
 deleteOrder(orderId: number) {
-  return this.http.delete(`https://localhost:7206/api/order/${orderId}`);
+  return this.http.delete(`http://localhost:8009/api/order/${orderId}`);
 }
 }
 
